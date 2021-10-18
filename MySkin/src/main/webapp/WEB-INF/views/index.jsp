@@ -1,13 +1,9 @@
 <%@page import="kr.smhrd.domain.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-     <c:set var='cpath' value="${pageContext.request.contextPath}"/>
-=======
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/SunPower.git
+<c:set var='cpath' value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="ko">
 
@@ -89,13 +85,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../../resources/css/tailwind.output.css" />
+    <link rel="stylesheet" href="../resources/css/tailwind.output.css" />
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="../../../resources/js/init-alpine.js"></script>
-    <link rel="stylesheet" href="../../../resources/css/style.css">
+    <script src="../resources/js/init-alpine.js"></script>
+    <link rel="stylesheet" href="../resources/css/style.css">
   </head>
   <body>
     <div
@@ -479,7 +475,7 @@
             <a href="index.jsp">
             <img
               class="object-cover"
-              src="../../../resources/img/logo_main.png"
+              src="../resources/img/logo_main.png"
 			  width = "150px"
               alt="logo"
 			  align="left"
@@ -595,7 +591,7 @@
             >
             <img
               class="object-cover"
-              src="../../../resources/img/product_img/1.jpg"
+              src="../resources/img/product_img/1.jpg"
               />
 			  <div class="p-4 md:p-6 dark:text-gray-200">
 			    <p class="text-blue-500 font-semibold text-xs mb-1 leading-none">New</p>
@@ -611,7 +607,7 @@
 				    <ul class="row">
 				    	<c:forEach items="${list}" var="product">
 				        <li class="cell">
-				            <div class="img-box"><img src="../../../resources/img/product_img/<c:out value="${product.prod_id}" />.jpg" alt=""></div>
+				            <div class="img-box"><img src="../resources/img/product_img/<c:out value="${product.prod_id}" />.jpg" alt=""></div>
 				            <div class="product-name dark:text-gray-200 word"><a href="product-view.jsp?id=<c:out value="${product.prod_id}" />"><c:out value="${product.prod_name}" /></a></div>
 				            <div class="product-price dark:text-gray-200"><c:out value="${product.getFormat_price()}" /></div>
 				        </li>
