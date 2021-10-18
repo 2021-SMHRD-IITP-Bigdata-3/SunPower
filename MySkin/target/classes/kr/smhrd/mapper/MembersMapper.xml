@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.mapper.MembersMapper">
+	
+	<insert id="register">
+		insert into members(mb_id, mb_pwd, mb_name, mb_birth, mb_joindate, admin_yn)
+		values (#{mb_id}, #{mb_pwd}, #{mb_name}, #{mb_birth}, SYSDATE, 'n')
+	</insert>
+	
+	<select id="login" resultType="kr.smhrd.domain.MembersDTO">
+		select * from members where mb_id = '${mb_id}' and mb_pwd = '${mb_pwd}'
+	</select>
+	
+</mapper>
