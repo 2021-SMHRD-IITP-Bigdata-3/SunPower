@@ -27,7 +27,7 @@ public class HomeController {
 	@Autowired
 	private ProductsService prod_service;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/")
 	public String index(Model model) {
 		
 		model.addAttribute("list", prod_service.getList());
