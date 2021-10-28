@@ -1,425 +1,509 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var='cpath' value="${pageContext.request.contextPath}" />
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="ko">
+<html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VarChar규팀 열정!</title>
-<link
-	href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-	rel="stylesheet" />
-<link rel="stylesheet" href="./assets/css/tailwind.output.css" />
-<script
-	src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-	defer></script>
-<script src="./assets/js/init-alpine.js"></script>
-<link rel="stylesheet" href="./assets/css/style.css">
-<style>
-.rotate-45 { -
-	-transform-rotate: 45deg;
-	transform: rotate(45deg);
-}
+<title>상품페이지</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../resources/styles/bootstrap4/bootstrap.min.css">
+<link href="../resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" href="../resources/plugins/themify-icons/themify-icons.css">
+<link rel="stylesheet" type="text/css" href="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="../resources/styles/single_styles.css">
+<link rel="stylesheet" type="text/css" href="../resources/styles/single_responsive.css">
 
-.group:hover .group-hover\:flex {
-	display: flex;
+<!-- 하단 고정바 스타일 -->
+<style>
+.product-actions {
+    position: fixed;
+    z-index: 630;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.2em 1.2em;
+    background: white;
+    border-top: 1px solid #FE7C7F;
 }
 </style>
+
+<script>
+<!-- 장바구니 추가 후 문구 -->
+function add_cart(){
+	if (confirm("상품을 장바구니에 담았슴니다.\n장바구니로 가시겠습니까?") == true){    //확인
+		window.location.href="cart.html";
+	}
+	else{   //취소
+
+    return;
+	}
+}
+</script>
 </head>
+
 <body>
-	<% 
-  	MemberDTO info = (MemberDTO) session.getAttribute("info");
-  	int product_id = Integer.parseInt(request.getParameter("id"));
-  	ProductDAO pro_dao = new ProductDAO();
-  	ProductDTO pro_dto = pro_dao.showOneProduct(product_id);
-  %>
-	<div class="flexd h-screen bg-gray-50 dark:bg-gray-900"
-		:class="{ 'overflow-hidden': isSideMenuOpen }">
-		<!-- 웹 버전 사이드 바 -->
-		<aside
-			class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0 where">
-			<div class="py-4 text-gray-500 dark:text-gray-400">
-				<a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200">
-				</a>
-				<ul class="mt-6">
-					<% if(info != null) { %>
-					<li class="relative px-6 py-3"><span
-						class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-						aria-hidden="true"></span> <a
-						class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-						href="index.jsp"> <svg class="w-5 h-5" aria-hidden="true"
-								fill="none" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-									d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                </svg> <span class="ml-4">프로필</span>
-					</a> <a
-						class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100">
-							<img class="object-cover w-8 h-8 rounded-full"
-							src="https://pbs.twimg.com/media/EQdD_-jUcAAJylD.jpg"
-							aria-hidden="true" /> <span class="ml-4"><%= info.getMember_name() %>
-								님</span>
-					</a> <a
-						class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-						href="#"> <svg class="w-4 h-4 mr-3" aria-hidden="true"
-								fill="none" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                          <path
-									d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg> <span>내 정보</span>
-					</a> <a
-						class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-						href="LogoutServiceCon"> <svg class="w-4 h-4 mr-3"
-								aria-hidden="true" fill="none" stroke-linecap="round"
-								stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-								stroke="currentColor">
-                          <path
-									d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-                        </svg> <span>로그아웃</span>
-					</a></li>
-					<% } %>
-				</ul>
-				<ul>
-					<li class="relative px-6 py-3"><a
-						class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-						href="buttons.html"> <svg class="w-5 h-5" aria-hidden="true"
-								fill="none" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-									d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
-                </svg> <span class="ml-4">상품보기</span>
-					</a></li>
-
-					<li class="relative px-6 py-3"><a
-						class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-						href="board-list.jsp"> <svg class="w-5 h-5" aria-hidden="true"
-								fill="none" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-									d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                </svg> <span class="ml-4">게시판</span>
-					</a></li>
-
-					<li class="relative px-6 py-3"><a
-						class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-						href="survey.jsp"> <svg class="w-5 h-5" aria-hidden="true"
-								fill="none" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-									d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
-                </svg> <span class="ml-4">설문조사</span>
-					</a></li>
-
-
-					<li class="relative px-6 py-3">
-						<% if(info == null) { %> <!-- 로그인 회원가입 버튼 -->
-						<div class="px-6 my-6">
-							<a
-								class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-								href="login.jsp"> <strong>로그인</strong> <span class="ml-2"
-								aria-hidden="true">→</span>
-							</a>
+<div class="super_container">
+	<!-- Header -->
+	<header class="header trans_300">
+		<!-- Main Navigation -->
+		<div class="main_nav_container">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-right">
+						<div class="logo_container">
+							<a href="../"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
-						<div class="px-6 my-6">
-							<a
-								class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-								href="create-account.jsp"> <strong>회원가입</strong> <span
-								class="ml-2" aria-hidden="true">+</span>
-							</a>
-						</div>
-					</li>
-					<% } %>
-					<!-- 로그인 회원가입 버튼 끝 -->
+						<nav class="navbar">
+							<ul class="navbar_menu">
+								<li><a href="index.html">home</a></li>
+							</ul>
+							<ul class="navbar_user">
+								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li class="checkout">
+									<a href="#">
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<span id="checkout_items" class="checkout_items">2</span>
+									</a>
+								</li>
+							</ul>
+							<div class="hamburger_container">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</div>
+						</nav>
+					</div>
+				</div>
 			</div>
+		</div>
+	</header>
 
-		</aside>
-		<!-- Mobile sidebar -->
-		<!-- Backdrop -->
-		<div x-show="isSideMenuOpen"
-			x-transition:enter="transition ease-in-out duration-150"
-			x-transition:enter-start="opacity-0"
-			x-transition:enter-end="opacity-100"
-			x-transition:leave="transition ease-in-out duration-150"
-			x-transition:leave-start="opacity-100"
-			x-transition:leave-end="opacity-0"
-			class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
-		<aside
-			class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
-			x-show="isSideMenuOpen"
-			x-transition:enter="transition ease-in-out duration-150"
-			x-transition:enter-start="opacity-0 transform -translate-x-20"
-			x-transition:enter-end="opacity-100"
-			x-transition:leave="transition ease-in-out duration-150"
-			x-transition:leave-start="opacity-100"
-			x-transition:leave-end="opacity-0 transform -translate-x-20"
-			@click.away="closeSideMenu" @keydown.escape="closeSideMenu">
-			<div class="py-4 text-gray-500 dark:text-gray-400">
+	<!-- Hamburger Menu -->
+	<div class="hamburger_menu">
+		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+		<div class="hamburger_menu_content text-right">
+			<ul class="menu_top_nav">
+				<li class="menu_item has-children">
+					<a href="#">
+						내 계정
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="menu_selection">
+						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>로그인</a></li>
+						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>회원가입</a></li>
+					</ul>
+				</li>
+				<li class="menu_item"><a href="../index.html">메인으로</a></li>
+				<li class="menu_item"><a href="#">shop</a></li>
+			</ul>
+		</div>
+	</div>
 
-				<ul class="mt-6">
-					<% if(info != null) { %>
-					<li class="relative px-6 py-3"><span
-						class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-						aria-hidden="true"></span> <a
-						class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100">
-							<img class="object-cover w-8 h-8 rounded-full"
-							src="https://pbs.twimg.com/media/EQdD_-jUcAAJylD.jpg"
-							aria-hidden="true" /> <span class="ml-4"><%= info.getMember_name() %>
-								님</span>
-					</a> <a
-						class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-						href="#"> <svg class="w-4 h-4 mr-3" aria-hidden="true"
-								fill="none" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                          <path
-									d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg> <span>내 정보</span>
-					</a> <a
-						class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-						href="LogoutServiceCon"> <svg class="w-4 h-4 mr-3"
-								aria-hidden="true" fill="none" stroke-linecap="round"
-								stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-								stroke="currentColor">
-                          <path
-									d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-                        </svg> <span>로그아웃</span>
-					</a></li>
-					<% } %>
-				</ul>
-				<ul>
-
-
-					<li class="relative px-6 py-3"><a
-						class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-						href="ProductServiceCon"> <svg class="w-5 h-5"
-								aria-hidden="true" fill="none" stroke-linecap="round"
-								stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
-								stroke="currentColor">
-                  <path
-									d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
-                </svg> <span class="ml-4">상품보기</span>
-					</a></li>
-
-					<li class="relative px-6 py-3"><a
-						class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-						href="board-list.jsp"> <svg class="w-5 h-5" aria-hidden="true"
-								fill="none" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-									d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                </svg> <span class="ml-4">게시판</span>
-					</a></li>
-
-
-					<li class="relative px-6 py-3"><a
-						class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-						href="survey.jsp"> <svg class="w-5 h-5" aria-hidden="true"
-								fill="none" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-									d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
-                </svg> <span class="ml-4">설문조사</span>
-					</a></li>
-
-					<% if(info == null) { %>
-					<div class="px-6 my-6">
-						<a
-							class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-							href="login.jsp"> <strong> 로 그 인 </strong> <span class="ml-2"
-							aria-hidden="true">→</span>
-						</a>
-					</div>
-					<div class="px-6 my-6">
-						<a
-							class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-							href="create-account.jsp"> <strong>회원가입</strong> <span
-							class="ml-2" aria-hidden="true">+</span>
-						</a>
-					</div>
-					<% } %>
-				
-			</div>
-		</aside>
-		<div class="flex flex-col flex-1 w-full">
-			<header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
-				<div
-					class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
-					<!-- 로고 -->
-					<button
-						class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-						onClick="history.go(-1)">뒤로</button>
-					<!-- Search input -->
-					<div class="flex justify-center flex-1 lg:mr-32">
-						<div
-							class="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
-							<span
-								class="leading-tight tracking-tight font-bold text-gray-800 text-lg md:text-3xl dark:text-gray-200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;제품&nbsp;정보</span>
-						</div>
-					</div>
-					<ul class="flex items-center flex-shrink-0 space-x-6">
-						<!-- 나이트모드 겹치지 않게 칸 맞춤 공간 -->
-						<li></li>
-						<!-- 나이트모드 버튼 -->
-						<li class="flex">
-							<button
-								class="rounded-md focus:outline-none focus:shadow-outline-purple"
-								@click="toggleTheme" aria-label="Toggle color mode">
-								<template x-if="!dark"> <svg class="w-5 h-5"
-									aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                      <path
-										d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                    </svg> </template>
-								<template x-if="dark"> <svg class="w-5 h-5"
-									aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-										d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-										clip-rule="evenodd"></path>
-                    </svg> </template>
-							</button>
-						</li>
-						<!-- Mobile hamburger -->
-						<button
-							class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
-							@click="toggleSideMenu" aria-label="Menu">
-							<svg class="w-6 h-6" aria-hidden="true" fill="currentColor"
-								viewBox="0 0 20 20">
-                <path fill-rule="evenodd"
-									d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-									clip-rule="evenodd"></path>
-              </svg>
-						</button>
+	<div class="container single_product_container" style="padding-bottom: 40px;">
+		<div class="row">
+			<div class="col">
+				<!-- Breadcrumbs -->
+				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 25px;">
+					<ul>
+						<li><a href="../">Home</a></li>
+						<li><a href="product_list"><i class="fa fa-angle-right" aria-hidden="true"></i>기초화장품</a></li>
+						<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>상품</a></li>
 					</ul>
 				</div>
-			</header>
-			<main class="h-full overflow-y-auto">
-				<div class="container px-6 mx-auto grid">
-					<!-- 본문 시작 -->
-					<!-- 한 칸 띄어주기 -->
-					<div>
-						<br>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-7">
+				<div class="single_product_pics">
+					<div class="row">
+						<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
+							<div class="single_product_thumbnails">
+								<ul>
+									<li class="active"><img src="../resources/thumb/${product.prod_id}.jpg" alt="" data-image="../resources/product_img/${product.prod_id}.jpg"></li>
+									<li><img src="../resources/thumb/${product.prod_id}_2.jpg" alt="" data-image="../resources/product_img/${product.prod_id}_2.jpg"></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-9 image_col order-lg-2 order-1">
+							<div class="single_product_image">
+								<div class="single_product_image_background" style="background-image:url(../resources/product_img/${product.prod_id}.jpg)"></div>
+							</div>
+						</div>
 					</div>
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<div class="product_details" style="margin-top: 20px;">
+					<div class="product_details_title">
+						<h2>${product.prod_name}</h2>
+						<p>${product.prod_maker}</p>
+					</div>
+					<div class="free_delivery d-flex flex-row align-items-center justify-content-center" style="margin-top: 20px;">
+						<span class="ti-truck"></span><span>무료배송</span>
+					</div>
+					<div class="original_price">${product.getFormat_price()} 원</div>
+					<div class="product_price">${product.getFormat_price()} 원</div>
+					<ul class="star_rating">
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+					</ul>
+					<div class="d-flex justify-content-start" style="height:50px;">
+						<div style="text-align:center; display:table-cell; vertical-align:middle;">구매 수량:</div>
+						<div class="quantity_selector">
+							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+							<span id="quantity_value">1</span>
+							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+						</div>
+						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+					</div>
+					<div class="row product-actions">
+						<div class="y_button add_to_cart_button" style="width:44%"><a onclick="add_cart();"><strong>장바구니</strong></a></div>
+						<div class="red_button add_to_cart_button" style="width:44%"><a><strong>구매하기</strong></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 성분 프로그래스바 -->
+	<div class="breadcrumbs" style="margin-bottom:10px; height:30%; padding:5%;">
+		<table style="margin-left:auto; margin-right:auto; border-collapse:separate; border-spacing:0 10px;">
+			<tr>
+				<td rowspan="2" style="width:100px">
+					<div>지성피부</div>
+				</td>
+				<!-- 위쪽 프로그래스바 -->
+				<td style="width:75%">
+					<div class="progress">
+						<div class="progress-bar bg-success" role="progressbar" style="width:60%">Good</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<!-- 아래쪽 프로그래스바 -->
+				<td style="width:75%">
+					<div class="progress">
+						<div class="progress-bar bg-danger" role="progressbar" style="width:20%">bad</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table style="margin-left:auto; margin-right:auto; border-collapse:separate; border-spacing:0 10px;">
+			<tr>
+				<td rowspan="2" style="width:100px">
+					<div>건성피부</div>
+				</td>
+				<!-- 위쪽 프로그래스바 -->
+				<td style="width:75%">
+					<div class="progress">
+						<div class="progress-bar bg-success" role="progressbar" style="width:20%">Good</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<!-- 아래쪽 프로그래스바 -->
+				<td style="width:75%">
+					<div class="progress">
+						<div class="progress-bar bg-danger" role="progressbar" style="width:40%">bad</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table style="margin-left:auto; margin-right:auto; border-collapse:separate; border-spacing:0 10px;">
+			<tr>
+				<td rowspan="2" style="width:100px">
+					<div>민감성피부</div>
+				</td>
+				<!-- 위쪽 프로그래스바 -->
+				<td style="width:75%">
+					<div class="progress">
+						<div class="progress-bar bg-success" role="progressbar" style="width:70%">Good</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<!-- 아래쪽 프로그래스바 -->
+				<td style="width:75%">
+					<div class="progress">
+						<div class="progress-bar bg-danger" role="progressbar" style="width:40%">bad</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	
 
+	<!-- Tabs -->
+	<div class="tabs_section_container">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="tabs_container" style="margin-bottom: 40px; margin-top: 20px;">
+						<ul class="tabs d-flex justify-content-center">
+							<li class="tab active" data-active-tab="tab_1"><span>상품 상세정보</span></li>
+							<li class="tab" data-active-tab="tab_2"><span>성분정보</span></li>
+							<li class="tab" data-active-tab="tab_3"><span>상품리뷰 (2)</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
 
-					<div
-						class="max-w-2xl px-2 py-3 mb-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
+					<!-- Tab Description -->
 
-
-
-						<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
-
-
-							<div class="flex flex-col md:flex-row -mx-4">
-								<div class="md:flex-1 px-4">
-									<div x-data="{ image: 1 }" x-cloak>
-										<div class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
-											<div x-show="image === 1"
-												class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-												<span class="text-5xl"><img
-													src="./assets/img/product_img/<%= pro_dto.getProduct_id() %>.jpg"></span>
-											</div>
-
-											<div x-show="image === 2"
-												class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-												<span class="text-5xl">2</span>
-											</div>
-
-											<div x-show="image === 3"
-												class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-												<span class="text-5xl">3</span>
-											</div>
-
-											<div x-show="image === 4"
-												class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-												<span class="text-5xl">4</span>
-											</div>
-										</div>
-
-										<div class="flex -mx-2 mb-4">
-											<template x-for="i in 4">
-											<div class="flex-1 px-2">
-												<button x-on:click="image = i"
-													:class="{ 'ring-2 ring-indigo-300 ring-inset': image === i }"
-													class="focus:outline-none w-full rounded-lg h-24 md:h-32 bg-gray-100 flex items-center justify-center">
-													<span x-img="" class="text-2xl"><img
-														src="./assets/img/product_img/<%= pro_dto.getProduct_id() %>.jpg" /></span>
-												</button>
-											</div>
-											</template>
-										</div>
-									</div>
+					<div id="tab_1" class="tab_container active">
+						<div class="row">
+							<div class="col-lg-5 desc_col">
+								<div class="tab_title" style="text-align:center">
+									<h4>상품 상세정보</h4>
 								</div>
-								<div class="md:flex-1 px-4">
-									<!-- 상품 이름 -->
-									<h2
-										class="mb-2 leading-tight tracking-tight font-bold text-gray-800 dark:text-gray-200"><%= pro_dto.getProduct_name() %></h2>
-									<!-- 회사 이름 -->
-									<p class="mb-2 text-gray-500 text-sm "><%= pro_dto.getProduct_manu() %></p>
-									<div class="mb-2 flex items-center space-x-4 my-4">
-										<div>
-											<!-- 가격 -->
-											<% String format_price = String.format("%,d", pro_dto.getProduct_price()); %>
-											<span
-												class="leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl dark:text-gray-200""><%= format_price %></span>
-											<span class=" text-indigo-400 mr-1 mt-1 dark:text-gray-200"">원</span>
-										</div>
-									</div>
-									<h2
-										class="mb-2 leading-tight tracking-tight font-bold text-gray-800 dark:text-gray-200">
-										평점 :
-										<%= pro_dto.getProduct_grade() %>
-										/ 5.0
-									</h2>
-
-									<% 
-			ArrayList<IngredientDTO> ingre_dto = pro_dao.getProIngredient(product_id);
-			int len = ingre_dto.size();
-			
-			for(int i=0; i<len; i++) {
-		%>
-									<p class="text-gray-500"><%= ingre_dto.get(i).getKor_name() %></p>
-									<%
-			}
-		%>
-									<div class="flex py-4 space-x-4">
-										<div class="relative dark:text-gray-200"">
-											<% 
-          	ArrayList<Integer> good_cnt = pro_dao.getIngreCount(pro_dto.getProduct_id(), "g");
-          	ArrayList<Integer> bad_cnt = pro_dao.getIngreCount(pro_dto.getProduct_id(), "b");
-          	String[] type = { "지성", "건성", "민감성", "색소침착성", "주름" };
-          	for(int i=0; i<5; i++) {
-          		
-          %>
-											<%= type[i] %>
-											Good :
-											<%= good_cnt.get(i) %>
-											Bad :
-											<%= bad_cnt.get(i) %><br />
-											<%
-          	}
-          %>
-										</div>
-									</div>
-									<div class="justify-center items-center">
-										<button
-											class=" px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-											구매하기</button>
-										<button
-											class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-											장바구니</button>
-									</div>
+								<div class="tab_text_block">
+								</div>
+								<div class="tab_image">
+									<img src="../resources/images/${product.prod_id}-1.jpg" alt="">
+								</div>
+								<div class="tab_text_block">
+								</div>
+							</div>
+							<div class="col-lg-5 offset-lg-2 desc_col">
+								<div class="tab_image">
+									<img src="../resources/images/${product.prod_id}-2.jpg" alt="">
+								</div>
+								<div class="tab_text_block">
+								</div>
+								<div class="tab_image desc_last">
+									<img src="../resources/images/${product.prod_id}-3.jpg" alt="">
 								</div>
 							</div>
 						</div>
+					</div>
 
+					<!-- Tab Additional Info -->
 
+					<div id="tab_2" class="tab_container">
+						<div class="row">
+							<div class="col additional_info_col">
+								<div class="tab_title additional_info_title" style="text-align:center">
+									<h4>성분정보</h4>
+								</div>
+								<div class="tab_text_block">
+									<h2>제품 성분</h2>
+									<p>백설탕, 물엿, 식물성유지, 산도조절제 2종, 가당연유, 젤라틴, 혼합제제, 합성향료, 청사과농축과즙, 유화제 2종, 비타민C, 유크림, 혼합제제 그린칼라</p>
+								</div>
+								<div class="tab_text_block">
+									<h2>제품 용량</h2>
+									<p>200ml</p>
+								</div>
+							</div>
+						</div>
+					</div>
 
+					<!-- Tab Reviews -->
+
+					<div id="tab_3" class="tab_container">
+						<div class="row">
+
+							<!-- User Reviews -->
+
+							<div class="col-lg-6 reviews_col">
+								<div class="tab_title reviews_title" style="text-align:center">
+									<h4>상품리뷰 (2)</h4>
+								</div>
+
+								<!-- User Review -->
+
+								<div class="user_review_container d-flex flex-column flex-sm-row">
+									<div class="user">
+										<div class="user_pic"></div>
+										<div class="user_rating">
+											<ul class="star_rating">
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											</ul>
+										</div>
+									</div>
+									<div class="review">
+										<div class="review_date">27 Aug 2016</div>
+										<div class="user_name">Brandon William</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+
+								<!-- User Review -->
+
+								<div class="user_review_container d-flex flex-column flex-sm-row">
+									<div class="user">
+										<div class="user_pic"></div>
+										<div class="user_rating">
+											<ul class="star_rating">
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											</ul>
+										</div>
+									</div>
+									<div class="review">
+										<div class="review_date">27 Aug 2016</div>
+										<div class="user_name">Brandon William</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Add Review -->
+
+							<div class="col-lg-6 add_review_col">
+								<div class="add_review">
+									<form id="review_form" action="post">
+										<div>
+											<h1>리뷰 작성</h1>
+										</div>
+										<div>
+											<h1>평점:</h1>
+											<ul class="user_star_rating">
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											</ul>
+											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
+										</div>
+										<div class="text-left text-sm-right">
+											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</main>
+			</div>
 		</div>
 	</div>
+	<!-- 아래쪽 탭 -->
+	<div class="row">
+		<div class="col">
+			<div class="tabs_container" style="margin-bottom: 40px; margin-top: 20px;">
+				<ul class="tabs d-flex justify-content-center">
+					<li class="tab active" data-active-tab="tab_1"><span>상품 상세정보</span></li>
+					<li class="tab" data-active-tab="tab_2"><span>성분정보</span></li>
+					<li class="tab" data-active-tab="tab_3"><span>상품리뷰 (2)</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 아래쪽	-->
+	<div class="benefit">
+		<div class="container">
+			<div class="row benefit_row">
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h5><strong>무료배송</strong></h5>
+							<p><strong>전국 어디서든</strong> 무료배송 혜택을 누리세요.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h5><strong>당일출고</strong></h5>
+							<p>오후 4시 이전의 결제건은 <strong>당일출고</strong> 됩니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h5><strong>고객센터</strong></h5>
+							<p> 상담시간 - 09:00 ~ 17:00 </p>
+							<p> 전화번호 - 010-7495-1996 </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+						<h4>SNS 공유하기</h4>
+						<p>화분이 저렴한 가격을 유지할 수 있도록 홍보해주세요!</p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
+						<ul class="footer_nav" style="margin-bottom:0px;">
+							<li><a href="https://m.blog.naver.com/Recommendation.naver">블로그 홍보</a></li>
+							<li><a href="#">자주하는 질문</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
+						<ul>
+							<li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="footer_nav_container" style="margin-top: 10px;">
+						<div class="cr" style="font-size:10px; text-align:center; margin-right:0px;">본사에 등록된 모든 광고와 저작권 및 법적책임은 자료제공사(또는 글쓴이)에게 있으므로 본사는 광고에 대한 책임을 지지 않습니다.</div>
+						<div class="cr text-center" style="margin-right:0px;">Copyright 2021. 태양광발전소 all rights reserved.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+<div><br><br><br></div>
+
+<script src="../resources/js/jquery-3.2.1.min.js"></script>
+<script src="../resources/styles/bootstrap4/popper.js"></script>
+<script src="../resources/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="../resources/plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../resources/plugins/easing/easing.js"></script>
+<script src="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="../resources/js/single_custom.js"></script>
 </body>
 </html>

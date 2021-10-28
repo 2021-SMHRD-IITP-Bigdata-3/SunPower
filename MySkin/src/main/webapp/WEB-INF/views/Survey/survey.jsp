@@ -11,22 +11,19 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
 	rel="stylesheet" />
-<link rel="stylesheet" href="./assets/css/tailwind.output.css" />
+<link rel="stylesheet" href="../resources/css/tailwind.output.css" />
 <script
 	src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
 	defer></script>
-<script src="./assets/js/init-alpine.js"></script>
+<script src="../resources/js/init-alpine.js"></script>
 <script
 	src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js"
 	charset="utf-8"></script>
 </head>
 <body>
-	<% 
-  	MemberDTO info = (MemberDTO) session.getAttribute("info");
-    if(info == null) {
-		response.sendRedirect("login.jsp");
-	}
-  %>
+	<c:if test="${sessionScope.members.mb_id == null}">
+		<!-- 참일 시 login.jsp로 이동 -->
+	</c:if>
 	<div class="flexd h-screen bg-gray-50 dark:bg-gray-900"
 		:class="{ 'overflow-hidden': isSideMenuOpen }">
 		<!-- 웹 버전 사이드 바 -->
@@ -36,7 +33,7 @@
 				<a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200">
 				</a>
 				<ul class="mt-6">
-					<% if(info != null) { %>
+					<c:if test="${sessionScope.members.mb_id != null}">
 					<li class="relative px-6 py-3"><span
 						class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
 						aria-hidden="true"></span> <a
@@ -52,7 +49,7 @@
 						class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100">
 							<img class="object-cover w-8 h-8 rounded-full"
 							src="https://pbs.twimg.com/media/EQdD_-jUcAAJylD.jpg"
-							aria-hidden="true" /> <span class="ml-4"><%= info.getMember_name() %>
+							aria-hidden="true" /> <span class="ml-4">${sessionScope.members.mb_name }
 								님</span>
 					</a> <a
 						class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
@@ -73,7 +70,7 @@
 									d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                         </svg> <span>로그아웃</span>
 					</a></li>
-					<% } %>
+					</c:if>
 				</ul>
 				<ul>
 					<li class="relative px-6 py-3"><a
@@ -111,7 +108,8 @@
 
 
 					<li class="relative px-6 py-3">
-						<% if(info == null) { %> <!-- 로그인 회원가입 버튼 -->
+						<c:if test="${sessionScope.members.mb_id == null}"> 
+						<!-- 로그인 회원가입 버튼 -->
 						<div class="px-6 my-6">
 							<a
 								class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
@@ -126,8 +124,9 @@
 								<span class="ml-2" aria-hidden="true">+</span>
 							</a>
 						</div>
+						</c:if>
 					</li>
-					<% } %>
+					</ul>
 					<!-- 로그인 회원가입 버튼 끝 -->
 			</div>
 
@@ -155,14 +154,14 @@
 			<div class="py-4 text-gray-500 dark:text-gray-400">
 
 				<ul class="mt-6">
-					<% if(info != null) { %>
+					<c:if test="${sessionScope.members.mb_id != null}">
 					<li class="relative px-6 py-3"><span
 						class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
 						aria-hidden="true"></span> <a
 						class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100">
 							<img class="object-cover w-8 h-8 rounded-full"
 							src="https://pbs.twimg.com/media/EQdD_-jUcAAJylD.jpg"
-							aria-hidden="true" /> <span class="ml-4"><%= info.getMember_name() %>
+							aria-hidden="true" /> <span class="ml-4">${sessionScope.members.mb_name }
 								님</span>
 					</a> <a
 						class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
@@ -183,7 +182,7 @@
 									d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                         </svg> <span>로그아웃</span>
 					</a></li>
-					<% } %>
+					</c:if>
 				</ul>
 				<ul>
 
@@ -222,7 +221,7 @@
                 </svg> <span class="ml-4">설문조사</span>
 					</a></li>
 
-					<% if(info == null) { %>
+					<c:if test="${sessionScope.members.mb_id == null}">
 					<div class="px-6 my-6">
 						<a
 							class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
@@ -237,7 +236,7 @@
 							<span class="ml-2" aria-hidden="true">+</span>
 						</a>
 					</div>
-					<% } %>
+					</c:if>
 				
 			</div>
 		</aside>
@@ -247,7 +246,7 @@
 					class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
 					<!-- 로고 -->
 					<a href="index.jsp"> <img class="object-cover"
-						src="./assets/img/logo_main.png" width="150px" alt="logo"
+						src="../resources/img/logo_main.png" width="150px" alt="logo"
 						align="left" />
 					</a>
 					<ul class="flex items-center flex-shrink-0 space-x-6">
@@ -317,10 +316,10 @@
 				</div>
 
 				<div class="container px-6 mx-auto grid">
-					<% if(info != null) { %>
+					<c:if test="${sessionScope.members.mb_id != null}">
 					<h2
 						class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200 text-center">
-						<%= info.getMember_name() %>
+						${sessionScope.members.mb_name }
 						님에 대한<br> 피부타입을 알고싶어요!
 					</h2>
 					<br />
@@ -328,20 +327,20 @@
 						피부타입 자가진단 후<br />가장 맞는 화장품을 추천해드릴께요
 					</p>
 					<br />
-					<% } %>
+					</c:if>
 				</div>
 				<div class="container px-6 mx-auto grid">
 
 					<button
 						class="text-teal-500 bg-transparent border-2 border-solid border-teal-500 hover:bg-teal-500 hover:text-white active:bg-teal-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 						type="button" style="border-color: #A4FFFF">
-						<a href="simple-survey.jsp"> 빠르고 간편하게 알고싶어요! </a>
+						<a href="simple_survey"> 빠르고 간편하게 알고싶어요! </a>
 					</button>
 					<br />
 					<button
 						class="text-teal-500 bg-transparent border-2 border-solid border-teal-500 hover:bg-teal-500 hover:text-white active:bg-teal-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
 						type="button" style="border-color: #A4FFFF">
-						<a href="detail-survey.jsp"> 정확하게 알고싶어요! </a>
+						<a href="detail-survey"> 정확하게 알고싶어요! </a>
 					</button>
 				</div>
 			</main>

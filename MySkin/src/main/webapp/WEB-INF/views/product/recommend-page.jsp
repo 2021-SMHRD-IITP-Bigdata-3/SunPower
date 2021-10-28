@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var='cpath' value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="ko">
+<html class="{ 'theme-dark': dark }" x-data="data()" lang="ko">
 <head>
 <style type="text/css">
 .word {
