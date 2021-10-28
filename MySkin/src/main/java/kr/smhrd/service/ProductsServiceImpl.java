@@ -27,6 +27,12 @@ public class ProductsServiceImpl implements ProductsService {
 	}
 	
 	@Override
+	public List<ProductsDTO> getOrderList(int order) {
+		
+		return mapper.getOrderList(order);
+	}
+	
+	@Override
 	public ProductsDTO get(int prod_id) {
 		
 		return mapper.read(prod_id);

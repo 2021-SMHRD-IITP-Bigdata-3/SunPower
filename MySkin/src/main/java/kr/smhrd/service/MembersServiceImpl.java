@@ -1,5 +1,7 @@
 package kr.smhrd.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +36,8 @@ public class MembersServiceImpl implements MembersService {
 		return mapper.login(members);
 	}
 	
+	@Override
+	public MembersDTO mb_ck(String mb_id) {
+		return mapper.mb_ck(mb_id);
+	}
 }

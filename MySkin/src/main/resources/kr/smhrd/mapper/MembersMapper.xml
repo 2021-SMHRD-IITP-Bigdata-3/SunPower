@@ -5,12 +5,15 @@
 <mapper namespace="kr.smhrd.mapper.MembersMapper">
 	
 	<insert id="register">
-		insert into members(mb_id, mb_pwd, mb_name, mb_birth, mb_joindate, admin_yn,gender,address)
-		values (#{mb_id}, #{mb_pwd}, #{mb_name}, #{mb_birth}, SYSDATE, 'n','m','a')
+		insert into members(mb_id, mb_pwd, mb_name, mb_birth, mb_joindate, admin_yn, gender, address)
+		values (#{mb_id}, #{mb_pwd}, #{mb_name}, #{mb_birth}, SYSDATE, 'n', #{gender}, ' ')
 	</insert>
 	
 	<select id="login" resultType="kr.smhrd.domain.MembersDTO">
-		select * from members where mb_id = '${mb_id}' and mb_pwd = '${mb_pwd}'
+		select * from members where mb_id = #{mb_id} and mb_pwd = #{mb_pwd}
 	</select>
 	
+	<select id="mb_ck" parameterType="String" resultType="kr.smhrd.domain.MembersDTO">
+		select * from members where mb_id = #{mb_id}
+	</select>
 </mapper>

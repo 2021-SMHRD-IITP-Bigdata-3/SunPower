@@ -10,6 +10,17 @@
 	]]>
 	</select>
 	
+	<select id="getOrderList" parameterType="int" resultType="kr.smhrd.domain.ProductsDTO">
+	<![CDATA[
+		select * from products where prod_id > 0
+	]]>
+		order by 
+	<if test='value == 1'>prod_id ASC</if>
+	<if test='value == 2'>prod_price DESC</if>
+	<if test='value == 3'>prod_price ASC</if>
+	<if test='value == 4'>prod_rating DESC</if>
+	</select>
+	
 	<select id="read" resultType="kr.smhrd.domain.ProductsDTO">
 		select * from products where prod_id = #{prod_id}
 	</select>

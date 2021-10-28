@@ -21,5 +21,6 @@ public class MembersDTO {
 	private Date mb_joindate;
 	
 	private String admin_yn;
-
+	private String gender;
+	private String address;
 }

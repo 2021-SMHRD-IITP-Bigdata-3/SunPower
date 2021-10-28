@@ -3,6 +3,7 @@ package kr.smhrd.Skintype;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,6 +22,11 @@ public class ProductsController {
 	@RequestMapping("product_list")
 	public void list(Model model) {
 		model.addAttribute("list", service.getList());
+	}
+	
+	@PostMapping("product_list")
+	public void list(int order, Model model) {
+		model.addAttribute("list", service.getOrderList(order));
 	}
 	
 	@RequestMapping("product_view")
