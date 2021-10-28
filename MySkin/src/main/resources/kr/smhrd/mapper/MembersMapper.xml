@@ -5,8 +5,8 @@
 <mapper namespace="kr.smhrd.mapper.MembersMapper">
 	
 	<insert id="register">
-		insert into members(mb_id, mb_pwd, mb_name, mb_birth, mb_joindate, admin_yn)
-		values (#{mb_id}, #{mb_pwd}, #{mb_name}, #{mb_birth}, SYSDATE, 'n')
+		insert into members(mb_id, mb_pwd, mb_name, mb_birth, mb_joindate, admin_yn,gender,address)
+		values (#{mb_id}, #{mb_pwd}, #{mb_name}, #{mb_birth}, SYSDATE, 'n','m','a')
 	</insert>
 	
 	<select id="login" resultType="kr.smhrd.domain.MembersDTO">

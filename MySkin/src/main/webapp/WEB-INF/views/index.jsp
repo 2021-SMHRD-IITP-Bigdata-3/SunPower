@@ -1,6 +1,6 @@
 <%@page import="kr.smhrd.domain.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <c:set var='cpath' value="${pageContext.request.contextPath}"/>
@@ -85,15 +85,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="resources/css/tailwind.css" />
-    <link rel="stylesheet" href="resources/css/tailwind.output.css" />
+    <link rel="stylesheet" href="../../../resources/css/tailwind.css" />
+    <link rel="stylesheet" href="../../../resources/css/tailwind.output.css" />
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="resources/js/detail-test.js"></script>
-    <script src="resources/js/init-alpine.js"></script>
-    <link rel="stylesheet" href="resources/css/style.css">
+    <script src="../../../resources/js/detail-test.js"></script>
+    <script src="../../../resources/js/init-alpine.js"></script>
+    <link rel="stylesheet" href="../../../resources/css/style.css">
   </head>
   <body>
     <div
