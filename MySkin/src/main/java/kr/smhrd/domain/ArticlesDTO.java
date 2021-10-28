@@ -15,7 +15,6 @@ public class ArticlesDTO {
 	
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date reg_date;
-	
 	private int article_cnt;
 
 }
