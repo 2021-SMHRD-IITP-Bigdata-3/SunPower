@@ -1,5 +1,6 @@
 package kr.smhrd.Skintype;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,16 +14,21 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @AllArgsConstructor
 public class SurveyController {
-
+	@Autowired
 	private SurveyService service;
 	
-	@RequestMapping("survey")
-	public void survey(Model model) {
+	@RequestMapping("choice_survey")
+	public void choice_survey() {
 		
 	}
 	
-	@RequestMapping("simple_survey")
-	public void simple_survey(Model model) {
+	@RequestMapping("s_survey")
+	public void s_survey(Model model) {
+		
+	}
+	
+	@RequestMapping("d_survey")
+	public void d_survey(Model model) {
 		
 	}
 }
