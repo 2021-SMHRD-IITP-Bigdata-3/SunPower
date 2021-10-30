@@ -13,9 +13,7 @@ public class ProductsDTO {
 	private int prod_price;
 	private String prod_maker;
 	private int prod_rating;
-	
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date prod_ex_date;
+	private String prod_ex_date;
 	
 	public String getFormat_price() {
 		return String.format("%,d", prod_price);
