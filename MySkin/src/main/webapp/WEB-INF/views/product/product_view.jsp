@@ -25,9 +25,35 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 1.2em 1.2em;
     background: white;
     border-top: 1px solid #FE7C7F;
+}
+.star-rating {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
 }
 </style>
 
@@ -155,7 +181,7 @@ function add_cart(){
 						<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 					</ul>
 					<div class="d-flex justify-content-start" style="height:50px;">
-						<div style="text-align:center; display:table-cell; vertical-align:middle;">구매 수량:</div>
+						<div style="text-align:center; margin-top:25px; margin-right:10px;">구매 수량:</div>
 						<div class="quantity_selector">
 							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
 							<span id="quantity_value">1</span>
@@ -163,9 +189,9 @@ function add_cart(){
 						</div>
 						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
 					</div>
-					<div class="row product-actions">
-						<div class="y_button add_to_cart_button" style="width:44%"><a onclick="add_cart();"><strong>장바구니</strong></a></div>
-						<div class="red_button add_to_cart_button" style="width:44%"><a><strong>구매하기</strong></a></div>
+					<div class="product-actions d-flex justify-content-around">
+						<div class="y_button add_to_cart_button" style="width:44%; margin-bottom:15px;"><a onclick="add_cart();"><strong>장바구니</strong></a></div>
+						<div class="red_button add_to_cart_button" style="width:44%; margin-bottom:15px;"><a><strong>구매하기</strong></a></div>
 					</div>
 				</div>
 			</div>
@@ -339,28 +365,6 @@ function add_cart(){
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 									</div>
 								</div>
-
-								<!-- User Review -->
-
-								<div class="user_review_container d-flex flex-column flex-sm-row">
-									<div class="user">
-										<div class="user_pic"></div>
-										<div class="user_rating">
-											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-											</ul>
-										</div>
-									</div>
-									<div class="review">
-										<div class="review_date">27 Aug 2016</div>
-										<div class="user_name">Brandon William</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
 							</div>
 
 							<!-- Add Review -->
@@ -374,11 +378,27 @@ function add_cart(){
 										<div>
 											<h1>평점:</h1>
 											<ul class="user_star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+												<!-- 별점부분 추가 -->
+												<div class="star-rating">
+												  <input type="radio" id="5-stars" name="rating" value="5" onclick='getRating(event)' />
+												  <label for="5-stars" class="star">&#9733;</label>
+												  <input type="radio" id="4-stars" name="rating" value="4" onclick='getRating(event)'/>
+												  <label for="4-stars" class="star">&#9733;</label>
+												  <input type="radio" id="3-stars" name="rating" value="3" onclick='getRating(event)'/>
+												  <label for="3-stars" class="star">&#9733;</label>
+												  <input type="radio" id="2-stars" name="rating" value="2" onclick='getRating(event)'/>
+												  <label for="2-stars" class="star">&#9733;</label>
+												  <input type="radio" id="1-star" name="rating" value="1" onclick='getRating(event)'/>
+												  <label for="1-star" class="star">&#9733;</label>
+												</div>
+												<div id='result'></div>
+												<script>
+												function getRating(event) {
+												  document.getElementById('result').innerText = 
+													event.target.value;
+												}
+												</script>
+
 											</ul>
 											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
 										</div>
