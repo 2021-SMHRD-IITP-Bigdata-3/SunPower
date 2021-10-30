@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var='cpath' value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="ko">
+<html class="{ 'theme-dark': dark }" x-data="data()" lang="ko">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,19 +16,31 @@
 	src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
 	defer></script>
 <script src="./assets/js/init-alpine.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+	defer></script>
+<script src="https://unpkg.com/jquery"></script>
 <script
 	src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js"
 	charset="utf-8"></script>
+<script
+	src="https://unpkg.com/survey-jquery@1.8.58/survey.jquery.min.js"></script>
+<link href="https://unpkg.com/survey-core@1.8.58/modern.min.css"
+	type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="./index.css">
+</head>
+<style>
+</style>
 </head>
 <body>
-	<% 
-  	MemberDTO info = (MemberDTO) session.getAttribute("info");
-  	SkinDTO skin_dto = (SkinDTO) session.getAttribute("skin_dto");
-
-	if(info == null) {
+	<%
+		MemberDTO info = (MemberDTO) session.getAttribute("info");
+	if (info == null) {
 		response.sendRedirect("login.jsp");
 	}
-  %>
+	%>
 	<div class="flexd h-screen bg-gray-50 dark:bg-gray-900"
 		:class="{ 'overflow-hidden': isSideMenuOpen }">
 		<!-- 웹 버전 사이드 바 -->
@@ -38,7 +50,9 @@
 				<a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200">
 				</a>
 				<ul class="mt-6">
-					<% if(info != null) { %>
+					<%
+						if (info != null) {
+					%>
 					<li class="relative px-6 py-3"><span
 						class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
 						aria-hidden="true"></span> <a
@@ -54,7 +68,7 @@
 						class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100">
 							<img class="object-cover w-8 h-8 rounded-full"
 							src="https://pbs.twimg.com/media/EQdD_-jUcAAJylD.jpg"
-							aria-hidden="true" /> <span class="ml-4"><%= info.getMember_name() %>
+							aria-hidden="true" /> <span class="ml-4"><%=info.getMember_name()%>
 								님</span>
 					</a> <a
 						class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
@@ -75,7 +89,9 @@
 									d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                         </svg> <span>로그아웃</span>
 					</a></li>
-					<% } %>
+					<%
+						}
+					%>
 				</ul>
 				<ul>
 					<li class="relative px-6 py-3"><a
@@ -114,7 +130,10 @@
 
 
 					<li class="relative px-6 py-3">
-						<% if(info == null) { %> <!-- 로그인 회원가입 버튼 -->
+						<%
+							if (info == null) {
+						%> <!-- 로그인 회원가입 버튼 -->
+
 						<div class="px-6 my-6">
 							<a
 								class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
@@ -130,7 +149,9 @@
 							</a>
 						</div>
 					</li>
-					<% } %>
+					<%
+						}
+					%>
 					<!-- 로그인 회원가입 버튼 끝 -->
 			</div>
 
@@ -156,16 +177,19 @@
 			x-transition:leave-end="opacity-0 transform -translate-x-20"
 			@click.away="closeSideMenu" @keydown.escape="closeSideMenu">
 			<div class="py-4 text-gray-500 dark:text-gray-400">
-
+				<a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+					href="#"> VarChar </a>
 				<ul class="mt-6">
-					<% if(info != null) { %>
+					<%
+						if (info != null) {
+					%>
 					<li class="relative px-6 py-3"><span
 						class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
 						aria-hidden="true"></span> <a
 						class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100">
 							<img class="object-cover w-8 h-8 rounded-full"
 							src="https://pbs.twimg.com/media/EQdD_-jUcAAJylD.jpg"
-							aria-hidden="true" /> <span class="ml-4"><%= info.getMember_name() %>
+							aria-hidden="true" /> <span class="ml-4"><%=info.getMember_name()%>
 								님</span>
 					</a> <a
 						class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
@@ -186,7 +210,9 @@
 									d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                         </svg> <span>로그아웃</span>
 					</a></li>
-					<% } %>
+					<%
+						}
+					%>
 				</ul>
 				<ul>
 
@@ -198,7 +224,7 @@
 								stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
 								stroke="currentColor">
                   <path
-									d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+									d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
                 </svg> <span class="ml-4">상품보기</span>
 					</a></li>
 
@@ -209,7 +235,7 @@
 								stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
 								stroke="currentColor">
                   <path
-									d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+									d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                 </svg> <span class="ml-4">게시판</span>
 					</a></li>
 
@@ -226,7 +252,9 @@
                 </svg> <span class="ml-4">설문조사</span>
 					</a></li>
 
-					<% if(info == null) { %>
+					<%
+						if (info == null) {
+					%>
 					<div class="px-6 my-6">
 						<a
 							class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
@@ -241,7 +269,9 @@
 							<span class="ml-2" aria-hidden="true">+</span>
 						</a>
 					</div>
-					<% } %>
+					<%
+						}
+					%>
 				
 			</div>
 		</aside>
@@ -289,35 +319,36 @@
 					</ul>
 				</div>
 			</header>
-			<main class="h-full overflow-y-auto">
-				<!-- popvers -->
-
+			<main class="h-full overflow-y-auto dark:text-gray-200">
 				<div class="container px-6 mx-auto grid">
-					<% 
-          	if(skin_dto != null) { 
-          %>
+					<%
+						if (info != null) {
+					%>
 					<h2
-						class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200 text-center">
-						<%= info.getMember_name() %>
-						님의 피부타입은<br /> <strong><%= skin_dto.getSkin_Type() %></strong>입니다!
+						class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+						<%=info.getMember_name()%>님 <br>피부에 양보하세요!
 					</h2>
-					<br />
-					<p class="dark:text-gray-200 text-center">
-						<%= skin_dto.getSkin_Exp() %>
-					</p>
-					<br />
-					<% } %>
-				</div>
-				<div class="container px-6 mx-auto grid">
-
-					<button
-						class="text-teal-500 bg-transparent border-2 border-solid border-teal-500 hover:bg-teal-500 hover:text-white active:bg-teal-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-						type="button" style="border-color: #A4FFFF">
-						<a href="RecommandServiceCon"> 추천화장품 보러갈래? </a>
-					</button>
-				</div>
+					<%
+						}
+					%>
+					<!-- 본문 -->
+					<div class="dark:text-gray-200">
+						<div id="surveyElement"
+							style="display: inline-block; width: 380px;"></div>
+						<div id="surveyResult"></div>
+					</div>
+					<!-- 한 칸 띄어주기 -->
+					<div>
+						<br>
+					</div>
 			</main>
 		</div>
 	</div>
+	<script type="text/javascript">
+    	var username = "<%=info.getMember_name()%>
+		";
+	</script>
+	<script type="text/javascript" src="./assets/js/detail-test.js"
+		charset="UTF-8"></script>
 </body>
 </html>
