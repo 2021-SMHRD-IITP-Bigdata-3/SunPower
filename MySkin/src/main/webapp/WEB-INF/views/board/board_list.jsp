@@ -198,20 +198,22 @@ function goForm(){
 									<th scope="col" style="padding: 2px; width: 15%;"><strong>작성자</strong></th>
 								</tr>
 							</thead>
-							
+								<c:set value="1" var="listNum"/>
 								<c:forEach items="${list}" var="list">
 								<tbody>
+								<!-- ${list.article_seq } -->
 									<tr>
 										<th scope="row"
-											style="display: table-cell; vertical-align: middle; padding: 2px;">${list.article_seq }</th>
+											style="display: table-cell; vertical-align: middle; padding: 2px;">${listNum}</th>
 										<td
 											style="text-align: left; display: table-cell; vertical-align: middle; padding: 0 7px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
-											<a href='boardContent?article_SEQ=${list.article_seq }'>${list.article_title }</a>
+											<a href='boardContent?article_SEQ=${list.article_seq}'>${list.article_title }</a>
 										</td>
 										<td style="display: table-cell; vertical-align: middle; padding: 2px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">${list.mb_id }</td>
 									</tr>
 								
 							</tbody>
+								<c:set value="${listNum + 1 }" var="listNum"/>
 							</c:forEach>
 						</table>
 					</div>

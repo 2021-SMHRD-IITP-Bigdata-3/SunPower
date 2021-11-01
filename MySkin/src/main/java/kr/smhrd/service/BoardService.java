@@ -13,5 +13,6 @@ public interface BoardService {
 	// 페이징 처리 게시글 조회
 	public List<ArticlesDTO> selectBoard(PagingVO vo);
 	public List<ArticlesDTO> boardList();
+
 	
 }

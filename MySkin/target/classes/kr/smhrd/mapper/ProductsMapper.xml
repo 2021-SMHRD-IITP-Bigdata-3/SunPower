@@ -6,11 +6,42 @@
 
 	<select id="getList" resultType="kr.smhrd.domain.ProductsDTO">
 	<![CDATA[
+		select * from products where prod_id > 0 order by prod_id
+	]]>
+	</select>
+	
+	<select id="getOrderList" parameterType="int" resultType="kr.smhrd.domain.ProductsDTO">
+	<![CDATA[
 		select * from products where prod_id > 0
 	]]>
+		order by 
+	<if test='value == 1'>prod_id ASC</if>
+	<if test='value == 2'>prod_price DESC</if>
+	<if test='value == 3'>prod_price ASC</if>
+	<if test='value == 4'>prod_rating DESC</if>
 	</select>
 	
 	<select id="read" resultType="kr.smhrd.domain.ProductsDTO">
 		select * from products where prod_id = #{prod_id}
+	</select>
+	
+	<insert id="writeReview">
+		insert into reviews
+		values (reviews_SEQ.nextval, #{prod_id}, #{mb_id}, #{review_content}, SYSDATE, #{review_rating}, 0, 0)
+	</insert>
+	
+	<select id="getReview" resultType="kr.smhrd.domain.ReviewsDTO">
+		select * from reviews where prod_id = #{prod_id}
+	</select>
+	
+	<select id="getGB" resultType="kr.smhrd.domain.IngreCountDTO">
+		select count(case when o = '${answer}' then 1 end) as o,
+       	count(case when d = '${answer}' then 1 end) as d,
+       	count(case when s = '${answer}' then 1 end) as s,
+       	count(case when p = '${answer}' then 1 end) as p, 
+       	count(case when w = '${answer}' then 1 end) as w,
+       	count(case when a = '${answer}' then 1 end) as a
+		from ingredients 
+		where ingred_id in (select ingred_id from product_ingredients where prod_id = #{prod_id})
 	</select>
 </mapper>

@@ -50,6 +50,7 @@ public class BoardController {
 		model.addAttribute("paging", vo);
 		model.addAttribute("viewAll", board_service.selectBoard(vo));
 		model.addAttribute("list", board_service.boardList());
+		System.out.println(board_service.boardList().size());
 		//return "board/board_list";
 	}
 
