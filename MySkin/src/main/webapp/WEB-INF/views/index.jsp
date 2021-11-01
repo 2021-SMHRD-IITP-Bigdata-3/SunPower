@@ -43,18 +43,13 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="index.html">SUN<span>POWER</span></a>
+							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
 								<li><a href="index.html">home</a></li>
-								<li><a href="#">shop</a></li>
-								<li><a href="#">promotion</a></li>
-								<li><a href="#">pages</a></li>
-								<li><a href="https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0">blog</a></li>
-								<li><a href="contact.html">contact</a></li>
 							</ul>
-							<ul class="navbar_user">
+							<ul class="navbar_user" style="margin-bottom: 0px;">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
@@ -85,19 +80,20 @@
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection">
-						<li><a href="member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>로그인</a></li>
-						<li><a href="member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>회원가입</a></li>
+						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>로그인</a></li>
+						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>회원가입</a></li>
+						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>로그아웃</a></li>
+						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>구매한 상품</a></li>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="index.html">메인으로</a></li>
-				<li class="menu_item"><a href="#">shop</a></li>
+				<li class="menu_item"><a href="survey/survey">피부타입 재검사</a></li>
+				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
+				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<!-- Slider -->
-	<div><br></div>
-	<div><br></div>
 	<div><br></div>
 	<div><br></div>
 	<div><br></div>
@@ -110,12 +106,12 @@
 	  </div>
 	  <div class="carousel-inner">
 		<div class="carousel-item active" data-bs-interval="3000">
-			<div style="background-image:url(../../resources/images/winter.png); background-size:cover; height:250px; display:flex; align-items: center;">
+			<div style="background-image:url(../resources/images/winter.png); background-size:cover; height:250px; display:flex; align-items: center;">
 				<div class="container fill_height">
 					<div class="row align-items-center fill_height">
 						<div class="col">
 							<div class="main_slider_content">
-								<h5 style="font-family:SF_HambakSnow"><strong>2021년 하반기 겨울 보습 특가!</strong></h5>
+								<h5 style="font-family:SF_HambakSnow"><strong>2021년 하반기 겨울보습 특가!</strong></h5>
 								<h1 style="font-family:SF_HambakSnow">보습 화장품</h1>
 								<h1 style="font-family:SF_HambakSnow">최대 15% 할인 이벤트!</h1>
 								<div class="red_button shop_now_button"><a href="#"><strong>특가 보러가기</strong></a></div>
@@ -126,14 +122,14 @@
 			</div>
 		</div>
 		<div class="carousel-item" data-bs-interval="3000">
-			<div style="background-image:url(../../resources/images/winter.png); background-size:cover; height:250px; display:flex; align-items: center;">
+			<div style="background-image:url(../resources/images/event1.jpg); background-size:cover; height:250px; display:flex; align-items: center;">
 				<div class="container fill_height">
 					<div class="row align-items-center fill_height">
 						<div class="col">
 							<div class="main_slider_content">
-								<h5 style="font-family:SF_HambakSnow"><strong>2021년 하반기 겨울 보습 특가!</strong></h5>
-								<h1 style="font-family:SF_HambakSnow">보습 화장품</h1>
-								<h1 style="font-family:SF_HambakSnow">최대 15% 할인 이벤트!</h1>
+								<h5 style="font-family:SF_HambakSnow"><strong>크리스마스 선물!</strong></h5>
+								<h1 style="font-family:SF_HambakSnow">화장품 전 품목</h1>
+								<h1 style="font-family:SF_HambakSnow">최대 49% 할인 이벤트!</h1>
 								<div class="red_button shop_now_button"><a href="#"><strong>특가 보러가기</strong></a></div>
 							</div>
 						</div>
@@ -142,15 +138,15 @@
 			</div>
 		</div>
 		<div class="carousel-item" data-bs-interval="3000">
-			<div style="background-image:url(../../resources/images/winter.png); background-size:cover; height:250px; display:flex; align-items: center;">
+			<div style="background-image:url(../resources/images/event3.jpg); background-size:cover; height:250px; display:flex; align-items: center;">
 				<div class="container fill_height">
 					<div class="row align-items-center fill_height">
 						<div class="col">
 							<div class="main_slider_content">
-								<h5 style="font-family:SF_HambakSnow"><strong>2021년 하반기 겨울 보습 특가!</strong></h5>
-								<h1 style="font-family:SF_HambakSnow">보습 화장품</h1>
-								<h1 style="font-family:SF_HambakSnow">최대 15% 할인 이벤트!</h1>
-								<div class="red_button shop_now_button"><a href="#"><strong>특가 보러가기</strong></a></div>
+								<h5 style="font-family:SF_HambakSnow"><strong>블로그 홍보 이벤트</strong></h5>
+								<h1 style="font-family:SF_HambakSnow">블로그에 화분을 홍보해주세요</h1>
+								<h1 style="font-family:SF_HambakSnow">할인쿠폰을 드립니다.</h1>
+								<div class="red_button shop_now_button"><a href="#"><strong>이벤트 보기</strong></a></div>
 							</div>
 						</div>
 					</div>
@@ -158,15 +154,6 @@
 			</div>
 		</div>
 	  </div>
-	  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="visually-hidden">Previous</span>
-	  </button>
-	  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="visually-hidden">Next</span>
-	  </button>
-	</div>
 
 	<!-- Best Sellers -->
 
@@ -184,7 +171,7 @@
 					<div class="product_slider_container">
 						<div class="owl-carousel owl-theme product_slider">
 
-							<!-- Slide 1 -->
+							<!-- Slide  -->
 							<c:forEach items="${list}" var="product">
 							<div class="owl-item product_slider_item">
 								<div class="product-item">
@@ -222,85 +209,54 @@
 		</div>
 	</div>
 
-	<!-- Deal of the week -->
-
-	<div class="deal_ofthe_week">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<div class="deal_ofthe_week_img">
-						<img src="../../resources/images/deal_ofthe_week.png" alt="">
-					</div>
-				</div>
-				<div class="col-lg-6 text-right deal_ofthe_week_col">
-					<div class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
-						<div class="section_title">
-							<h2>Deal Of The Week</h2>
-						</div>
-						<ul class="timer">
-							<li class="d-inline-flex flex-column justify-content-center align-items-center">
-								<div id="day" class="timer_num">03</div>
-								<div class="timer_unit">Day</div>
-							</li>
-							<li class="d-inline-flex flex-column justify-content-center align-items-center">
-								<div id="hour" class="timer_num">15</div>
-								<div class="timer_unit">Hours</div>
-							</li>
-							<li class="d-inline-flex flex-column justify-content-center align-items-center">
-								<div id="minute" class="timer_num">45</div>
-								<div class="timer_unit">Mins</div>
-							</li>
-							<li class="d-inline-flex flex-column justify-content-center align-items-center">
-								<div id="second" class="timer_num">23</div>
-								<div class="timer_unit">Sec</div>
-							</li>
-						</ul>
-						<div class="red_button deal_ofthe_week_button"><a href="#">shop now</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Blogs -->
 
 	<div class="blogs">
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title">
-						<h2>Latest Blogs</h2>
+						<h2><strong>피부관리 Tip</strong></h2>
 					</div>
 				</div>
 			</div>
 			<div class="row blogs_container">
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(../../resources/images/blog_1.jpg)"></div>
+						<div class="blog_background" style="background-image:url(../resources/images/tip_1.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-							<h4 class="blog_title">Here are the trends I see coming this fall</h4>
-							<span class="blog_meta">by admin | dec 01, 2017</span>
-							<a class="blog_more" href="#">Read more</a>
+							<h4 class="blog_title">화장품 저렴하게 사는 방법은 없을까?</h4>
+							<span class="blog_meta">다나와</span>
+							<a class="blog_more" href="http://plan.danawa.com/info/index.php?nPlanSeq=786">팁 보러가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(../../resources/images/blog_2.jpg)"></div>
+						<div class="blog_background" style="background-image:url(../resources/images/tip_2.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-							<h4 class="blog_title">Here are the trends I see coming this fall</h4>
-							<span class="blog_meta">by admin | dec 01, 2017</span>
-							<a class="blog_more" href="#">Read more</a>
+							<h4 class="blog_title">착한화장품, 어떻게 골라야 할까?</h4>
+							<span class="blog_meta">다나와</span>
+							<a class="blog_more" href="http://plan.danawa.com/info/index.php?nPlanSeq=786">팁 보러가기</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(../../resources/images/blog_3.jpg)"></div>
+						<div class="blog_background" style="background-image:url(../resources/images/tip_3.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
-							<h4 class="blog_title">Here are the trends I see coming this fall</h4>
-							<span class="blog_meta">by admin | dec 01, 2017</span>
-							<a class="blog_more" href="#">Read more</a>
+							<h4 class="blog_title">피부트러블 실생활 관리법 확인해보자</h4>
+							<span class="blog_meta">다나와</span>
+							<a class="blog_more" href="http://plan.danawa.com/info/index.php?nPlanSeq=2177">팁 보러가기</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 blog_item_col">
+					<div class="blog_item">
+						<div class="blog_background" style="background-image:url(../resources/images/tip_4.jpg)"></div>
+						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+							<h4 class="blog_title">편견을 깨는 보통사람들의<br>스킨케어 레시피</h4>
+							<span class="blog_meta">닥터지</span>
+							<a class="blog_more" href="http://plan.danawa.com/info/index.php?nPlanSeq=2177">팁 보러가기</a>
 						</div>
 					</div>
 				</div>
