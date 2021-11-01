@@ -38,32 +38,7 @@ function goDel(article_seq){
 			
 	  		location.href="/board/board_list";
 	  	}
-function goUpdate(index){
-	  var title=$("#title"+index).text();
-	  var writer=$("#writer"+index).text();
-	  //alert(title);
-	  //alert(writer);
-	  var newtitle="<input type='text' id='newtitle"+index+"' class='form-control' value='"+title+"'>";
-	  $("#title"+index).html(newtitle);
-	  var newwriter="<input type='text' id='newwriter"+index+"' class='form-control'value='"+writer+"'>";
-	  $("#writer"+index).html(newwriter);
-	  
-	  var newbtn="<button class='btn btn-success btn-sm' onclick='update("+index+")'>수정하기</button>"
-		  $("#update"+index).html(newbtn);
-	  
-}
-function update(index){
-	  var title=$("#newtitle"+index).val();
-	  var writer=$("#newwriter"+index).val();
-	  var idx = $("#idx"+index).text();
-	  $.ajax({  
-		  url : "${cpath}/update.do",
-		  type : "post",
-		  data : {"title" : title , "writer" : writer,"idx":idx},
-		  success : loadJson,
-		  error : function(){alert("error");}
-	  });  
-}
+
 </script>
 </head>
 <body>

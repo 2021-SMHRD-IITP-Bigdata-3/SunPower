@@ -23,6 +23,15 @@ public class ProductsController {
 	
 	private ProductsService service;
 	
+	
+	//장바구니 맵핑
+	@RequestMapping("product_cart")
+	public void cart() {
+		
+	}
+	
+	
+	
 	@RequestMapping("product_list")
 	public void list(HttpServletRequest req, Model model) {
 		
