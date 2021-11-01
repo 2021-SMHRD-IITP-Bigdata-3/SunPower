@@ -2,6 +2,7 @@ package kr.smhrd.service;
 
 import java.util.List;
 
+import kr.smhrd.domain.IngreCountDTO;
 import kr.smhrd.domain.ProductsDTO;
 import kr.smhrd.domain.ReviewsDTO;
 
@@ -16,4 +17,6 @@ public interface ProductsService {
 	public void writeReview(ReviewsDTO review);
 	
 	public List<ReviewsDTO> getReview(int prod_id);
+	
+	public IngreCountDTO getGB(char answer, int prod_id);
 }

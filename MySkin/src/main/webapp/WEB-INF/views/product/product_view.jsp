@@ -210,7 +210,7 @@ function add_cart(){
 				<!-- 위쪽 프로그래스바 -->
 				<td style="width:75%">
 					<div class="progress">
-						<div class="progress-bar bg-success" role="progressbar" style="width:60%">Good</div>
+						<div class="progress-bar bg-success" role="progressbar" style="width:${ingreG.o * 7 + 20}%">Good ${ingreG.o}</div>
 					</div>
 				</td>
 			</tr>
@@ -218,7 +218,7 @@ function add_cart(){
 				<!-- 아래쪽 프로그래스바 -->
 				<td style="width:75%">
 					<div class="progress">
-						<div class="progress-bar bg-danger" role="progressbar" style="width:20%">bad</div>
+						<div class="progress-bar bg-danger" role="progressbar" style="width:${ingreB.o * 7 + 20}%">bad ${ingreB.o}</div>
 					</div>
 				</td>
 			</tr>
@@ -231,7 +231,7 @@ function add_cart(){
 				<!-- 위쪽 프로그래스바 -->
 				<td style="width:75%">
 					<div class="progress">
-						<div class="progress-bar bg-success" role="progressbar" style="width:20%">Good</div>
+						<div class="progress-bar bg-success" role="progressbar" style="width:${ingreG.d * 7 + 20}%">Good ${ingreG.d}</div>
 					</div>
 				</td>
 			</tr>
@@ -239,7 +239,7 @@ function add_cart(){
 				<!-- 아래쪽 프로그래스바 -->
 				<td style="width:75%">
 					<div class="progress">
-						<div class="progress-bar bg-danger" role="progressbar" style="width:40%">bad</div>
+						<div class="progress-bar bg-danger" role="progressbar" style="width:${ingreB.d * 7 + 20}%">bad ${ingreB.d}</div>
 					</div>
 				</td>
 			</tr>
@@ -252,7 +252,7 @@ function add_cart(){
 				<!-- 위쪽 프로그래스바 -->
 				<td style="width:75%">
 					<div class="progress">
-						<div class="progress-bar bg-success" role="progressbar" style="width:70%">Good</div>
+						<div class="progress-bar bg-success" role="progressbar" style="width:${ingreG.s * 7 + 20}%">Good ${ingreG.s}</div>
 					</div>
 				</td>
 			</tr>
@@ -260,7 +260,7 @@ function add_cart(){
 				<!-- 아래쪽 프로그래스바 -->
 				<td style="width:75%">
 					<div class="progress">
-						<div class="progress-bar bg-danger" role="progressbar" style="width:40%">bad</div>
+						<div class="progress-bar bg-danger" role="progressbar" style="width:${ingreB.s * 7 + 20}%">bad ${ingreB.s}</div>
 					</div>
 				</td>
 			</tr>
@@ -325,7 +325,7 @@ function add_cart(){
 								</div>
 								<div class="tab_text_block">
 									<h2>제품 성분</h2>
-									<p>백설탕, 물엿, 식물성유지, 산도조절제 2종, 가당연유, 젤라틴, 혼합제제, 합성향료, 청사과농축과즙, 유화제 2종, 비타민C, 유크림, 혼합제제 그린칼라.</p>
+									<p>백설탕, 물엿, 식물성유지, 산도조절제 2종, 가당연유, 젤라틴, 혼합제제, 합성향료, 청사과농축과즙, 유화제 2종, 비타민C, 유크림, 혼합제제 그린칼라..</p>
 								</div>
 								<div class="tab_text_block">
 									<h2>제품 용량</h2>

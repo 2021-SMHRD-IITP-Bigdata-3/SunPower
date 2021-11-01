@@ -2,6 +2,9 @@ package kr.smhrd.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
+import kr.smhrd.domain.IngreCountDTO;
 import kr.smhrd.domain.ProductsDTO;
 import kr.smhrd.domain.ReviewsDTO;
 
@@ -15,4 +18,6 @@ public interface ProductsMapper {
 	public void writeReview(ReviewsDTO review);
 	
 	public List<ReviewsDTO> getReview(int prod_id);
+	
+	public IngreCountDTO getGB(@Param("answer")char answer, @Param("prod_id")int prod_id);
 }

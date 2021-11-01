@@ -8,7 +8,6 @@
 <title>상품 목록</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Colo Shop Template">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../resources/styles/bootstrap4/bootstrap.min.css">
 <link href="../resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -44,35 +43,31 @@
     line-height: 1.25;
     color: #fe4c50;
 }
+.product_li{
+
+}
+.product_li:hover {
+	background: #f3f3f3;
 </style>
 </head>
 <body>
 
 <div class="super_container">
-
 	<!-- Header -->
-
 	<header class="header trans_300">
-
 		<!-- Main Navigation -->
-
 		<div class="main_nav_container">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="index.html">SUN<span>POWER</span></a>
+							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="../">home</a></li>
-								<li><a href="#">shop</a></li>
-								<li><a href="#">promotion</a></li>
-								<li><a href="#">pages</a></li>
-								<li><a href="https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0">blog</a></li>
-								<li><a href="contact.html">contact</a></li>
+								<li><a href="index.html">home</a></li>
 							</ul>
-							<ul class="navbar_user">
+							<ul class="navbar_user" style="margin-bottom: 0px;">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
@@ -96,6 +91,7 @@
 
 	<!-- Hamburger Menu -->
 
+	<!-- Hamburger Menu -->
 	<div class="hamburger_menu">
 		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
 		<div class="hamburger_menu_content text-right">
@@ -108,10 +104,13 @@
 					<ul class="menu_selection">
 						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>로그인</a></li>
 						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>회원가입</a></li>
+						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>로그아웃</a></li>
+						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>구매한 상품</a></li>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="index.html">메인으로</a></li>
-				<li class="menu_item"><a href="#">shop</a></li>
+				<li class="menu_item"><a href="survey/survey">피부타입 재검사</a></li>
+				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
+				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
 			</ul>
 		</div>
 	</div>
@@ -121,49 +120,63 @@
 			<div class="col product_section clearfix">
 
 				<!-- Breadcrumbs -->
-				<div class="breadcrumbs d-flex flex-row align-items-center">
+								<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 15px;">
 					<ul>
 						<li><a href="../">홈</a></li>
 						<li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>상품 목록</a></li>
 					</ul>
 				</div>
-
 				<!-- Main Content -->
 				<div class="main_content">
-
 					<!-- Products -->
 					<div class="products_iso">
 						<div class="row">
 							<div class="col">
-							
 								<!-- Product Sorting -->
-
-									<div class="col-xs-12 col-md-8" style="float:left; width:60%;">
-										<ul class="product_sorting">
-											<li>
-												<span class="type_sorting_text">카테고리</span>
-												<i class="fa fa-angle-down"></i>
-												<ul class="sorting_type">
-													<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>best 상품</span></li>
-													<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>가격</span></li>
-													<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>신상품</span></li>
-												</ul>
-											</li>
-										</ul>
-									</div>
-									<div class="col-xs-6 col-md-4" style="float:right; width:40%;">
-										<ul class="product_sorting">
-											<li>
-												<span class="num_sorting_text">상품 표시개수</span>
-												<i class="fa fa-angle-down"></i>
-												<ul class="sorting_num">
-													<li class="num_sorting_btn"><span>30</span></li>
-													<li class="num_sorting_btn"><span>50</span></li>
-													<li class="num_sorting_btn"><span>100</span></li>
-												</ul>
-											</li>
-										</ul>
-									</div>
+								<div style="float:left; width:30%; margin-bottom:5px;">
+									<ul class="product_sorting">
+										<li>
+											<span class="type_sorting_text">카테고리</span>
+											<i class="fa fa-angle-down"></i>
+											<ul class="sorting_type">
+												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>best 상품</span></li>
+												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>가격</span></li>
+												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>이름순</span></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- 상품목록틀 -->
+						<div><!-- 상품 한개 틀 -->
+							<c:forEach items="${list}" var="product">
+								<div class="product_li" style="width:99%; margin:10px 5px;" onclick="location.href='product_view?prod_id=${product.prod_id}';">
+									<table>
+										<tr>
+											<td rowspan="4" style="float:center;">
+												<img src="../resources/product_img/${product.prod_id}.jpg" style="width:95px; height:95px;">
+											</td>
+											<!-- 위쪽 상품이름 -->
+											<td style="padding:0 10px; padding-top:5px; width:99%; display: inline-block; overflow:hidden; text-overflow:ellipsis; line-height:1; height:33.5px; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;">
+											${product.prod_name}
+											</td>
+										</tr>
+										<tr>
+											<td style="text-align:left; padding:0 10px; width:99%; color:silver">${product.prod_maker}</td>
+										</tr>
+										<tr>
+											<!-- 아래쪽 가격 -->
+											<td style="text-align:left; padding:0 10px; width:99%"><strong><span>${product.getFormat_price()}</span>원</strong></td>
+										</tr>
+										<tr>
+											<!-- 별점 불러오기 -->
+											<td style="text-align:left; padding:0 10px; width:99%"><i class="fa fa-star" style="color:#fac451;"></i>3</td>
+										</tr>
+									</table>
+								</div>
+							</c:forEach>
+						</div>
 
 								<!-- Product Grid -->
 

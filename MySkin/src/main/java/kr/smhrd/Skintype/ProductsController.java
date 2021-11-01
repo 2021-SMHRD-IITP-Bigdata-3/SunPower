@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.smhrd.domain.IngreCountDTO;
 import kr.smhrd.domain.MembersDTO;
 import kr.smhrd.domain.ReviewsDTO;
 import kr.smhrd.service.ProductsService;
@@ -37,8 +38,14 @@ public class ProductsController {
 	@RequestMapping("product_view")
 	public void prod_view(int prod_id, HttpServletRequest req, Model model) {
 		
+		// 상품목록 가져오기
 		model.addAttribute("product", service.get(prod_id));
+		// 리뷰 가져오기
 		model.addAttribute("review", service.getReview(prod_id));
+		// 좋은 or 나쁜 성분 카운트해서 가져오기
+		model.addAttribute("ingreG", service.getGB('g', prod_id));
+		model.addAttribute("ingreB", service.getGB('b', prod_id));
+		// 상품번호 저장
 		model.addAttribute("prod_id", prod_id);
 	}
 	
