@@ -222,9 +222,12 @@ function goForm(){
 			style="margin-top: 20px; border-top: solid 1px #ebebeb;">
 			<!-- 페이지 -->
 		</div>
+		
 		<div class="d-flex justify-content-end" style="margin: 10px 30px 0 0">
+		<c:if test="${sessionScope.members.mb_id != null}">
 			<button class="red_button review_submit_btn"
 				style="float: right; width: 60px; height: 30px" onclick="goForm()">글쓰기</button>
+				</c:if>
 		</div>	
 		<div style="display: block; text-align: center;">		
 		<c:if test="${paging.startPage != 1 }">
