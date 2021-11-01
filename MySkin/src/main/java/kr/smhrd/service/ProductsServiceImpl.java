@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.smhrd.domain.ProductsDTO;
+import kr.smhrd.domain.ReviewsDTO;
 import kr.smhrd.mapper.ProductsMapper;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -36,5 +37,17 @@ public class ProductsServiceImpl implements ProductsService {
 	public ProductsDTO get(int prod_id) {
 		
 		return mapper.read(prod_id);
+	}
+	
+	@Override
+	public void writeReview(ReviewsDTO review) {
+		
+		mapper.writeReview(review);
+	}
+	
+	@Override
+	public List<ReviewsDTO> getReview(int prod_id) {
+		
+		return mapper.getReview(prod_id);
 	}
 }

@@ -40,14 +40,10 @@
 
 
 <select id ="boardList" resultType="kr.smhrd.domain.ArticlesDTO">    
-       select * from articles order by article_SEQ DESC
+select ROW_NUMBER() OVER (ORDER BY reg_date desc) as article_seq, articles.* from articles order by reg_date desc
 </select>
-
-
 <select id="boardContent" parameterType="int" resultType="kr.smhrd.domain.ArticlesDTO">
        select*from articles where article_SEQ=#{article_SEQ}       
        
-</select>	
-
-
+</select>
 </mapper>

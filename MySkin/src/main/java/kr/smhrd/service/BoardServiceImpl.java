@@ -32,6 +32,11 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.selectBoard(vo);
 	}
 
+	@Override
+	public List<ArticlesDTO> boardList() {
+		return mapper.boardList();
+	}
+	
 	
 	
 }

@@ -27,11 +27,31 @@ public class BoardController {
 	@Autowired
 	private BoardService board_service;
 	
-	@RequestMapping("board_list")
-	public void board_list() {
+//	@RequestMapping("board_list")
+//	public void board_list(Model model) {
+//		model.addAttribute("list", board_service.boardList());
+//	}
+
+	@GetMapping("/board_list")
+	public void boardList(PagingVO vo, Model model
+			, @RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 		
+		int total = board_service.countBoard();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		model.addAttribute("paging", vo);
+		model.addAttribute("viewAll", board_service.selectBoard(vo));
+		model.addAttribute("list", board_service.boardList());
+		//return "board/board_list";
 	}
-	
 
 	@RequestMapping("board_write")
 	//@GetMapping("board-write")
@@ -58,35 +78,13 @@ public class BoardController {
 		model.addAttribute("to",to);
 		return "board/boardContent";
 	}
-//	@GetMapping("boardList")
-//	public String boardList(PagingVO vo, Model model
-//			, @RequestParam(value="nowPage", required=false)String nowPage
-//			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
-//		
-//		int total = board_service.countBoard();
-//		if (nowPage == null && cntPerPage == null) {
-//			nowPage = "1";
-//			cntPerPage = "5";
-//		} else if (nowPage == null) {
-//			nowPage = "1";
-//		} else if (cntPerPage == null) { 
-//			cntPerPage = "5";
-//		}
-//		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-//		model.addAttribute("paging", vo);
-//		model.addAttribute("viewAll", board_service.selectBoard(vo));
-//		return "board/board_list";
-//	}
-	@GetMapping("boardDelete.do")
+	
+	@GetMapping("/boardDelete.do")
 	public String boardDelete(int article_seq) {
 			mapper.boardDelete(article_seq);
-			return "redirect:/board_list";
+			return "redirect:/board/board_list";
 	}
-	@PostMapping("/boardUpdate.do")
-	//@RequestMapping(value="/boardUpdate.do",method=RequestMethod.POST) //post형식만 받겠다.
-	public String boardUpdate(ArticlesDTO to) {
-		mapper.boardUpdate(to);
-		
-		return "redirect:/board_list";
-	}
+	
+	
+	
 }

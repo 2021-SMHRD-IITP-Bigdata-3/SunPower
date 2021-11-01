@@ -14,8 +14,10 @@ public interface BoardMapper {
 	public ArticlesDTO viewDetail(int seq);
 	
 	public List<ArticlesDTO> boardList();
+	
 	public ArticlesDTO boardContent(int article_SEQ);
-
+	
+	
 	// 게시물 총 갯수
 	public int countBoard();
 
@@ -23,16 +25,14 @@ public interface BoardMapper {
 	public List<ArticlesDTO> selectBoard(PagingVO vo);
 	
 	// 조회수 +1
-	public boolean plusCnt(int seq);
-	public int insertBoard(ArticlesDTO to);
-	// 게시물 삭제
-	public boolean deleteBoard(int seq);
-	public void boardInsert(ArticlesDTO to);
-	public void boardUpdate(ArticlesDTO to);
-	
-	@Delete("delete from articles where article_seq=#{article_seq}")
-	public void boardDelete(int article_seq);
-	
-	@Update("update articles set article_title=#{article_title}, mb_id=#{mb_id} where article_seq = #{article_seq}")
-	public void update(ArticlesDTO to);
+		public boolean plusCnt(int article_SEQ);
+		public int insertBoard(ArticlesDTO to);
+		// 게시물 삭제
+		//public void deleteBoard(int article_SEQ);
+		public void boardInsert(ArticlesDTO to);
+		public void boardUpdate(ArticlesDTO to);
+		
+		@Delete("delete from articles where article_seq=#{article_seq}")
+		public void boardDelete(int article_seq);
+
 }
