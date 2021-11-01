@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
+<c:set var='cpath' value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -114,7 +117,7 @@ function add_cart(){
 			<ul class="menu_top_nav">
 				<li class="menu_item has-children">
 					<a href="#">
-						내 계정
+						내 계정 ${SessionScope.member.mb_id }
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection">
@@ -275,7 +278,7 @@ function add_cart(){
 						<ul class="tabs d-flex justify-content-center">
 							<li class="tab active" data-active-tab="tab_1"><span>상품 상세정보</span></li>
 							<li class="tab" data-active-tab="tab_2"><span>성분정보</span></li>
-							<li class="tab" data-active-tab="tab_3"><span>상품리뷰 (2)</span></li>
+							<li class="tab" data-active-tab="tab_3"><span>상품리뷰 (${fn:length(review)})</span></li>
 						</ul>
 					</div>
 				</div>
@@ -341,37 +344,43 @@ function add_cart(){
 
 							<div class="col-lg-6 reviews_col">
 								<div class="tab_title reviews_title" style="text-align:center">
-									<h4>상품리뷰 (2)</h4>
+									<h4>상품리뷰 (${fn:length(review)})</h4>
 								</div>
 
 								<!-- User Review -->
-
+								<c:forEach items="${review}" var="review">
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
 										<div class="user_pic"></div>
 										<div class="user_rating">
 											<ul class="star_rating">
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star" aria-hidden="true"></i></li>
-												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											<c:forEach var="i" begin="1" end="5" step="1">
+												<c:choose>
+												<c:when test="${i <= review.review_rating}">
+													<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												</c:when>
+												<c:otherwise>
+													<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+												</c:otherwise>
+												</c:choose>
+											</c:forEach>
 											</ul>
 										</div>
 									</div>
 									<div class="review">
-										<div class="review_date">27 Aug 2016</div>
-										<div class="user_name">Brandon William</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										<div class="review_date">${review.reg_date}</div>
+										<div class="user_name">${review.mb_id}</div>
+										<p>${review.review_content}</p>
 									</div>
 								</div>
+								</c:forEach>
 							</div>
 
 							<!-- Add Review -->
-
+							<c:if test="${sessionScope.members.mb_id != null}">
 							<div class="col-lg-6 add_review_col">
 								<div class="add_review">
-									<form id="review_form" action="post">
+									<form action="write_review" method="post">
 										<div>
 											<h1>리뷰 작성</h1>
 										</div>
@@ -380,34 +389,37 @@ function add_cart(){
 											<ul class="user_star_rating">
 												<!-- 별점부분 추가 -->
 												<div class="star-rating">
-												  <input type="radio" id="5-stars" name="rating" value="5" onclick='getRating(event)' />
+												<!-- <input type="radio" id="5-stars" name="rating" value="5" onclick='getRating(event)' /> -->
+												  <input type="radio" id="5-stars" name="review_rating" value="5" />
 												  <label for="5-stars" class="star">&#9733;</label>
-												  <input type="radio" id="4-stars" name="rating" value="4" onclick='getRating(event)'/>
+												  <input type="radio" id="4-stars" name="review_rating" value="4" />
 												  <label for="4-stars" class="star">&#9733;</label>
-												  <input type="radio" id="3-stars" name="rating" value="3" onclick='getRating(event)'/>
+												  <input type="radio" id="3-stars" name="review_rating" value="3" />
 												  <label for="3-stars" class="star">&#9733;</label>
-												  <input type="radio" id="2-stars" name="rating" value="2" onclick='getRating(event)'/>
+												  <input type="radio" id="2-stars" name="review_rating" value="2" />
 												  <label for="2-stars" class="star">&#9733;</label>
-												  <input type="radio" id="1-star" name="rating" value="1" onclick='getRating(event)'/>
+												  <input type="radio" id="1-star" name="review_rating" value="1" />
 												  <label for="1-star" class="star">&#9733;</label>
 												</div>
-												<div id='result'></div>
-												<script>
+												<!--  <script>
 												function getRating(event) {
 												  document.getElementById('result').innerText = 
 													event.target.value;
 												}
 												</script>
-
+												-->
 											</ul>
-											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
+											<textarea id="review_message" class="input_review" name="review_content"  placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
 										</div>
 										<div class="text-left text-sm-right">
 											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
 										</div>
+										<input type="hidden" name="prod_id" value="${prod_id}" />
+										<input type="hidden" name="mb_id" value="${members.mb_id}" />
 									</form>
 								</div>
 							</div>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -421,7 +433,7 @@ function add_cart(){
 				<ul class="tabs d-flex justify-content-center">
 					<li class="tab active" data-active-tab="tab_1"><span>상품 상세정보</span></li>
 					<li class="tab" data-active-tab="tab_2"><span>성분정보</span></li>
-					<li class="tab" data-active-tab="tab_3"><span>상품리뷰 (2)</span></li>
+					<li class="tab" data-active-tab="tab_3"><span>상품리뷰 (${fn:length(review)})</span></li>
 				</ul>
 			</div>
 		</div>
