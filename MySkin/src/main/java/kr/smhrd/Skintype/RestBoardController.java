@@ -43,28 +43,7 @@ public class RestBoardController {
 		List<ArticlesDTO> list =mapper.boardList();
 		return list; //ajax() : list(Object) -> Json(String)로 변환시켜서 클라이언트
 	}
-	@GetMapping("boardList")
-	public String boardList(PagingVO vo, Model model
-			, @RequestParam(value="nowPage", required=false)String nowPage
-			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
-		
-		int total = board_service.countBoard();
-		if (nowPage == null && cntPerPage == null) {
-			nowPage = "1";
-			cntPerPage = "5";
-		} else if (nowPage == null) {
-			nowPage = "1";
-		} else if (cntPerPage == null) { 
-			cntPerPage = "5";
-		}
-		vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		model.addAttribute("paging", vo);
-		model.addAttribute("viewAll", board_service.selectBoard(vo));
-		return "board/board_list";
-	}
-	@RequestMapping("/delete.do")
-	public void delete(int article_seq) {
-		mapper.boardDelete(article_seq);	
-	}
+	
+	
 	
 }
