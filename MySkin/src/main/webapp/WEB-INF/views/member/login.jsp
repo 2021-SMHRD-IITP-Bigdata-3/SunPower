@@ -102,7 +102,7 @@
 				<div class="container" style="margin-bottom:20px">
 					<label class="control-label" for="id">아이디</label>
 					<input class="form-control" type="text" style="width:100%;" placeholder="아이디를 입력하세요." name="mb_id" id="id" required>
-
+ 
 				</div>
 				<div class="container">
 					<label class="control-label" for="pwd">비밀번호</label>
@@ -110,10 +110,10 @@
 
 				</div>
 				<div style="text-align:center; margin:20px">
-					<a href="register">태양계에 처음이신가요?</a>
+					<a href="register">혹시 화분이 처음이신가요?</a>
 				</div>
 				<div class="radio icheck-danger" style="margin:20px;">
-					<button class="btn btn-success" style="width:100%;" type="submit" >로그인</button>
+					<button class="btn" style="width:100%; color: #fff; background-color: #ff3848; border-color: #28a745;" type="submit" >로그인</button>
 				</div>
 			</div>
 		</form>
