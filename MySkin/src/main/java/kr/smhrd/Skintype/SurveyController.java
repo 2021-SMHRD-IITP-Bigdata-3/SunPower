@@ -31,4 +31,17 @@ public class SurveyController {
 	public void d_survey(Model model) {
 		
 	}
+	
+	@RequestMapping("img_analysis")
+	public void i_analysis(Model model) {
+			
+	}
+	@RequestMapping("img_analysis_result")
+	public void i_analysis_result(Model model) {
+			
+	}
+	
+	
+	
+	
 }
