@@ -57,10 +57,7 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 	src : url("../../resources/fonts/koverwatch.ttf");
 	font-family:'over';
 }
-@font-face {
-	src : url("../../resources/fonts/AuctionGothic_Medium.ttf");
-	font-family:'AC';
-}
+
 </style>
 </head>
 
@@ -114,15 +111,21 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection">
+						<c:if test="${sessionScope.members.mb_id == null}">
 						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
 						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
+						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
 						<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
 						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;구매한 상품</a></li>
 						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="survey/survey">피부타입 재검사</a></li>
+				<li class="menu_item"><a href="survey/survey">피부타입 
+					<c:if test="${sessionScope.members.st_id != null}">
+					재
+					</c:if>
+				검사</a></li>
 				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
 				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
 			</ul>
