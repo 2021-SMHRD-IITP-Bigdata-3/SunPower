@@ -37,6 +37,20 @@ COLOR PALETTE
 ***********/
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,900');
+@font-face {
+	src : url("../../resources/fonts/AuctionGothic_Light.ttf");
+	font-family:'AC_L';
+}
+@font-face {
+     font-family: 'S-D';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+@font-face {
+	src : url("../../resources/fonts/AuctionGothic_Medium.ttf");
+	font-family:'AC';
+}
 
 /*********************************
 2. Body and some general stuff
@@ -46,6 +60,14 @@ COLOR PALETTE
 {
 	margin: 0;
 	padding: 0;
+}
+a
+{
+	font-family: 'S-D';
+	font-size: 14px;
+	line-height: 1.7;
+	font-weight: 500;
+	color: #989898;
 }
 body
 {
@@ -71,7 +93,7 @@ ul
 }
 p
 {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'S-D';
 	font-size: 14px;
 	line-height: 1.7;
 	font-weight: 500;

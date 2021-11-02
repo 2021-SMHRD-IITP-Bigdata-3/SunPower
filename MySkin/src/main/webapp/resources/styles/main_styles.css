@@ -51,6 +51,10 @@ COLOR PALETTE
      font-weight: normal;
      font-style: normal;
 }
+@font-face {
+	src : url("../../resources/fonts/AuctionGothic_Medium.ttf");
+	font-family:'AC';
+}
 
 /*********************************
 2. Body and some general stuff
