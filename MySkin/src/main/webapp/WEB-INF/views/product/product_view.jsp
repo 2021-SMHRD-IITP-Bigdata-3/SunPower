@@ -88,7 +88,7 @@ function add_cart(){
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="/">home</a></li>
+								<li><a href="../">home</a></li>
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>

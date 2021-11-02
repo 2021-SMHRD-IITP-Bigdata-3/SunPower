@@ -80,11 +80,11 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="index.html"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="../"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="/">home</a></li>
+								<li><a href="../">home</a></li>
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>

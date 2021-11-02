@@ -62,11 +62,11 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="index.html">SUN<span>POWER</span></a>
+							<a href="../">SUN<span>POWER</span></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="/">home</a></li>
+								<li><a href="../">home</a></li>
 								<li><a href="/product/product_list">shop</a></li>
 								<li><a href="#">promotion</a></li>
 								<li><a href="#">pages</a></li>
