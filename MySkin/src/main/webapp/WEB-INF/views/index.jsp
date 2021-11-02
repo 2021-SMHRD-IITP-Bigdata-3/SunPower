@@ -205,7 +205,7 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 
 	<!-- 신상품 탭 -->
 	<div class="best_sellers">
-		<a href="https://www.naver.com">
+		<a href="survey/choice_survey">
 			<div class="benefit_item d-flex flex-row align-items-center" style="background:#ffd868; margin-top:20px;">
 				<div class="benefit_icon"><i class="fa fa-search" aria-hidden="true"></i></div>
 				<div class="benefit_content">
