@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>화분::나에게 맞는 화장품 분석</title>
+<title>화분::나에게맞는 화장품 분석</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Colo Shop Template">
@@ -200,7 +200,7 @@
 													<c:out value="${product.prod_name}" />
 												</a>
 											</h6>
-											<div class="product_price"><span><c:out value="${product.getFormat_price()}+6000" />원</span>&nbsp;<c:out value="${product.getFormat_price()}" />원</div>
+											<div class="product_price"><span><c:out value="${product.getFormat_price2()}" />원</span>&nbsp;<c:out value="${product.getFormat_price()}" />원</div>
 										</div>
 									</div>
 								</div>
