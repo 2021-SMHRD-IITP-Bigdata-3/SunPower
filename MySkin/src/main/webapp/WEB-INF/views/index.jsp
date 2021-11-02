@@ -20,21 +20,53 @@
 <link rel="stylesheet" type="text/css" href="../../resources/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="../../resources/styles/responsive.css">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+
+<!-- 랜덤 스크립트 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+var banner1=new Array();
+banner1[0]="안녕하세요.";
+banner1[1]="어서오세요.";
+banner1[2]="반가워요.";
+banner1[3]="등장!";
+var random_banner1=Math.floor(Math.random()*(banner1.length));
+</script>
+<script>
+var banner2=new Array();
+banner2[0]="이제, 화장품은 선택은 화분에서!";
+banner2[1]="무방비한 자외선노출은 피부노화의 원인입니다.";
+banner2[2]="당신을 괴롭히는 피부고민이 있나요?";
+banner2[3]="흡연은 피부를 더 늙게만들고 주름지게 합니다.";
+banner2[4]="흡연은 피부를 더 늙게만들고 주름지게 합니다.";
+var random_banner2=Math.floor(Math.random()*(banner2.length));
+</script>
+
 <style>
 @font-face {
-    font-family: 'SF_HambakSnow';
+    font-family:'SF_HambakSnow';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_HambakSnow.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+@font-face {
+	src : url("../../resources/fonts/koverwatch.ttf");
+	font-family:'over';
+}
+@font-face {
+	src : url("../../resources/fonts/AuctionGothic_Medium.ttf");
+	font-family:'AC';
 }
 </style>
 </head>
 
 <body>
 <!-- 가장 외부 div 틀 -->
-<div class="super_container">
+<div class="super_container" style="font-family:AC;">
 	<!-- 헤더 -->
 	<header class="header trans_300">
 		<!-- 상단부 메뉴 -->
@@ -84,8 +116,10 @@
 					<ul class="menu_selection">
 						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
 						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
+						<c:if test="${sessionScope.members.mb_id != null}">
 						<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
 						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;구매한 상품</a></li>
+						</c:if>
 					</ul>
 				</li>
 				<li class="menu_item"><a href="survey/survey">피부타입 재검사</a></li>
@@ -96,9 +130,17 @@
 	</div>
 
 	<!-- 상단 이벤트 알림 -->
-	<div><br></div>
-	<div><br></div>
-	<div><br></div>
+	<div><br><br><br></div>
+	<c:if test="${sessionScope.members.mb_id != null}">
+	<div class="benefit_item d-flex flex-row align-items-center" style="background:white;">
+		<div class="benefit_icon"><i class="fa fa-smile-o" aria-hidden="true"></i></div>
+		<div class="benefit_content">
+			<h5><strong>${members.mb_id}님 &nbsp;<script>document.write(banner1[random_banner1]);</script></strong></h5>
+			<p style="font-size:13px"><strong><script>document.write(banner2[random_banner2]);</script></strong></p>
+		</div>
+	</div>
+	</c:if>
+
 
 	<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 		<div class="carousel-indicators">
@@ -175,14 +217,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<div class="section_title new_arrivals_title">
+					<div class="section_title new_arrivals_title" style=" margin-top: 20px;">
 						<h2>새로나온 상품</h2>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col">
-					<div class="product_slider_container">
+					<div class="product_slider_container" style=" margin-top: 20px;">
 						<div class="owl-carousel owl-theme product_slider">
 							<!-- Slide  -->
 							<c:forEach items="${list}" var="product">
@@ -221,7 +263,7 @@
 	</div>
 
 
-	<div class="blogs">
+	<div class="blogs" style="margin-top:30px;">
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
@@ -316,7 +358,7 @@
 	<div class="newsletter">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-6" style="padding:0">
 					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
 						<h4>SNS 공유하기</h4>
 						<p>태양광발전소가 저렴한 가격을 유지할 수 있도록 홍보해주세요!</p>
