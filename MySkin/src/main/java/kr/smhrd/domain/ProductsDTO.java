@@ -19,4 +19,7 @@ public class ProductsDTO {
 		return String.format("%,d", prod_price);
 	}
 
+	public String getFormat_price2() {
+		return String.format("%,d", prod_price+30000);
+	}
 }
