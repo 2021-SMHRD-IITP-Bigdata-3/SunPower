@@ -93,7 +93,7 @@
 			<div class="breadcrumbs" style="margin-bottom: 10px;"></div>
 			<main class="h-full overflow-y-auto">
 				<div class="container px-6 mx-auto grid">
-					<div id="surveyElement" style="display: inline-block; width: 100%;">1111111111111111111111111111111111111</div>
+					<div id="surveyElement" style="display: inline-block; width: 100%;"></div>
 					<div id="surveyResult"></div>
 				</div>
 			</main>
@@ -119,7 +119,7 @@
 			Survey
 		    .StylesManager
 		    .applyTheme("modern");
-		
+			
 		var json = {
 		    "title": "간단 피부타입 테스트", "showProgressBar": "top", "goNextPageAutomatic": true, "showNavigationButtons": true,
 		    "pages": [
@@ -267,7 +267,7 @@
 		        document
 		            .querySelector('#surveyResult')
 		            // .textContent = "Result JSON:\n" + JSON.stringify(sender.data, null, 3);
-				
+		        
 				for(var i = 0; i < len; i++) {
 					var name = "question" + (i+1);
 					console.log(name);
@@ -291,7 +291,9 @@
           		} else if(x>=0 && y<=0) {
           			result = "복합성피부";
           		}
-				location.href = "survey_test_result?result=" + result;
+				
+				var url = "survey_test_result?result=" + result + "&mb_id=${members.mb_id}";
+				location.href = url;
 		    });
 		$("#surveyElement").Survey({model: survey});
 	</script>

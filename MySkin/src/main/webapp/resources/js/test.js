@@ -1379,7 +1379,8 @@ var json = {
 			result += (wt < 41) ? "T" : "W";
 			console.log(result);
 			
-			location.href = "SurveyServiceCon?result=" + result; 
+			var url = "survey_test_result?result=" + result + "&mb_id=${members.mb_id}";
+			location.href = url; 
 	    });
 	
 	survey.showQuestionNumbers = "off";
