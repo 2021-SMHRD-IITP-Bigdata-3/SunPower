@@ -139,9 +139,10 @@
 											<span class="type_sorting_text">카테고리</span>
 											<i class="fa fa-angle-down"></i>
 											<ul class="sorting_type">
-												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>best 상품</span></li>
-												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>가격</span></li>
-												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>이름순</span></li>
+												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>이름순</span></li>
+												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>가격높은순</span></li>
+												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>가격낮은순</span></li>
+												<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>별점순</span></li>
 											</ul>
 										</li>
 									</ul>
