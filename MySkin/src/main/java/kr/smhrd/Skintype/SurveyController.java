@@ -22,13 +22,13 @@ public class SurveyController {
 		
 	}
 	
-	@RequestMapping("s_survey")
-	public void s_survey(Model model) {
+	@RequestMapping("survey_test")
+	public void survey_test(Model model) {
 		
 	}
 	
-	@RequestMapping("d_survey")
-	public void d_survey(Model model) {
+	@RequestMapping("survey_test_detail")
+	public void survey_test_detail(Model model) {
 		
 	}
 	
@@ -40,8 +40,4 @@ public class SurveyController {
 	public void i_analysis_result(Model model) {
 			
 	}
-	
-	
-	
-	
 }
