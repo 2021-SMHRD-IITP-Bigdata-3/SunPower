@@ -7,7 +7,6 @@
 <title>회원가입</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Colo Shop Template">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../../../resources/styles/bootstrap4/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../../../resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -32,7 +31,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
@@ -52,28 +51,25 @@
 </head>
 
 <body>
-
-<div class="super_container">
-	<!-- Header -->
+<!-- 가장 외부 div 틀 -->
+<div class="super_container" style="font-family:AC;">
+	<!-- 헤더 -->
 	<header class="header trans_300">
-		<!-- Main Navigation -->
+		<!-- 상단부 메뉴 -->
 		<div class="main_nav_container">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-right">
+						<!-- 로고 -->
 						<div class="logo_container">
-							<a href="../">SUN<span>POWER</span></a>
+							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
+						<!-- 상단 아이콘(장바구니, 마이페이지 모양) -->
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="../">home</a></li>
-								<li><a href="/product/product_list">shop</a></li>
-								<li><a href="#">promotion</a></li>
-								<li><a href="#">pages</a></li>
-								<li><a href="https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0">blog</a></li>
-								<li><a href="contact.html">contact</a></li>
+								<li><a href="/">home</a></li>
 							</ul>
-							<ul class="navbar_user">
+							<ul class="navbar_user" style="margin-bottom: 0px;">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
@@ -92,95 +88,100 @@
 			</div>
 		</div>
 	</header>
-
-	<div class="fs_menu_overlay"></div>
-	
-	<!-- Hamburger Menu -->
+	<!-- 우측 메뉴 -->
 	<div class="hamburger_menu">
 		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-		<div class="hamburger_menu_content text-right">
+		<div class="hamburger_menu_content">
 			<ul class="menu_top_nav">
 				<li class="menu_item has-children">
 					<a href="#">
-						내 계정
+						<strong>내 계정</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection">
-						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>로그인</a></li>
-						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>회원가입</a></li>
+						<c:if test="${sessionScope.members.mb_id == null}">
+						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
+						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
+						</c:if>
+						<c:if test="${sessionScope.members.mb_id != null}">
+						<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
+						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;구매한 상품</a></li>
+						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="/">메인으로</a></li>
-				<li class="menu_item"><a href="/product/product_list">shop</a></li>
+				<li class="menu_item"><a href="survey/survey">피부타입 
+					<c:if test="${sessionScope.members.st_id != null}">
+					재
+					</c:if>
+				검사</a></li>
+				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
+				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
 			</ul>
 		</div>
 	</div>
 
-	<div class="container contact_container">
-		<div class="container" style="width: 750px;">
-			<div class="row">
-				<div class="col">
-					<!-- Breadcrumbs -->
-					<div class="breadcrumbs" style="margin-bottom: 10px;"></div>
-					<h3 style="margin-bottom: 20px;">태양</h3>
-				</div>
-			</div>
+	<div class="contact_container" style="width:auto; margin-top:50px;">
+		<div class="container">
+			<!-- breadcrumbs = 상단여백, 줄 넣기 -->
+			<div class="breadcrumbs" style="margin-bottom: 10px;"></div>
+			<h3 style="margin-bottom: 20px;">화분가입</h3>
 			<form action="register" method="post" id="myForm">
 				<form action="/action_page.php" class="was-validated">
-				
-					<div class="container" style="padding: 10px; padding-left:100px">
-						<label class="control-label" for="id">아이디</label>
-						<input class="form-control" type="text" style="width:230px;" placeholder="아이디를 입력하세요." name="mb_id" id="mb_id" required>
-						<span id="overlapErr" class="help-block"><p style="color:red;">사용할 수 없는 아이디 입니다.</p></span>
-						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-					</div>
-					
-					<div class="container" style="padding: 10px; padding-left:100px">
-						<label class="control-label" for="pwd">비밀번호</label>
-						<input class="form-control" type="password" style="width:230px;" placeholder="비밀번호를 입력하세요." name="mb_pwd" id="pwd" required>
-						<span id="pwdRegErr" class="help-block"><p style="color:red;">8글자 이상 입력해 주세요.</p></span>
-						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-					</div>
-					
-					<div class="container" style="padding: 10px; padding-left:100px">
-						<label class="control-label" for="rePwd">비밀번호 재확인</label>
-						<input class="form-control" type="password" style="width:230px;" placeholder="비밀번호를 입력하세요."name="rePwd" id="rePwd" required>
-						<span id="rePwdErr" class="help-block"><p style="color:red;">비밀번호와 일치하지 않습니다. 다시 입력해 주세요.</p></span>
-						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
-					</div>
-					
-					<div class="container" style="padding: 10px; padding-left:100px">
-						<label for="uname" class="form-label">이름</label>
-						<input type="text" class="form-control" style="width:230px;" placeholder="이름을 입력하세요." name="mb_name" id="uname" required>
-					</div>
-					
-					
-					<div class="container" style="padding: 10px; padding-left:100px">
-						<div><strong>성별</strong></div>
-						<div class="radio icheck-peterriver" style="float: left; width: 33%;">
-							<input type="radio" id="man" name="gender" value="M" required>
-							<label for="man"><strong>남자</strong></label>
+					<div>
+						<div style="padding:0 10px;">
+							<label class="control-label" for="id">아이디</label>
+							<input class="form-control" type="text" style="width:230px;" placeholder="아이디를 입력하세요." name="mb_id" id="mb_id" required>
+							<span id="overlapErr" class="help-block"><p style="color:red;">사용할 수 없는 아이디 입니다.</p></span>
+							<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 						</div>
-						<div class="radio icheck-danger" style="float: left; width: 33%;">
-							<input type="radio" id="woman" name="gender" value="W" required>
-							<label for="woman"><strong>여자</strong></label>
+						
+						<div class="container" style="padding: 10px; padding-left:100px">
+							<label class="control-label" for="pwd">비밀번호</label>
+							<input class="form-control" type="password" style="width:230px;" placeholder="비밀번호를 입력하세요." name="mb_pwd" id="pwd" required>
+							<span id="pwdRegErr" class="help-block"><p style="color:red;">8글자 이상 입력해 주세요.</p></span>
+							<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 						</div>
-					</div>
-					
-					<div class="container" style="padding: 10px; padding-left:100px">
-						<label class="control-label" for="birth">생년월일</label>
-						<input type="text" id="date" name="mb_birth" class="form-control" placeholder="yyyy-mm-dd" data-dtp="dtp_e544G" style="width:110px;" required>
-						<label for="date" class="control-label"></label>
-					</div> 
-					
-					<div class="container" style="padding: 10px;">
+						
+						<div class="container" style="padding: 10px; padding-left:100px">
+							<label class="control-label" for="rePwd">비밀번호 재확인</label>
+							<input class="form-control" type="password" style="width:230px;" placeholder="비밀번호를 입력하세요."name="rePwd" id="rePwd" required>
+							<span id="rePwdErr" class="help-block"><p style="color:red;">비밀번호와 일치하지 않습니다. 다시 입력해 주세요.</p></span>
+							<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+						</div>
+						
+						<div class="container" style="padding: 10px; padding-left:100px">
+							<label for="uname" class="form-label">이름</label>
+							<input type="text" class="form-control" style="width:230px;" placeholder="이름을 입력하세요." name="mb_name" id="uname" required>
+						</div>
 						
 						
-						<div class="radio icheck-peterriver" style="float: left; width: 33%; padding-left:50px">
-							<button class="btn btn-danger" type="button" onclick="goBack()" style="float: left; width: 100px;">뒤로가기</button>
+						<div class="container" style="padding: 10px; padding-left:100px">
+							<div><strong>성별</strong></div>
+							<div class="radio icheck-peterriver" style="float: left; width: 33%;">
+								<input type="radio" id="man" name="gender" value="M" required>
+								<label for="man"><strong>남자</strong></label>
+							</div>
+							<div class="radio icheck-danger" style="float: left; width: 33%;">
+								<input type="radio" id="woman" name="gender" value="W" required>
+								<label for="woman"><strong>여자</strong></label>
+							</div>
 						</div>
-						<div class="radio icheck-danger" style="float: left; width: 33%; padding-left:150px">
-							<button class="btn btn-success" type="submit" style="float: left; width: 100px ;">회원가입</button>
+						
+						<div class="container" style="padding: 10px; padding-left:100px">
+							<label class="control-label" for="birth">생년월일</label>
+							<input type="text" id="date" name="mb_birth" class="form-control" placeholder="yyyy-mm-dd" data-dtp="dtp_e544G" style="width:110px;" required>
+							<label for="date" class="control-label"></label>
+						</div> 
+						
+						<div class="container" style="padding: 10px;">
+							
+							
+							<div class="radio icheck-peterriver" style="float: left; width: 33%; padding-left:50px">
+								<button class="btn btn-danger" type="button" onclick="goBack()" style="float: left; width: 100px;">뒤로가기</button>
+							</div>
+							<div class="radio icheck-danger" style="float: left; width: 33%; padding-left:150px">
+								<button class="btn btn-success" type="submit" style="float: left; width: 100px ;">회원가입</button>
+							</div>
 						</div>
 					</div>
 				</form>
