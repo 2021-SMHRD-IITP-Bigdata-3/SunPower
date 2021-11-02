@@ -6,8 +6,8 @@ import lombok.Data;
 public class SkinTypesDTO {
 
 	private int st_id;
+	private String st_class;
 	private String st_name;
 	private String st_content;
-	private String st_care;
-	
+	private String st_care;	
 }

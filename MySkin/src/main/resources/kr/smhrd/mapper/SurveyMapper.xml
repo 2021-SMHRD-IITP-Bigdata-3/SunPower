@@ -3,7 +3,15 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.mapper.SurveyMapper">
-
+	<update id="updateSkin">
+		update members 
+		set st_id = (
+						select st_id from skintypes where st_class = #{result}
+					) 
+		where mb_id = #{mb_id}
+	</update>
 	
-
+	<select id="getSC" resultType="kr.smhrd.domain.SkinTypesDTO">
+		select * from skintypes where st_class = #{st_class}
+	</select>
 </mapper>

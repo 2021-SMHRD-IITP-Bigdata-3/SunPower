@@ -90,7 +90,7 @@
 		<div class="container" style="text-align:center">
 			<!-- breadcrumbs = 상단여백, 줄 넣기 -->
 			<div class="breadcrumbs" style="margin-bottom: 50px;"></div>
-			<h3 style="margin-bottom: 50px; font-size:25px">남준성 님에 대한<br>피부타입을 알고싶어요</h3>
+			<h3 style="margin-bottom: 50px; font-size:25px">${members.mb_name} 님에 대한<br>피부타입을 알고싶어요</h3>
 		</div>
 		<h1 style="font-size:15px; text-align:center">피부타입 자가진단을 하시면 <br> 가장 잘 맞는 화장품을 추천해드릴게요.</h1>
 		<div class="container" style="width:100%; height:auto; margin:auto;">

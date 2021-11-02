@@ -30,8 +30,6 @@ public class ProductsController {
 		
 	}
 	
-	
-	
 	@RequestMapping("product_list")
 	public void list(HttpServletRequest req, Model model) {
 		
@@ -59,7 +57,7 @@ public class ProductsController {
 	}
 	
 	@PostMapping("write_review")
-	public String write_review(ReviewsDTO review, HttpServletRequest req, Model model) {
+	public String write_review(ReviewsDTO review, Model model) {
 		
 		service.writeReview(review);
 		
