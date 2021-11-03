@@ -47,11 +47,17 @@ public class ProductsController {
 		
 		// 상품목록 가져오기
 		model.addAttribute("product", service.get(prod_id));
+		
 		// 리뷰 가져오기
 		model.addAttribute("review", service.getReview(prod_id));
+		
 		// 좋은 or 나쁜 성분 카운트해서 가져오기
 		model.addAttribute("ingreG", service.getGB('g', prod_id));
 		model.addAttribute("ingreB", service.getGB('b', prod_id));
+		
+		// 성분정보 저장
+		model.addAttribute("ingre", service.getIngre(prod_id));
+		
 		// 상품번호 저장
 		model.addAttribute("prod_id", prod_id);
 	}

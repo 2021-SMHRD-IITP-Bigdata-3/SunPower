@@ -1379,7 +1379,7 @@ var json = {
 			result += (wt < 41) ? "T" : "W";
 			console.log(result);
 			
-			var url = "survey_test_result?result=" + result + "&mb_id=${members.mb_id}";
+			var url = "survey_test_result?result=" + result + "&mb_id=" + mb_id;
 			location.href = url; 
 	    });
 	

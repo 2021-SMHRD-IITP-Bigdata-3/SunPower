@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.smhrd.domain.IngreCountDTO;
+import kr.smhrd.domain.IngredientsDTO;
 import kr.smhrd.domain.ProductsDTO;
 import kr.smhrd.domain.ReviewsDTO;
 import kr.smhrd.mapper.ProductsMapper;
@@ -56,5 +57,11 @@ public class ProductsServiceImpl implements ProductsService {
 	public IngreCountDTO getGB(char answer, int prod_id) {
 		
 		return mapper.getGB(answer, prod_id);
+	}
+	
+	@Override
+	public List<IngredientsDTO> getIngre(int prod_id) {
+		
+		return mapper.getIngre(prod_id);
 	}
 }

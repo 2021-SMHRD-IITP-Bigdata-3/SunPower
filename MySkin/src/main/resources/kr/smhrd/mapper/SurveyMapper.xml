@@ -14,4 +14,117 @@
 	<select id="getSC" resultType="kr.smhrd.domain.SkinTypesDTO">
 		select * from skintypes where st_class = #{st_class}
 	</select>
+	
+	<select id="getRecomProd" parameterType="String" resultType="kr.smhrd.domain.ProductsDTO"> 
+		select *
+		from products
+		where prod_name in
+		<choose>
+		<when test="_parameter.equals('DSPT')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_P_VIEW)
+		</when>
+		<when test="_parameter.equals('DSNT')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_S_VIEW)
+		</when>
+		<when test="_parameter.equals('DSPW')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</when>
+		<when test="_parameter.equals('DSNW')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</when>
+		<when test="_parameter.equals('DRPT')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_P_VIEW)
+		</when>
+		<when test="_parameter.equals('DRNT')">
+			(select * from SK_D_VIEW)
+		</when>
+		<when test="_parameter.equals('DRPW')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</when>
+		<when test="_parameter.equals('DRNW')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</when>
+		<when test="_parameter.equals('OSPT')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_P_VIEW)
+		</when>
+		<when test="_parameter.equals('OSNT')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_S_VIEW)
+		</when>
+		<when test="_parameter.equals('OSPW')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</when>
+		<when test="_parameter.equals('OSNW')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</when>
+		<when test="_parameter.equals('ORPT')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</when>
+		<when test="_parameter.equals('ORNT')">
+			(select * from SK_O_VIEW)
+		</when>
+		<when test="_parameter.equals('ORPW')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</when>
+		<when test="_parameter.equals('ORNW')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</when>
+		<otherwise>
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_W_VIEW)
+		</otherwise>
+		</choose>
+	</select>
 </mapper>

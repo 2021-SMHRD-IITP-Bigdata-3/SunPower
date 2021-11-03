@@ -325,7 +325,11 @@ function add_cart(){
 								</div>
 								<div class="tab_text_block">
 									<h2>제품 성분</h2>
-									<p>백설탕, 물엿, 식물성유지, 산도조절제 2종, 가당연유, 젤라틴, 혼합제제, 합성향료, 청사과농축과즙, 유화제 2종, 비타민C, 유크림, 혼합제제 그린칼라..</p>
+									<p>
+										<c:forEach items="${ingre}" var="ingre">
+											${ingre.ingred_kor_name} 
+										</c:forEach>
+									</p>
 								</div>
 								<div class="tab_text_block">
 									<h2>제품 용량</h2>

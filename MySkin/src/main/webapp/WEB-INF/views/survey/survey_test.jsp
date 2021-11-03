@@ -283,7 +283,7 @@
 				if((x>-2 && x<2) && (y>-2 && y<2)) {
           			result = "중성피부";	
           		} else if(x<=0 && y>=0) {
-          			result = "아기피부";
+          			result = "중성피부";
           		} else if(x<=0 && y<=0) {
           			result = "건성피부";
           		} else if(x>=0 && y>=0) {

@@ -1,8 +1,11 @@
 package kr.smhrd.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.smhrd.domain.ProductsDTO;
 import kr.smhrd.domain.SkinTypesDTO;
 import kr.smhrd.mapper.SurveyMapper;
 import lombok.AllArgsConstructor;
@@ -28,5 +31,11 @@ public class SurveyServiceImpl implements SurveyService {
 	public SkinTypesDTO getSC(String st_class) {
 		
 		return mapper.getSC(st_class);
+	}
+	
+	@Override
+	public List<ProductsDTO> getRecomProd(String result) {
+		
+		return mapper.getRecomProd(result);
 	}
 }

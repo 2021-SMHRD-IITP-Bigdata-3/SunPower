@@ -109,9 +109,9 @@
 </div>
 
 <script type="text/javascript">	
-	var username = ${members.mb_name};
-	var mb_id = ${members.mb_id};
-	var mb_name = ${members.mb_name};
+	var username = "${members.mb_name}";
+	var mb_id = "${members.mb_id}";
+	var mb_name = "${members.mb_name}";
 </script>
 <script type="text/javascript" src="../resources/js/test.js" charset="UTF-8"></script>
 	<!-- JavaScript -->

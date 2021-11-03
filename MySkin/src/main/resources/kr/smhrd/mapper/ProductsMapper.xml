@@ -44,4 +44,12 @@
 		from ingredients 
 		where ingred_id in (select ingred_id from product_ingredients where prod_id = #{prod_id})
 	</select>
+	
+	<select id="getIngre" resultType="kr.smhrd.domain.IngredientsDTO">
+		select ingred_kor_name 
+		from ingredients 
+		where ingred_id in (select ingred_id 
+							from product_ingredients 
+							where prod_id = #{prod_id})
+	</select>
 </mapper>
