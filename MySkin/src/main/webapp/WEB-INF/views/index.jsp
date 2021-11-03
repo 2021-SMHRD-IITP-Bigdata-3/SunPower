@@ -41,7 +41,7 @@ banner2[0]="이제, 화장품은 선택은 화분에서!";
 banner2[1]="무방비한 자외선노출은 피부노화의 원인입니다.";
 banner2[2]="당신을 괴롭히는 피부고민이 있나요?";
 banner2[3]="흡연은 피부를 더 늙게만들고 주름지게 합니다.";
-banner2[4]="흡연은 피부를 더 늙게만들고 주름지게 합니다.";
+banner2[4]="당신의 피부는 안녕하신가요?";
 var random_banner2=Math.floor(Math.random()*(banner2.length));
 </script>
 
@@ -56,12 +56,19 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 	src : url("../../resources/fonts/koverwatch.ttf");
 	font-family:'over';
 }
-
 </style>
+<script>
+<!-- 장바구니 추가 후 문구 -->
+function ck_log(){
+	if (confirm("로그인이 필요한서비스 입니다.\n로그인페이지로 이동하시겠습니까?") == true){    //확인
+		window.location.href="../member/login";
+	}
+	else{   //취소
+    return;
+	}
+}
+</script>
 </head>
-
-<body>
-<!-- 가장 외부 div 틀 -->
 <div class="super_container" style="font-family:AC;">
 	<!-- 헤더 -->
 	<header class="header trans_300">
@@ -69,7 +76,7 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 		<div class="main_nav_container">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 text-right">
+					<div class="col-lg-12 text-left" style="padding-left:10px;">
 						<!-- 로고 -->
 						<div class="logo_container">
 							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
@@ -109,24 +116,38 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 						<strong>내 계정</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
-					<ul class="menu_selection">
+					<ul class="menu_selection" style="padding-left:10px">
 						<c:if test="${sessionScope.members.mb_id == null}">
-						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
-						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
+							<li><a href="../member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
+							<li><a href="../member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
-						<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
-						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;구매한 상품</a></li>
+							<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
+							<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;구매한 상품</a></li>
 						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="survey/survey">피부타입 
-					<c:if test="${sessionScope.members.st_id != null}">
-					재
-					</c:if>
-				검사</a></li>
-				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
-				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
+				<li class="menu_item has-children">
+					<a href="#">
+						<strong>피부타입 알기</strong>
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="menu_selection" style="padding-left:10px">
+						<c:if test="${sessionScope.members.mb_id == null}">
+							<li><a onclick="ck_log();"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 기반</a></li>
+							<li><a onclick="ck_log();"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지 기반</a></li>
+						</c:if>
+						<c:if test="${sessionScope.members.mb_id != null}">
+							<li class="menu_item">
+								<a href="../survey/survey_choice"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
+							</li>
+							<li class="menu_item">
+								<a href="../survey/survey_choice"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
+							</li>
+						</c:if>
+					</ul>
+				</li>				
+				<li class="menu_item"><a href="../product/product_list">상품목록</a></li>
 			</ul>
 		</div>
 	</div>
@@ -137,30 +158,30 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 	<div class="benefit_item d-flex flex-row align-items-center" style="background:white;">
 		<div class="benefit_icon"><i class="fa fa-smile-o" aria-hidden="true"></i></div>
 		<div class="benefit_content">
-			<h5><strong>${members.mb_id}님 &nbsp;<script>document.write(banner1[random_banner1]);</script></strong></h5>
+			<h5><strong>${members.mb_name}님 <script>document.write(banner1[random_banner1]);</script></strong></h5>
 			<p style="font-size:13px"><strong><script>document.write(banner2[random_banner2]);</script></strong></p>
 		</div>
 	</div>
 	</c:if>
 
 
-	<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-		<div class="carousel-indicators">
+	<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" style="height:150px; overflow:hidden;">
+		<div class="carousel-indicators"  style="margin-bottom: 0px;">
 			<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 			<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
 			<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
 		</div>
-		<div class="carousel-inner">
+		<div class="carousel-inner" style="height:150px; display:flex;">
 			<!-- 첫 번째 이벤트 -->
 			<div class="carousel-item active" data-bs-interval="3000">
-				<div style="background-image:url(../resources/images/winter.png); background-size:cover; height:250px; display:flex; align-items: center;">
-					<div class="container fill_height">
-						<div class="row align-items-center fill_height">
-							<div class="col">
+				<div style="background-image:url(../resources/images/winter.png); background-size:cover; align-items: center;">
+					<div class="container">
+						<div class="row">
+							<div class="col" style="padding-top:12px; padding-bottom:12px">
 								<div class="main_slider_content">
-									<h5 style="font-family:SF_HambakSnow"><strong>2021년 하반기 겨울보습 특가!</strong></h5>
-									<h1 style="font-family:SF_HambakSnow">보습 화장품</h1>
-									<h1 style="font-family:SF_HambakSnow">최대 15% 할인 이벤트!</h1>
+									<h5 style="font-family:SF_HambakSnow; margin-bottom:3px;"><strong>2021년 하반기 겨울보습 특가!</strong></h5>
+									<h1 style="font-family:SF_HambakSnow; margin-bottom:3px;">보습 화장품</h1>
+									<h1 style="font-family:SF_HambakSnow; margin-bottom:3px;">최대 15% 할인 이벤트!</h1>
 									<div class="red_button shop_now_button"><a href="#"><strong>특가 보러가기</strong></a></div>
 								</div>
 							</div>
@@ -170,14 +191,14 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 			</div>
 			<!-- 두번째 이벤트 -->
 			<div class="carousel-item" data-bs-interval="3000">
-				<div style="background-image:url(../resources/images/event1.jpg); background-size:cover; height:250px; display:flex; align-items: center;">
-					<div class="container fill_height">
-						<div class="row align-items-center fill_height">
-							<div class="col">
+				<div style="background-image:url(../resources/images/event1.jpg); background-size:cover; align-items: center;">
+					<div class="container">
+						<div class="row">
+							<div class="col" style="padding-top:12px; padding-bottom:12px">
 								<div class="main_slider_content">
-									<h5 style="font-family:SF_HambakSnow"><strong>크리스마스 선물!</strong></h5>
-									<h1 style="font-family:SF_HambakSnow">화장품 전 품목</h1>
-									<h1 style="font-family:SF_HambakSnow">최대 49% 할인 이벤트!</h1>
+									<h5 style="font-family:SF_HambakSnow; margin-bottom:3px;"><strong>크리스마스 선물!</strong></h5>
+									<h1 style="font-family:SF_HambakSnow; margin-bottom:3px;">화장품 전 품목</h1>
+									<h1 style="font-family:SF_HambakSnow; margin-bottom:3px;">최대 49% 할인 이벤트!</h1>
 									<div class="red_button shop_now_button"><a href="#"><strong>특가 보러가기</strong></a></div>
 								</div>
 							</div>
@@ -187,14 +208,14 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 			</div>
 			<!-- 세번째 이벤트 -->
 			<div class="carousel-item" data-bs-interval="3000">
-				<div style="background-image:url(../resources/images/event3.jpg); background-size:cover; height:250px; display:flex; align-items: center;">
-					<div class="container fill_height">
-						<div class="row align-items-center fill_height">
-							<div class="col">
+				<div style="background-image:url(../resources/images/event3.jpg); background-size:cover; align-items: center;">
+					<div class="container">
+						<div class="row">
+							<div class="col" style="padding-top:12px; padding-bottom:12px">
 								<div class="main_slider_content">
-									<h5 style="font-family:SF_HambakSnow"><strong>블로그 홍보 이벤트</strong></h5>
-									<h1 style="font-family:SF_HambakSnow">블로그에 화분을 홍보해주세요</h1>
-									<h1 style="font-family:SF_HambakSnow">할인쿠폰을 드립니다.</h1>
+									<h5 style="font-family:SF_HambakSnow; margin-bottom:3px;"><strong>블로그 홍보 이벤트</strong></h5>
+									<h1 style="font-family:SF_HambakSnow; margin-bottom:3px;">블로그에 화분을 홍보해주세요</h1>
+									<h1 style="font-family:SF_HambakSnow; margin-bottom:3px;">할인쿠폰을 드립니다.</h1>
 									<div class="red_button shop_now_button"><a href="#"><strong>이벤트 보기</strong></a></div>
 								</div>
 							</div>
