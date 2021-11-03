@@ -191,7 +191,7 @@
         	console.log(file); */
         	$.ajax({
 	       		crossOrigin : true,
-                url : 'http://210.183.87.89:9080/img_file', //데이터를 주고 받을 파일 주소
+                url : 'http://127.0.0.1:9000/img_file', //데이터를 주고 받을 파일 주소 !!!
                 type:'POST', //데이터 전송 타입
                 data : formData, //보내는 데이터
                 contentType: false, // 
