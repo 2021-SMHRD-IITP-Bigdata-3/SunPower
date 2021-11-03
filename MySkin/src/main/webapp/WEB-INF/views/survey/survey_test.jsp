@@ -28,22 +28,24 @@
 </head>
 
 <body>
-<div class="super_container">
-	<!-- Header -->
+<div class="super_container" style="font-family:AC;">
+	<!-- 헤더 -->
 	<header class="header trans_300">
-		<!-- Main Navigation -->
+		<!-- 상단부 메뉴 -->
 		<div class="main_nav_container">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 text-right">
+					<div class="col-lg-12 text-left" style="padding-left:32px;">
+						<!-- 로고 -->
 						<div class="logo_container">
-							<a href="index.html"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
+						<!-- 상단 아이콘(장바구니, 마이페이지 모양) -->
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="index.html">home</a></li>
+								<li><a href="/">home</a></li>
 							</ul>
-							<ul class="navbar_user">
+							<ul class="navbar_user" style="margin-bottom: 0px;">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
@@ -63,24 +65,34 @@
 		</div>
 	</header>
 
-	<!-- Hamburger Menu -->
+	<!-- 우측 메뉴 -->
 	<div class="hamburger_menu">
 		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-		<div class="hamburger_menu_content text-right">
+		<div class="hamburger_menu_content" style="padding-left: 32px;">
 			<ul class="menu_top_nav">
 				<li class="menu_item has-children">
 					<a href="#">
-						내 계정
+						<strong>내 계정</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
-					<ul class="menu_selection">
-						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>로그인</a></li>
-						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>회원가입</a></li>
-						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>로그아웃</a></li>
-						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>구매한 상품</a></li>
+					<ul class="menu_selection" style="padding-left:32px">
+						<c:if test="${sessionScope.members.mb_id == null}">
+						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
+						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
+						</c:if>
+						<c:if test="${sessionScope.members.mb_id != null}">
+						<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
+						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;구매한 상품</a></li>
+						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="survey/survey">피부타입 재검사</a></li>
+				<li class="menu_item">
+					<a href="/survey/survey_choice">피부타입 
+						<c:if test="${sessionScope.members.st_id != null}">
+						재
+						</c:if>
+				검사</a>
+				</li>
 				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
 				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
 			</ul>
