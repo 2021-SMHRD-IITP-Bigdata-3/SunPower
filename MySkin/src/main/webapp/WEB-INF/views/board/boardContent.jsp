@@ -41,64 +41,76 @@ function goDel(article_seq){
 
 </script>
 </head>
-<body>
-	<div class="super_container">
-		<!-- Header -->
-		<header class="header trans_300">
-			<!-- Main Navigation -->
-			<div class="main_nav_container">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 text-right">
-							<div class="logo_container">
-								<a href="../"><img src="../resources/logo/image02.png" width="150"
-									height="60"></a>
-							</div>
-							<nav class="navbar">
-								<ul class="navbar_menu">
-									<li><a href="../">home</a></li>
-								</ul>
-								<ul class="navbar_user">
-									<li><a href="#"><i class="fa fa-search"
-											aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-user"
-											aria-hidden="true"></i></a></li>
-									<li class="checkout"><a href="#"> <i
-											class="fa fa-shopping-cart" aria-hidden="true"></i> <span
-											id="checkout_items" class="checkout_items">2</span>
-									</a></li>
-								</ul>
-								<div class="hamburger_container">
-									<i class="fa fa-bars" aria-hidden="true"></i>
-								</div>
-							</nav>
+<div class="super_container" style="font-family:AC;">
+	<!-- 헤더 -->
+	<header class="header trans_300">
+		<!-- 상단부 메뉴 -->
+		<div class="main_nav_container">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-left" style="padding-left:32px;">
+						<!-- 로고 -->
+						<div class="logo_container">
+							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
+						<!-- 상단 아이콘(장바구니, 마이페이지 모양) -->
+						<nav class="navbar">
+							<ul class="navbar_menu">
+								<li><a href="/">home</a></li>
+							</ul>
+							<ul class="navbar_user" style="margin-bottom: 0px;">
+								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li class="checkout">
+									<a href="#">
+										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+										<span id="checkout_items" class="checkout_items">2</span>
+									</a>
+								</li>
+							</ul>
+							<div class="hamburger_container">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</div>
+						</nav>
 					</div>
 				</div>
 			</div>
-		</header>
-
-		<!-- Hamburger Menu -->
-		<div class="hamburger_menu">
-			<div class="hamburger_close">
-				<i class="fa fa-times" aria-hidden="true"></i>
-			</div>
-			<div class="hamburger_menu_content text-right">
-				<ul class="menu_top_nav">
-					<li class="menu_item has-children"><a href="#"> 내 계정 <i
-							class="fa fa-angle-down"></i>
-					</a>
-						<ul class="menu_selection">
-							<li><a href="/member/login"><i class="fa fa-sign-in"
-									aria-hidden="true"></i>로그인</a></li>
-							<li><a href="/member/register"><i class="fa fa-user-plus"
-									aria-hidden="true"></i>회원가입</a></li>
-						</ul></li>
-					<li class="menu_item"><a href="/">메인으로</a></li>
-					<li class="menu_item"><a href="/product/product_list">shop</a></li>
-				</ul>
-			</div>
 		</div>
+	</header>
+
+	<!-- 우측 메뉴 -->
+	<div class="hamburger_menu">
+		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+		<div class="hamburger_menu_content" style="padding-left: 32px;">
+			<ul class="menu_top_nav">
+				<li class="menu_item has-children">
+					<a href="#">
+						<strong>내 계정</strong>
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="menu_selection" style="padding-left:32px">
+						<c:if test="${sessionScope.members.mb_id == null}">
+						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
+						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
+						</c:if>
+						<c:if test="${sessionScope.members.mb_id != null}">
+						<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
+						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;구매한 상품</a></li>
+						</c:if>
+					</ul>
+				</li>
+				<li class="menu_item">
+					<a href="/survey/survey_choice">피부타입 
+						<c:if test="${sessionScope.members.st_id != null}">
+						재
+						</c:if>
+				검사</a>
+				</li>
+				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
+				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
+			</ul>
+		</div>
+	</div>
 		<div class="container">
 			<div
 				style="padding-right: 5px; padding-left: 5px; padding-bottom: 10px; padding-top: 100px;">
