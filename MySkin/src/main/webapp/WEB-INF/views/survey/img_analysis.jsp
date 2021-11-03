@@ -141,12 +141,12 @@
 			<div class="breadcrumbs" style="margin-bottom: 30px;"></div>
 			<h3 style="margin-bottom: 50px; font-size:25px"> ${members.mb_id} <br> 피부를 분석해드립니다.</h3>
 		</div>
-		
+		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>또한 여드름관리에 좋은 화장품도 추천해드려요!</strong></h1>
 		<form id="myform" method="POST" enctype="multipart/form-data">
           <div class ="img" align="center">
-          	<div id="image_preview" style="width: 300px; height: 300px;">
+          	<div id="image_preview">
            		<%-- <img id="thumbnailImg" src="<value is too large to edit>" style ="height: 300px; width: 300px;"> --%>
-           		<img src="/img.png" alt="사진영역" style ="height: 300px; width: 300px;">
+           		<img src="/img.png" style="max-width:90%">
            	</div>
             <br><br>
             <div class="f_box">
@@ -154,21 +154,14 @@
                 <br>
       			<input type="file" id="img"  name="bf_file[]" accept="image/*">	
             </div>
-            <br>
-            	<input id="flask" type="button" value="전송" >
-            <br>
           </div>
          </form>
 		
-		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>또한 여드름관리에 좋은 화장품도 추천해드려요!</strong></h1>
+
 		
 		<div align="center">
-				<div align="center">
-					<img id="thumbnailImg" src="" width="350" style="margin-left: auto; margin-right: auto; display: block;">
-					<input type="file" static="bottom" id="uploadFile" name="uploadFile" onChange="uploadImgPreview();" accept="image/*">
-				</div>
 				<div class="radio icheck-danger" style="margin:20px;">
-				<button class="btn btn-success" style="width:100%; height:60px; background-color: #fe4c50; border-color: #fe4c50;" type="submit" ><strong>내 피부 분석하기!</strong><br><a style="font-size:13px">분석중에는 다소 시간이 걸릴 수 있습니다.</a></button>
+				<button class="btn btn-success" id="flask" style="width:100%; height:60px; background-color: #fe4c50; border-color: #fe4c50;" type="submit" ><strong>내 피부 분석하기!</strong><br><a style="font-size:13px">분석중에는 다소 시간이 걸릴 수 있습니다.</a></button>
 			</div>
 		</div>	
 		
@@ -230,7 +223,7 @@
             blobURL = window.URL.createObjectURL(file);
             $('#image_preview img').attr('src', blobURL);
             $('#image_preview').slideDown(); //업로드한 이미지 미리보기 
-            $(this).slideUp(); //파일 양식 감춤
+            $(this).hide(); //파일 양식 감춤
         }
         });
         </script> 
