@@ -9,6 +9,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../resources/js/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../resources/styles/bootstrap4/bootstrap.min.css">
 <link href="../resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -18,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="../resources/styles/single_styles.css">
 <link rel="stylesheet" type="text/css" href="../resources/styles/single_responsive.css">
+
 </head>
 
 <body>
@@ -137,8 +139,27 @@
 		<div class="container" style="text-align:center">
 			<!-- breadcrumbs = 상단여백, 줄 넣기 -->
 			<div class="breadcrumbs" style="margin-bottom: 30px;"></div>
-			<h3 style="margin-bottom: 50px; font-size:25px">남준성 님의<br> 피부를 분석해드립니다.</h3>
+			<h3 style="margin-bottom: 50px; font-size:25px"> ${members.mb_id} <br> 피부를 분석해드립니다.</h3>
 		</div>
+		
+		<form id="myform" method="POST" enctype="multipart/form-data">
+          <div class ="img" align="center">
+          	<div id="image_preview" style="width: 300px; height: 300px;">
+           		<%-- <img id="thumbnailImg" src="<value is too large to edit>" style ="height: 300px; width: 300px;"> --%>
+           		<img src="/img.png" alt="사진영역" style ="height: 300px; width: 300px;">
+           	</div>
+            <br><br>
+            <div class="f_box">
+                <label for="img"><button>사진변경</button></label>
+                <br>
+      			<input type="file" id="img"  name="bf_file[]" accept="image/*">	
+            </div>
+            <br>
+            	<input id="flask" type="button" value="전송" >
+            <br>
+          </div>
+         </form>
+		
 		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>또한 여드름관리에 좋은 화장품도 추천해드려요!</strong></h1>
 		
 		<div align="center">
@@ -150,6 +171,72 @@
 				<button class="btn btn-success" style="width:100%; height:60px; background-color: #fe4c50; border-color: #fe4c50;" type="submit" ><strong>내 피부 분석하기!</strong><br><a style="font-size:13px">분석중에는 다소 시간이 걸릴 수 있습니다.</a></button>
 			</div>
 		</div>	
+		
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+<script type="text/javascript">
+	
+    // 플라스크 데이터 보네고 받는 부분
+ 
+    $(document).ready(function(){
+    	alert("사진을 입력해주세요.");
+    
+    	$('#flask').on('click',function(){
+    		var formData = new FormData();
+    		file = document.querySelector('input[type="file"]').files[0];
+    		formData.append("file",file);
+        	/* console.log('플라스크 버튼 누름');
+        	file = document.querySelector('input[type="file"]').files[0];
+        	formData.append("file", file);
+        	alert(typeof(file));
+        	console.log(file); */
+        	$.ajax({
+	       		crossOrigin : true,
+                url : 'http://210.183.87.89:9080/img_file', //데이터를 주고 받을 파일 주소
+                type:'POST', //데이터 전송 타입
+                data : formData, //보내는 데이터
+                contentType: false, // 
+        		processData: false, //
+                dataType : 'JSON', // 보낸 데이터를 받기,     
+                success: function(result){
+                	var res = Math.round(result['result']);
+                	alert("당신의 결과는 "+ res
+                	
+                	); // 작업이 성공적으로 발생했을 경우
+                	location.href="/survey/img_analysis_result?result="+res;
+                },
+                
+        		error : function(){
+        			alert('에러발생') // 에러가 났을 경우 실행시킬 코드
+        		},
+        		
+        	});
+            
+        });
+    
+    });
+	</script>
+
+         
+       	<script type="text/javascript">
+     // 이미지 업로드
+        $('#img').on('change', function() {
+        ext = $(this).val().split('.').pop().toLowerCase(); //확장자
+        //배열에 추출한 확장자가 존재하는지 체크
+        if($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+            /* resetFormElement($(this));  *///폼 초기화
+            window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
+        } else {
+            file = $('#img').prop("files")[0];
+            blobURL = window.URL.createObjectURL(file);
+            $('#image_preview img').attr('src', blobURL);
+            $('#image_preview').slideDown(); //업로드한 이미지 미리보기 
+            $(this).slideUp(); //파일 양식 감춤
+        }
+        });
+        </script> 
+		
+		
+		
 		<!-- Footer -->
 	<footer>
 		<div style="width:auto; margin-top:160px">
@@ -159,7 +246,7 @@
 
 </div>
 
-<script src="../resources/js/jquery-3.2.1.min.js"></script>
+
 <script src="../resources/styles/bootstrap4/popper.js"></script>
 <script src="../resources/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="../resources/plugins/Isotope/isotope.pkgd.min.js"></script>

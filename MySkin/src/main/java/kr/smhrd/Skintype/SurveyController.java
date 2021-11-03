@@ -58,8 +58,12 @@ public class SurveyController {
 	public void i_analysis(Model model) {
 			
 	}
-	@RequestMapping("img_analysis_result")
-	public void i_analysis_result(Model model) {
+	
+	@GetMapping("img_analysis_result")
+	public void img_analysis_result(Model model,int result) {
+		
+		
+		model.addAttribute("res",result);
 			
 	}
 }

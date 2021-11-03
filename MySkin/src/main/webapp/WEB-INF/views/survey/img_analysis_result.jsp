@@ -89,6 +89,26 @@
 			<div align="center">
 				<h2 align ="center">피부 진단 결과</h2>
 			</div>	
+			
+			<!-- 분석 결과 표시 테이블 -->
+			<!--   
+			<figcaption >
+          <table class="tg" >
+            <thead>
+              <tr>
+                <th class="tg-l8bv" colspan="2"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-zv4m">  : </td>
+                <td class="tg-8jgo">  </td>
+              </tr>
+            </tbody>
+            </table>
+        </figcaption>
+			 -->
+			
 			<h3 style="margin-bottom: 50px; font-size:25px">남준성 님은<br> 화농성여드름 입니다.</h3>
 		</div>
 		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>(여드름의 특징)</strong></h1>
@@ -132,6 +152,9 @@
 	</footer>
 
 </div>
+
+
+
 
 <script src="../resources/js/jquery-3.2.1.min.js"></script>
 <script src="../resources/styles/bootstrap4/popper.js"></script>

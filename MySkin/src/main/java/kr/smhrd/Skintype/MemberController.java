@@ -103,4 +103,8 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping("Diagnosis")
+	public void Diagnosis(Model model) {
+		
+	}
 }
