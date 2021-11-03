@@ -22,4 +22,6 @@ public interface ProductsService {
 	public IngreCountDTO getGB(char answer, int prod_id);
 	
 	public List<IngredientsDTO> getIngre(int prod_id);
+	
+	public String getSkinType(String mb_id);
 }

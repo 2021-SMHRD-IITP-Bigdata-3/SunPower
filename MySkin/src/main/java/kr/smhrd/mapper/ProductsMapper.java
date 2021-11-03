@@ -23,4 +23,6 @@ public interface ProductsMapper {
 	public IngreCountDTO getGB(@Param("answer")char answer, @Param("prod_id")int prod_id);
 	
 	public List<IngredientsDTO> getIngre(int prod_id);
+	
+	public String getSkinType(String mb_id);
 }

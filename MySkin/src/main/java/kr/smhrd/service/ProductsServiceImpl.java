@@ -64,4 +64,10 @@ public class ProductsServiceImpl implements ProductsService {
 		
 		return mapper.getIngre(prod_id);
 	}
+	
+	@Override
+	public String getSkinType(String mb_id) {
+		
+		return mapper.getSkinType(mb_id);
+	}
 }

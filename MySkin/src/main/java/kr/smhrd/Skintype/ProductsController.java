@@ -1,5 +1,8 @@
 package kr.smhrd.Skintype;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -45,11 +48,22 @@ public class ProductsController {
 	@RequestMapping("product_view")
 	public void prod_view(int prod_id, HttpServletRequest req, Model model) {
 		
+		List<ReviewsDTO> review = service.getReview(prod_id);
+		List<String> reviewST = new ArrayList<>();
+		
+		for(int i=0; i<review.size(); i++) {
+			System.out.println(service.getSkinType(review.get(i).getMb_id()));
+			reviewST.add(service.getSkinType(review.get(i).getMb_id()));
+		}
+		
 		// 상품목록 가져오기
 		model.addAttribute("product", service.get(prod_id));
 		
 		// 리뷰 가져오기
-		model.addAttribute("review", service.getReview(prod_id));
+		model.addAttribute("review", review);
+		
+		// 리뷰 쓴 사람 피부타입 가져오기
+		model.addAttribute("reviewST", reviewST);
 		
 		// 좋은 or 나쁜 성분 카운트해서 가져오기
 		model.addAttribute("ingreG", service.getGB('g', prod_id));

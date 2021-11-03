@@ -52,4 +52,8 @@
 							from product_ingredients 
 							where prod_id = #{prod_id})
 	</select>
+	
+	<select id="getSkinType" resultType="String">
+		select st_class from skintypes where st_id = (select st_id from members where mb_id = #{mb_id})
+	</select>
 </mapper>

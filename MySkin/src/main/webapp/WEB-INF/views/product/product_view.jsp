@@ -352,7 +352,7 @@ function add_cart(){
 								</div>
 
 								<!-- User Review -->
-								<c:forEach items="${review}" var="review">
+								<c:forEach items="${review}" var="review" varStatus="status">
 								<div class="user_review_container d-flex flex-column flex-sm-row">
 									<div class="user">
 										<div class="user_pic"></div>
@@ -372,7 +372,9 @@ function add_cart(){
 										</div>
 									</div>
 									<div class="review">
-										<div class="review_date">${review.reg_date}</div>
+										<div class="review_date">
+											${reviewST[status.index]}
+										</div>
 										<div class="user_name">${review.mb_id}</div>
 										<p>${review.review_content}</p>
 									</div>
