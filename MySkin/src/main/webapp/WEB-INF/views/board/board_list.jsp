@@ -228,9 +228,11 @@ function goForm(){
 				</div>
 			</div>
 		</div>
+		<!-- 페이지 -->
+		<!-- 
 		<div class="d-flex flex-column"
 			style="margin-top: 20px; border-top: solid 1px #ebebeb;">
-			<!-- 페이지 -->
+			
 		</div>
 		
 		<div class="d-flex justify-content-end" style="margin: 10px 30px 0 0">
@@ -257,7 +259,7 @@ function goForm(){
 			<a href="board_list?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 		</c:if>
 	</div>
-		<!-- 
+	  
 						<ul class="pagination justify-content-center" style="margin-top:20px;">
 		<li><a class="page-btn" href="#">이전</a></li>
 		<li class="page-list active"><a class="page-num" href="#">1</a></li>

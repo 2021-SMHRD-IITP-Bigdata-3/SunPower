@@ -60,10 +60,14 @@ public class SurveyController {
 	}
 	
 	@GetMapping("img_analysis_result")
-	public void img_analysis_result(int result, String mb_id, Model model) {
+	public void img_analysis_result(int result, int st_id, String mb_id, Model model) {
 		
 		service.updateAC(result, mb_id);
+		service.updateSkinA(st_id, mb_id);
+		SkinTypesDTO st = service.getSTC(st_id);
+		
 		model.addAttribute("res",result);
-		model.addAttribute("ac", service.getAC(result));		
+		model.addAttribute("ac", service.getAC(result));
+		model.addAttribute("recom", service.getRecomProd(st.getSt_class()));
 	}
 }

@@ -29,9 +29,21 @@ public class SurveyServiceImpl implements SurveyService {
 	}
 	
 	@Override
+	public void updateSkinA(int st_id, String mb_id) {
+		
+		mapper.updateSkinA(st_id, mb_id);
+	}
+	
+	@Override
 	public SkinTypesDTO getSC(String st_class) {
 		
 		return mapper.getSC(st_class);
+	}
+	
+	@Override
+	public SkinTypesDTO getSTC(int st_class) {
+		
+		return mapper.getSTC(st_class);
 	}
 	
 	@Override

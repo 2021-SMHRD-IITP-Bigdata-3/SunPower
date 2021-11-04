@@ -12,7 +12,7 @@ public class ProductsDTO {
 	private String prod_name;
 	private int prod_price;
 	private String prod_maker;
-	private int prod_rating;
+	private double prod_rating;
 	private String prod_ex_date;
 	
 	public String getFormat_price() {

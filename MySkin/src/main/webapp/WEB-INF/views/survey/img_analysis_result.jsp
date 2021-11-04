@@ -118,26 +118,28 @@
 			<div><!-- 상품 한개 틀 -->
 				<div class="product_li" style="width:99%; margin:10px 5px;">
 					<table>
+					<c:forEach items="${recom}" var="recom">
 						<tr>
 							<td rowspan="4" style="float:center;">
-								<img src="thumb/1.jpg" style="width:95px; height:95px;">
+								<img src="../resources/thumb/${recom.prod_id}.jpg" style="width:95px; height:95px;">
 							</td>
 							<!-- 위쪽 상품이름 -->
 							<td style="padding:0 10px; width:99%; display: inline-block; overflow:hidden; text-overflow:ellipsis; line-height:1; height:28px; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;">
-							나랏말싸미 듕귁에 달아 문자와로 서르 사맛디 아니할쎄 이런 전차로 어린 백셩이 니르고져 홇베이셔도 마참네 제 뜨들 시러펴디 몯핧 노미하니아
+							${recom.prod_name}
 							</td>
 						</tr>
 						<tr>
-							<td style="text-align:left; padding:0 10px; width:99%; color:silver">조선</td>
+							<td style="text-align:left; padding:0 10px; width:99%; color:silver">${recom.prod_maker}</td>
 						</tr>
 						<tr>
 							<!-- 아래쪽 가격 -->
-							<td style="text-align:left; padding:0 10px; width:99%"><strong>20,000  원</strong></td>
+							<td style="text-align:left; padding:0 10px; width:99%"><strong>${recom.getFormat_price()}  원</strong></td>
 						</tr>
 						<tr>
 							<!-- 별점 불러오기 -->
-							<td style="text-align:left; padding:0 10px; width:99%"><i class="fa fa-star" style="color:#fac451;"></i>3</td>
+							<td style="text-align:left; padding:0 10px; width:99%"><i class="fa fa-star" style="color:#fac451;"></i>${recom.prod_rating}</td>
 						</tr>
+						</c:forEach>
 					</table>
 				</div>
 			</div>

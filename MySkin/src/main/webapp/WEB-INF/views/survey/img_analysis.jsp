@@ -146,7 +146,7 @@
           <div class ="img" align="center">
           	<div id="image_preview">
            		<%-- <img id="thumbnailImg" src="<value is too large to edit>" style ="height: 300px; width: 300px;"> --%>
-           		<img src="/img.png" style="max-width:90%">
+           		<img src="../resources/images/show.png" style="max-width:90%">
            	</div>
             <br><br>
             <div class="f_box">
@@ -171,7 +171,7 @@
     // 플라스크 데이터 보네고 받는 부분
  
     $(document).ready(function(){
-    	alert("사진을 입력해주세요.");
+    	//alert("사진을 입력해주세요.");
     
     	$('#flask').on('click',function(){
     		var formData = new FormData();
@@ -192,10 +192,8 @@
                 dataType : 'JSON', // 보낸 데이터를 받기,     
                 success: function(result){
                 	var res = Math.round(result['result']);
-                	alert("당신의 결과는 "+ res
-                	
-                	); // 작업이 성공적으로 발생했을 경우
-                	location.href="/survey/img_analysis_result?result="+res+"&mb_id=${members.mb_id}";
+                	//alert("당신의 결과는 "+ res); // 작업이 성공적으로 발생했을 경우
+                	location.href="/survey/img_analysis_result?result="+res+"&st_id=${members.st_id}&mb_id=${members.mb_id}";
                 },
                 
         		error : function(){

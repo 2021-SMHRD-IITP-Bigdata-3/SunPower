@@ -81,11 +81,11 @@
 					</a>
 					<ul class="menu_selection" style="padding-left:32px">
 						<c:if test="${sessionScope.members.mb_id == null}">
-						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
-						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
+						<li><a href="../member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
+						<li><a href="../member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
-						<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
+						<li><a href="../member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
 						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;구매한 상품</a></li>
 						</c:if>
 					</ul>
@@ -97,8 +97,8 @@
 						</c:if>
 				검사</a>
 				</li>
-				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
-				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
+				<li class="menu_item"><a href="../board/board_list">피부게시판</a></li>
+				<li class="menu_item"><a href="../product/product_list">상품목록</a></li>
 			</ul>
 		</div>
 	</div>
