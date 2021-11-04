@@ -83,4 +83,14 @@ public class ProductsController {
 		
 		return "redirect:/product/product_view?prod_id=" + review.getProd_id();
 	}
+	@RequestMapping("buy_success")
+	public void buy_success(int prod_id,HttpServletRequest req, Model model) {
+		
+		model.addAttribute("list", service.getList());
+	}
+	@RequestMapping("buy")
+	public void buy(int prod_id,HttpServletRequest req, Model model) {
+		
+		model.addAttribute("list", service.getList());
+	}
 }
