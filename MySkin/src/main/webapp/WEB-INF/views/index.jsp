@@ -146,8 +146,20 @@ function ck_log(){
 							</li>
 						</c:if>
 					</ul>
-				</li>				
-				<li class="menu_item"><a href="../product/product_list"><strong>상품목록</strong></a></li>
+				</li>
+				<li class="menu_item"><a href="../board/board_list"><strong>피부게시판</strong></a></li>
+				<li class="menu_item has-children">
+					<a href="#">
+						<strong>상품 카테고리</strong>
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="menu_selection" style="padding-left:10px">
+						<li><a href="#"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
+						<li><a href="#"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
+						<li><a href="#"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;썬케어</a></li>
+						<li><a href="#"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>
