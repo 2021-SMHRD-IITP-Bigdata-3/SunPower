@@ -64,7 +64,7 @@
 <!-- 장바구니 추가 후 문구 -->
 function add_cart(){
 	if (confirm("상품을 장바구니에 담았슴니다.\n장바구니로 가시겠습니까?") == true){    //확인
-		window.location.href="cart.html";
+		window.location.href=".../product/cart";
 	}
 	else{   //취소
 
@@ -75,22 +75,24 @@ function add_cart(){
 </head>
 
 <body>
-<div class="super_container">
-	<!-- Header -->
+<div class="super_container" style="font-family:AC;">
+	<!-- 헤더 -->
 	<header class="header trans_300">
-		<!-- Main Navigation -->
+		<!-- 상단부 메뉴 -->
 		<div class="main_nav_container">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 text-right">
+					<div class="col-lg-12 text-left" style="padding-left:32px;">
+						<!-- 로고 -->
 						<div class="logo_container">
-							<a href="../"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
+						<!-- 상단 아이콘(장바구니, 마이페이지 모양) -->
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="../">home</a></li>
+								<li><a href="/">home</a></li>
 							</ul>
-							<ul class="navbar_user">
+							<ul class="navbar_user" style="margin-bottom: 0px;">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
@@ -110,23 +112,36 @@ function add_cart(){
 		</div>
 	</header>
 
-	<!-- Hamburger Menu -->
+	<!-- 우측 메뉴 -->
 	<div class="hamburger_menu">
 		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-		<div class="hamburger_menu_content text-right">
+		<div class="hamburger_menu_content" style="padding-left: 32px;">
 			<ul class="menu_top_nav">
 				<li class="menu_item has-children">
 					<a href="#">
-						내 계정 ${SessionScope.member.mb_id }
+						<strong>내 계정</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
-					<ul class="menu_selection">
-						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>로그인</a></li>
-						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>회원가입</a></li>
+					<ul class="menu_selection" style="padding-left:32px">
+						<c:if test="${sessionScope.members.mb_id == null}">
+						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
+						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
+						</c:if>
+						<c:if test="${sessionScope.members.mb_id != null}">
+						<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
+						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;구매한 상품</a></li>
+						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="/">메인으로</a></li>
-				<li class="menu_item"><a href="/product/product_list">shop</a></li>
+				<li class="menu_item">
+					<a href="/survey/survey_choice">피부타입 
+						<c:if test="${sessionScope.members.st_id != null}">
+						재
+						</c:if>
+					검사</a>
+				</li>
+				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
+				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
 			</ul>
 		</div>
 	</div>
@@ -291,7 +306,7 @@ function add_cart(){
 					<div id="tab_1" class="tab_container active">
 						<div class="row">
 							<div class="col-lg-5 desc_col">
-								<div class="tab_title" style="text-align:center">
+								<div class="tab_title" style="text-align:center; margin-bottom: 30px;">
 									<h4>상품 상세정보</h4>
 								</div>
 								<div class="tab_text_block">
@@ -320,7 +335,7 @@ function add_cart(){
 					<div id="tab_2" class="tab_container">
 						<div class="row">
 							<div class="col additional_info_col">
-								<div class="tab_title additional_info_title" style="text-align:center">
+								<div class="tab_title additional_info_title" style="text-align:center; margin-bottom: 30px;">
 									<h4>성분정보</h4>
 								</div>
 								<div class="tab_text_block">
@@ -345,19 +360,22 @@ function add_cart(){
 						<div class="row">
 
 							<!-- User Reviews -->
-
-							<div class="col-lg-6 reviews_col">
-								<div class="tab_title reviews_title" style="text-align:center">
+							<div class="col-lg-6 reviews_col" style="padding:0 25px;">
+								<div class="tab_title reviews_title" style="text-align:center; margin-bottom:30px;">
 									<h4>상품리뷰 (${fn:length(review)})</h4>
 								</div>
-
 								<!-- User Review -->
 								<c:forEach items="${review}" var="review" varStatus="status">
-								<div class="user_review_container d-flex flex-column flex-sm-row">
+								<div class="row review">
+									<div class="user_name" style="margin-bottom: 0px; margin:0 12px;"">${review.mb_id}</div>
+									<div class="review_date" style="margin-top: 0px;">
+										${reviewST[status.index]}
+									</div>
+								</div>
+								<div class="user_review_container d-flex flex-column flex-sm-row" style="border-bottom:1px solid #bbbbbb; margin-bottom: 10px;">
 									<div class="user">
-										<div class="user_pic"></div>
 										<div class="user_rating">
-											<ul class="star_rating">
+											<ul class="star_rating" style="margin-top: 0px;">
 											<c:forEach var="i" begin="1" end="5" step="1">
 												<c:choose>
 												<c:when test="${i <= review.review_rating}">
@@ -371,13 +389,7 @@ function add_cart(){
 											</ul>
 										</div>
 									</div>
-									<div class="review">
-										<div class="review_date">
-											${reviewST[status.index]}
-										</div>
-										<div class="user_name">${review.mb_id}</div>
-										<p>${review.review_content}</p>
-									</div>
+									<pre style="margin-bottom:10px; font-family: 'S-D'; line-height: 1.7; font-weight: 500; color: #989898; -webkit-font-smoothing: antialiased; text-shadow: rgb(0 0 0 / 1%) 0 0 1px;  white-space: pre-wrap;">${review.review_content}</pre>
 								</div>
 								</c:forEach>
 							</div>
@@ -390,9 +402,9 @@ function add_cart(){
 										<div>
 											<h1>리뷰 작성</h1>
 										</div>
-										<div>
-											<h1>평점:</h1>
-											<ul class="user_star_rating">
+										<div class="row" style="margin:0 0;">
+											<div><strong>평점:</strong></div>
+											<div class="user_star_rating">
 												<!-- 별점부분 추가 -->
 												<div class="star-rating">
 												<!-- <input type="radio" id="5-stars" name="rating" value="5" onclick='getRating(event)' /> -->
@@ -414,11 +426,11 @@ function add_cart(){
 												}
 												</script>
 												-->
-											</ul>
-											<textarea id="review_message" class="input_review" name="review_content"  placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
+											</div>
+											<textarea id="review_message" class="input_review" name="review_content"  placeholder="리뷰를 작성해주세요." rows="4" style="padding:0px; margin:0 0 10px 0" required data-error="Please, leave us a review."></textarea>
 										</div>
-										<div class="text-left text-sm-right">
-											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+										<div class="text-left text-sm-right" style="float:right">
+											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit"><strong>작성</strong></button>
 										</div>
 										<input type="hidden" name="prod_id" value="${prod_id}" />
 										<input type="hidden" name="mb_id" value="${members.mb_id}" />
