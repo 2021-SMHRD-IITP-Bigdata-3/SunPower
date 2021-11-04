@@ -2,6 +2,7 @@ package kr.smhrd.service;
 
 import java.util.List;
 
+import kr.smhrd.domain.AcnetypesDTO;
 import kr.smhrd.domain.ProductsDTO;
 import kr.smhrd.domain.SkinTypesDTO;
 
@@ -11,4 +12,8 @@ public interface SurveyService {
 	public SkinTypesDTO getSC(String st_class);
 	
 	public List<ProductsDTO> getRecomProd(String result);
+	
+	public void updateAC(int result, String mb_id);
+	
+	public AcnetypesDTO getAC(int result);
 }

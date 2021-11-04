@@ -60,10 +60,10 @@ public class SurveyController {
 	}
 	
 	@GetMapping("img_analysis_result")
-	public void img_analysis_result(Model model,int result) {
+	public void img_analysis_result(int result, String mb_id, Model model) {
 		
-		
+		service.updateAC(result, mb_id);
 		model.addAttribute("res",result);
-			
+		model.addAttribute("ac", service.getAC(result));		
 	}
 }

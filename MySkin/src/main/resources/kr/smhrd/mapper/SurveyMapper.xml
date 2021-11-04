@@ -15,6 +15,16 @@
 		select * from skintypes where st_class = #{st_class}
 	</select>
 	
+	<update id="updateAC">
+		update members 
+		set ac_id = #{result}
+		where mb_id = #{mb_id}
+	</update>
+	
+	<select id="getAC" resultType="kr.smhrd.domain.AcnetypesDTO">
+		select * from acnetypes where ac_id = #{result}
+	</select>
+	
 	<select id="getRecomProd" parameterType="String" resultType="kr.smhrd.domain.ProductsDTO"> 
 		select *
 		from products

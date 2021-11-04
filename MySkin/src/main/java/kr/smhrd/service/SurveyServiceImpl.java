@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.smhrd.domain.AcnetypesDTO;
 import kr.smhrd.domain.ProductsDTO;
 import kr.smhrd.domain.SkinTypesDTO;
 import kr.smhrd.mapper.SurveyMapper;
@@ -37,5 +38,16 @@ public class SurveyServiceImpl implements SurveyService {
 	public List<ProductsDTO> getRecomProd(String result) {
 		
 		return mapper.getRecomProd(result);
+	}
+	
+	@Override
+	public void updateAC(int result, String mb_id) {
+		
+		mapper.updateAC(result, mb_id);
+	}
+	
+	@Override
+	public AcnetypesDTO getAC(int result) {
+		return mapper.getAC(result);
 	}
 }

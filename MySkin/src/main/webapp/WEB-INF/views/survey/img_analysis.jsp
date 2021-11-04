@@ -195,7 +195,7 @@
                 	alert("당신의 결과는 "+ res
                 	
                 	); // 작업이 성공적으로 발생했을 경우
-                	location.href="/survey/img_analysis_result?result="+res;
+                	location.href="/survey/img_analysis_result?result="+res+"&mb_id=${members.mb_id}";
                 },
                 
         		error : function(){

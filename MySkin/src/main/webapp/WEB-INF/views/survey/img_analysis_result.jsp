@@ -109,11 +109,11 @@
         </figcaption>
 			 -->
 			
-			<h3 style="margin-bottom: 50px; font-size:25px">남준성 님은<br> 화농성여드름 입니다.</h3>
+			<h3 style="margin-bottom: 50px; font-size:25px"> ${members.mb_id} 님은<br> ${ac.ac_name} 입니다.</h3>
 		</div>
-		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>(여드름의 특징)</strong></h1>
-		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>[여드름 피부관리법]</strong></h1>
-		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>화농성여드름에 맞는 화장품 입니다.</strong></h1>
+		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>(여드름의 특징)</strong> <br> ${ac.ac_content} </h1>
+		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>[여드름 피부관리법]</strong> <br> ${ac.ac_care} </h1>
+		<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>${ac.ac_name}에 맞는 화장품 입니다.</strong></h1>
 		<div class="container" style="width:100%; height:auto; margin:auto;">
 			<div><!-- 상품 한개 틀 -->
 				<div class="product_li" style="width:99%; margin:10px 5px;">

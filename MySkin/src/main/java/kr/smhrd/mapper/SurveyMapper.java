@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import kr.smhrd.domain.SkinTypesDTO;
+import kr.smhrd.domain.AcnetypesDTO;
 import kr.smhrd.domain.ProductsDTO;
 
 public interface SurveyMapper {
@@ -12,4 +13,8 @@ public interface SurveyMapper {
 	public SkinTypesDTO getSC(String st_class);
 	
 	public List<ProductsDTO> getRecomProd(String result);
+	
+	public void updateAC(@Param("result")int result, @Param("mb_id")String mb_id);
+	
+	public AcnetypesDTO getAC(@Param("result")int result);
 }
