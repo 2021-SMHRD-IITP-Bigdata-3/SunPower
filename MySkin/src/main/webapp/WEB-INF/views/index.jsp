@@ -139,15 +139,15 @@ function ck_log(){
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
 							<li class="menu_item">
-								<a href="../survey/survey_choice"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
+								<a href="../survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
 							</li>
 							<li class="menu_item">
-								<a href="../survey/survey_choice"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
+								<a href="../survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
 							</li>
 						</c:if>
 					</ul>
 				</li>				
-				<li class="menu_item"><a href="../product/product_list">상품목록</a></li>
+				<li class="menu_item"><a href="../product/product_list"><strong>상품목록</strong></a></li>
 			</ul>
 		</div>
 	</div>
