@@ -91,6 +91,6 @@ public class ProductsController {
 	@RequestMapping("buy")
 	public void buy(int prod_id,HttpServletRequest req, Model model) {
 		
-		model.addAttribute("list", service.getList());
+		model.addAttribute("product", service.get(prod_id));
 	}
 }

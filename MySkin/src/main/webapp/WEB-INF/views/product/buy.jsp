@@ -109,22 +109,16 @@
 							  <th scope="col" style="padding:2px"><strong>가격</strong></th>
 							</tr>
 					    </thead>
+					    <c:set value="1" var="listNum"/>
 					    <tbody>
 							<tr>
-							    <th scope="row" style="display:table-cell; vertical-align:middle; padding:2px;">1</th>
+							    <th scope="row" style="display:table-cell; vertical-align:middle; padding:2px;">${listNum}</th>
 							    <td style="float:center;"><img src="thumb/1.jpg" style="width:50px; height:50px;"></td>
-							    <td style="text-align: left; display:table-cell; vertical-align:middle">마스크 20개 묶음</td>
+							    <td style="text-align: left; display:table-cell; vertical-align:middle">${product.prod_name}</td>
 							    <td style="display:table-cell; vertical-align:middle">1</td>
-							    <td style="display:table-cell; vertical-align:middle">20,000</td>
+							    <td style="display:table-cell; vertical-align:middle">${product.prod_price}</td>
 							</tr>
-							<tr>
-							    <th scope="row" style="display:table-cell; vertical-align:middle; padding:2px;">2</th>
-							    <td style="float:center;"><img src="thumb/3.jpg" style="width:50px; height:50px;"></td>
-							    <td style="text-align: left; display:table-cell; vertical-align:middle">마스크 20333개 묶음</td>
-							    <td style="display:table-cell; vertical-align:middle">10</td>
-							    <td style="display:table-cell; vertical-align:middle">220,000</td>
-							</tr>
-							</tr>
+						
 					    </tbody>
 					</table>
 				</div>
@@ -173,7 +167,7 @@
 		</div>
 	</div>
 	<div class="d-flex flex-column" style="border-top: solid 1px #ebebeb;">
-		<div class="p-2 product_price" style="text-align:right;">합계 : 100,000 원</div>
+		<div class="p-2 product_price" style="text-align:right;">${product.prod_price}</div>
 		<div class="p-2" >
 			<button id="delivery_submit" style="float:right" type="submit" class="red_button review_submit_btn" value="Submit">주문하기</button>
 		</div>
