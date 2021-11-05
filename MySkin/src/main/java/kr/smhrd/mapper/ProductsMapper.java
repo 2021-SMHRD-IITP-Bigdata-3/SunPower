@@ -16,6 +16,10 @@ public interface ProductsMapper {
 	public List<ProductsDTO> getOrderList2();
 	public List<ProductsDTO> getOrderList3();
 	public List<ProductsDTO> getOrderList4();
+	public List<ProductsDTO> getOrderList5();
+	public List<ProductsDTO> getOrderList6();
+	public List<ProductsDTO> getOrderList7();
+	public List<ProductsDTO> getOrderList8();
 	
 	public ProductsDTO read(int prod_id);
 	

@@ -26,6 +26,22 @@
 		select * from products order by prod_rating DESC
 	</select>
 	
+	<select id="getOrderList5" resultType="kr.smhrd.domain.ProductsDTO">
+		select * from products where prod_category='스킨케어' order by prod_id ASC
+	</select>
+	
+	<select id="getOrderList6" resultType="kr.smhrd.domain.ProductsDTO">
+		select * from products where prod_category='마스크팩' order by prod_id ASC
+	</select>
+	
+	<select id="getOrderList7" resultType="kr.smhrd.domain.ProductsDTO">
+		select * from products where prod_category='선케어' order by prod_id ASC
+	</select>
+	
+	<select id="getOrderList8" resultType="kr.smhrd.domain.ProductsDTO">
+		select * from products where prod_category='클렌징' order by prod_id ASC
+	</select>
+	
 	<select id="read" resultType="kr.smhrd.domain.ProductsDTO">
 		select * from products where prod_id = #{prod_id}
 	</select>

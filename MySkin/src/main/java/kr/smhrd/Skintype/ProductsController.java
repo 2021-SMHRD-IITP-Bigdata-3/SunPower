@@ -63,6 +63,18 @@ public class ProductsController {
 			case "4" :
 				model.addAttribute("list", service.getOrderList4());
 				break;
+			case "스킨케어" :
+				model.addAttribute("list", service.getOrderList5());
+				break;
+			case "마스크팩" :
+				model.addAttribute("list", service.getOrderList6());
+				break;
+			case "선케어" :
+				model.addAttribute("list", service.getOrderList7());
+				break;
+			case "클렌징" :
+				model.addAttribute("list", service.getOrderList8());
+				break;
 			}
 		}
 	}

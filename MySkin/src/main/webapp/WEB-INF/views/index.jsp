@@ -154,10 +154,10 @@ function ck_log(){
 					</a>
 					<ul class="menu_selection" style="padding-left:10px">
 						<li><a href="../product/product_list"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;전체상품</a></li>
-						<li><a href="#"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
-						<li><a href="#"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
-						<li><a href="#"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;썬케어</a></li>
-						<li><a href="#"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
+						<li><a href="../product/product_list?orders=스킨케어"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
+						<li><a href="../product/product_list?orders=마스크팩"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
+						<li><a href="../product/product_list?orders=선케어"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;선케어</a></li>
+						<li><a href="../product/product_list?orders=클렌징"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
 					</ul>
 				</li>
 			</ul>
