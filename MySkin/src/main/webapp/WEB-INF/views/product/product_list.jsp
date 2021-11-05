@@ -181,7 +181,7 @@
 										</tr>
 										<tr>
 											<!-- 별점 불러오기 -->
-											<td style="text-align:left; padding:0 10px; width:99%"><i class="fa fa-star" style="color:#fac451;"></i>3</td>
+											<td style="text-align:left; padding:0 10px; width:99%"><i class="fa fa-star" style="color:#fac451;"></i>${product.prod_rating}</td>
 										</tr>
 									</table>
 								</div>
