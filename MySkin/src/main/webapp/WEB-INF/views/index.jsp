@@ -154,6 +154,7 @@ function ck_log(){
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection" style="padding-left:10px">
+						<li><a href="../product/product_list"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;전체상품</a></li>
 						<li><a href="#"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
 						<li><a href="#"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
 						<li><a href="#"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;썬케어</a></li>
@@ -253,7 +254,7 @@ function ck_log(){
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title new_arrivals_title" style=" margin-top: 20px;">
-						<h2>새로나온 상품</h2>
+						<h2><storng>새로나온 상품</storng></h2>
 					</div>
 				</div>
 			</div>
