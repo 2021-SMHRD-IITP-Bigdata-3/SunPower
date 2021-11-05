@@ -34,10 +34,10 @@ function goDel(article_seq){
 	location.href="${cpath}/board/boardDelete.do?article_seq="+article_seq;
 		//list.article_seq
 	}
-	 function goForm(){
+function goForm(){
 			
-	  		location.href="/board/board_list";
-	  	}
+	location.href="/board/board_list";
+	}
 
 </script>
 </head>
@@ -81,33 +81,58 @@ function goDel(article_seq){
 	<!-- 우측 메뉴 -->
 	<div class="hamburger_menu">
 		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-		<div class="hamburger_menu_content" style="padding-left: 32px;">
+		<div class="hamburger_menu_content" style="padding-left:32px">
 			<ul class="menu_top_nav">
 				<li class="menu_item has-children">
-					<a href="#">
+					<a>
 						<strong>내 계정</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
-					<ul class="menu_selection" style="padding-left:32px">
+					<ul class="menu_selection" style="padding-left:10px">
 						<c:if test="${sessionScope.members.mb_id == null}">
-						<li><a href="/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;로그인</a></li>
-						<li><a href="/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp;회원가입</a></li>
+							<li><a href="../member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
+							<li><a href="../member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
-						<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;로그아웃</a></li>
-						<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;구매한 상품</a></li>
+							<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
+							<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;구매한 상품</a></li>
 						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item">
-					<a href="/survey/survey_choice">피부타입 
-						<c:if test="${sessionScope.members.st_id != null}">
-						재
+				<li class="menu_item has-children">
+					<a>
+						<strong>피부타입 알기</strong>
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="menu_selection" style="padding-left:10px">
+						<c:if test="${sessionScope.members.mb_id == null}">
+							<li><a onclick="ck_log();"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 기반</a></li>
+							<li><a onclick="ck_log();"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지 기반</a></li>
 						</c:if>
-				검사</a>
+						<c:if test="${sessionScope.members.mb_id != null}">
+							<li class="menu_item">
+								<a href="../survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
+							</li>
+							<li class="menu_item">
+								<a href="../survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
+							</li>
+						</c:if>
+					</ul>
 				</li>
-				<li class="menu_item"><a href="board/board_list">피부게시판</a></li>
-				<li class="menu_item"><a href="product/product_list">상품목록</a></li>
+				<li class="menu_item"><a href="../board/board_list"><strong>피부게시판</strong></a></li>
+				<li class="menu_item has-children">
+					<a>
+						<strong>상품 카테고리</strong>
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="menu_selection" style="padding-left:10px">
+						<li><a href="../product/product_list"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;전체상품</a></li>
+						<li><a href="../product/product_list?orders=스킨케어"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
+						<li><a href="../product/product_list?orders=마스크팩"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
+						<li><a href="../product/product_list?orders=선케어"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;선케어</a></li>
+						<li><a href="../product/product_list?orders=클렌징"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -134,9 +159,6 @@ function goDel(article_seq){
 				<!-- 버튼 -->
 				<div class="d-flex justify-content-end">
 					<c:if test="${sessionScope.members.mb_id == to.mb_id}">
-						<button type="button" class="btn btn-secondary"
-							style="margin: 0 7px; padding: 3px 6px;" value="delete"
-							onClick="goUpdate(${to.article_seq})">수정</button>
 						<button type="button" class="btn btn-danger"
 							style="margin: 0 7px; padding: 3px 6px;" value="delete"
 							onClick="goDel(${to.article_seq})">삭제</button>
