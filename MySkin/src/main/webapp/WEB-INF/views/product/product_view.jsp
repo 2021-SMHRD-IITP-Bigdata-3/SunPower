@@ -71,8 +71,8 @@ function add_cart(){
     return;
 	}
 }
-function buy(){
-	location.href="${cpath}/product/buy"
+function buy(index){
+	location.href="${cpath}/product/buy?prod_id="+index;
 }
 </script>
 </head>
@@ -212,7 +212,7 @@ function buy(){
 					</div>
 					<div class="product-actions d-flex justify-content-around">
 						<div class="y_button add_to_cart_button" style="width:44%; margin-bottom:15px;"><a onclick="add_cart();"><strong>장바구니</strong></a></div>
-						<div class="red_button add_to_cart_button" style="width:44%; margin-bottom:15px;"><a onclick="buy();"><strong>구매하기</strong></a></div>
+						<div class="red_button add_to_cart_button" style="width:44%; margin-bottom:15px;"><a onclick="buy(${product.prod_id});"><strong>구매하기</strong></a></div>
 					</div>
 				</div>
 			</div>
