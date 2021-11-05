@@ -162,7 +162,7 @@ function buy(index){
 				</div>
 			</div>
 		</div>
-
+<br>
 		<div class="row">
 			<div class="col-lg-7">
 				<div class="single_product_pics">
