@@ -92,7 +92,6 @@ function ck_log(){
 								<li class="checkout">
 									<a href="#">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
 									</a>
 								</li>
 							</ul>
@@ -112,7 +111,7 @@ function ck_log(){
 		<div class="hamburger_menu_content">
 			<ul class="menu_top_nav">
 				<li class="menu_item has-children">
-					<a href="#">
+					<a>
 						<strong>내 계정</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
@@ -128,7 +127,7 @@ function ck_log(){
 					</ul>
 				</li>
 				<li class="menu_item has-children">
-					<a href="#">
+					<a>
 						<strong>피부타입 알기</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
@@ -149,7 +148,7 @@ function ck_log(){
 				</li>
 				<li class="menu_item"><a href="../board/board_list"><strong>피부게시판</strong></a></li>
 				<li class="menu_item has-children">
-					<a href="#">
+					<a>
 						<strong>상품 카테고리</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
@@ -220,7 +219,7 @@ function ck_log(){
 				</div>
 			</div>
 			<!-- 세번째 이벤트 -->
-			<div class="carousel-item" data-bs-interval="3000">
+			<div class="carousel-item" data-bs-interval="3000" style="font-family:AC;">
 				<div style="background-image:url(../resources/images/event3.jpg); background-size:cover; align-items: center;">
 					<div class="container">
 						<div class="row">
@@ -241,20 +240,37 @@ function ck_log(){
 
 	<!-- 신상품 탭 -->
 	<div class="best_sellers">
-		<a href="survey/choice_survey">
-			<div class="benefit_item d-flex flex-row align-items-center" style="background:#ffd868; margin-top:20px;">
-				<div class="benefit_icon"><i class="fa fa-search" aria-hidden="true"></i></div>
-				<div class="benefit_content">
-					<h5><strong>피부타입 알아보기</strong></h5>
-					<p><strong>자가진단 서비스</strong>로 피부타입을 알아보세요.</p>
+		<c:if test="${sessionScope.members.mb_id == null}">
+			<a onclick="ck_log();">
+				<div class="benefit_item d-flex flex-row align-items-center" style="background:#ffd868; margin-top:20px;">
+					<div class="benefit_icon"><i class="fa fa-search" aria-hidden="true"></i></div>
+					<div class="benefit_content">
+						<h5><strong>피부타입 알아보기</strong></h5>
+						<p><strong>자가진단 서비스</strong>로 피부타입을 알아보세요.</p>
+					</div>
 				</div>
-			</div>
-		</a>
+			</a>
+		</c:if>
+		<c:if test="${sessionScope.members.mb_id != null}">
+			<a href="survey/choice_survey">
+				<div class="benefit_item d-flex flex-row align-items-center" style="background:#ffd868; margin-top:20px;">
+					<div class="benefit_icon"><i class="fa fa-search" aria-hidden="true"></i></div>
+					<div class="benefit_content">
+						<h5><strong>피부타입 알아보기</strong></h5>
+						<p><strong>자가진단 서비스</strong>로 피부타입을 알아보세요.</p>
+					</div>
+				</div>
+			</a>
+		</c:if>
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<div class="section_title new_arrivals_title" style=" margin-top: 20px;">
-						<h2><storng>새로나온 상품</storng></h2>
+					<div class="section_title" style=" margin-top: 20px;">
+						<h2>
+							<strong>
+								 새로 출시된 제품
+							</strong>
+						 </h2>
 					</div>
 				</div>
 			</div>
