@@ -116,7 +116,7 @@
 							    <td style="float:center;"><img src="thumb/1.jpg" style="width:50px; height:50px;"></td>
 							    <td style="text-align: left; display:table-cell; vertical-align:middle">${product.prod_name}</td>
 							    <td style="display:table-cell; vertical-align:middle">1</td>
-							    <td style="display:table-cell; vertical-align:middle">${product.prod_price}</td>
+							    <td style="display:table-cell; vertical-align:middle">${product.getFormat_price()} 원</td>
 							</tr>
 						
 					    </tbody>
@@ -167,7 +167,7 @@
 		</div>
 	</div>
 	<div class="d-flex flex-column" style="border-top: solid 1px #ebebeb;">
-		<div class="p-2 product_price" style="text-align:right;">${product.prod_price}</div>
+		<div class="p-2 product_price" style="text-align:right;">${product.getFormat_price()} 원</div>
 		<div class="p-2" >
 			<button id="delivery_submit" style="float:right" type="submit" class="red_button review_submit_btn" value="Submit">주문하기</button>
 		</div>
