@@ -360,9 +360,6 @@ function buy(index){
 								<div class="tab_image" style="margin-bottom: 3px;">
 									<img src="../resources/images/pro_img_info/${product.prod_id}_15.jpg" alt="">
 								</div>
-								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_16.jpg" alt="">
-								</div>
 							</div>
 						</div>
 					</div>
