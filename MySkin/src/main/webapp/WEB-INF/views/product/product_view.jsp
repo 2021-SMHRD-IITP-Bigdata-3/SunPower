@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>상품페이지</title>
+<title>화분::상품페이지</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -157,7 +157,7 @@ function buy(index){
 					<ul>
 						<li><a href="/">Home</a></li>
 						<li><a href="product_list"><i class="fa fa-angle-right" aria-hidden="true"></i>기초화장품</a></li>
-						<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>상품</a></li>
+						<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>상품상세</a></li>
 					</ul>
 				</div>
 			</div>
@@ -170,14 +170,15 @@ function buy(index){
 						<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
 							<div class="single_product_thumbnails">
 								<ul>
-									<li class="active"><img src="../resources/thumb/${product.prod_id}.jpg" alt="" data-image="../resources/product_img/${product.prod_id}.jpg"></li>
-									<li><img src="../resources/thumb/${product.prod_id}_2.jpg" alt="" data-image="../resources/product_img/${product.prod_id}_2.jpg"></li>
+									<li class="active"><img src="../resources/images/pro_img/${product.prod_id}.jpg" alt="" data-image="../resources/images/pro_img/${product.prod_id}.jpg"></li>
+									<li><img src="../resources/images/pro_img/${product.prod_id}_2.jpg" alt="" data-image="../resources/images/pro_img/${product.prod_id}_2.jpg"></li>
+									<li><img src="../resources/images/pro_img/${product.prod_id}_3.jpg" alt="" data-image="../resources/images/pro_img/${product.prod_id}_3.jpg"></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
 							<div class="single_product_image">
-								<div class="single_product_image_background" style="background-image:url(../resources/product_img/${product.prod_id}.jpg)"></div>
+								<div class="single_product_image_background" style="background-image:url(../resources/images/pro_img/${product.prod_id}.jpg)"></div>
 							</div>
 						</div>
 					</div>
@@ -288,7 +289,7 @@ function buy(index){
 	
 
 	<!-- Tabs -->
-	<div class="tabs_section_container">
+	<div class="tabs_section_container" style="padding-bottom: 5px;">
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -305,29 +306,62 @@ function buy(index){
 				<div class="col">
 
 					<!-- Tab Description -->
-
 					<div id="tab_1" class="tab_container active">
 						<div class="row">
 							<div class="col-lg-5 desc_col">
 								<div class="tab_title" style="text-align:center; margin-bottom: 30px;">
 									<h4>상품 상세정보</h4>
 								</div>
-								<div class="tab_text_block">
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_1.jpg" alt="">
 								</div>
-								<div class="tab_image">
-									<img src="../resources/images/${product.prod_id}-1.jpg" alt="">
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_2.jpg" alt="">
 								</div>
-								<div class="tab_text_block">
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_3.jpg" alt="">
 								</div>
-							</div>
-							<div class="col-lg-5 offset-lg-2 desc_col">
-								<div class="tab_image">
-									<img src="../resources/images/${product.prod_id}-2.jpg" alt="">
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_4.jpg" alt="">
 								</div>
-								<div class="tab_text_block">
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_4.jpg" alt="">
 								</div>
-								<div class="tab_image desc_last">
-									<img src="../resources/images/${product.prod_id}-3.jpg" alt="">
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_5.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_6.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_7.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_8.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_9.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_10.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_11.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_12.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_13.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_14.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_15.jpg" alt="">
+								</div>
+								<div class="tab_image" style="margin-bottom: 3px;">
+									<img src="../resources/images/pro_img_info/${product.prod_id}_16.jpg" alt="">
 								</div>
 							</div>
 						</div>
