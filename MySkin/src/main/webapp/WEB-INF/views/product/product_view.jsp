@@ -173,7 +173,6 @@ function buy(index){
 			</ul>
 		</div>
 	</div>
-
 	<div class="container single_product_container" style="padding-bottom: 40px;">
 		<div class="row">
 			<div class="col">
@@ -186,15 +185,14 @@ function buy(index){
 					</ul>
 				</div>
 			</div>
-		</div>
-<br>
+		</div><br>
 		<div class="row">
 			<div class="col-lg-7">
 				<div class="single_product_pics">
 					<div class="row">
 						<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
 							<div class="single_product_thumbnails">
-								<ul>
+								<ul style="height: 75px;">
 									<li class="active"><img src="../resources/images/pro_img/${product.prod_id}.jpg" alt="" data-image="../resources/images/pro_img/${product.prod_id}.jpg"></li>
 									<li><img src="../resources/images/pro_img/${product.prod_id}_2.jpg" alt="" data-image="../resources/images/pro_img/${product.prod_id}_2.jpg"></li>
 									<li><img src="../resources/images/pro_img/${product.prod_id}_3.jpg" alt="" data-image="../resources/images/pro_img/${product.prod_id}_3.jpg"></li>
@@ -202,8 +200,8 @@ function buy(index){
 							</div>
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
-							<div class="single_product_image">
-								<div class="single_product_image_background" style="background-image:url(../resources/images/pro_img/${product.prod_id}.jpg)"></div>
+							<div class="single_product_image" style="width:345px; height:345px;">
+								<div class="single_product_image_background" style="background-image:url(../resources/images/pro_img/${product.prod_id}.jpg); width:340px; height:340px;"></div>
 							</div>
 						</div>
 					</div>
@@ -216,7 +214,7 @@ function buy(index){
 						<p>${product.prod_maker}</p>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center" style="margin-top: 20px;">
-						<span class="ti-truck"></span><span>무료배송</span>
+						<span class="ti-truck"></span><span>무료배송 - 오늘 출발</span>
 					</div>
 					<div class="original_price">${product.getFormat_price()} 원</div>
 					<div class="product_price">${product.getFormat_price()} 원</div>
