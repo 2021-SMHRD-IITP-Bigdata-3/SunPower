@@ -22,4 +22,12 @@ public class ProductsDTO {
 	public String getFormat_price2() {
 		return String.format("%,d", prod_price+17500); 
 	}
+	
+	public String change_price(int price) {
+		return String.format("%,d원", price);
+	}
+	
+	public String change_price(String price) {
+		return String.format("%,d원", Integer.parseInt(price));
+	}
 }

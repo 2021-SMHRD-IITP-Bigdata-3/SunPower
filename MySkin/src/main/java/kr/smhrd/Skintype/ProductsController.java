@@ -6,10 +6,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.domain.IngreCountDTO;
 import kr.smhrd.domain.MembersDTO;
@@ -34,15 +37,34 @@ public class ProductsController {
 	}
 	
 	@RequestMapping("product_list")
-	public void list(HttpServletRequest req, Model model) {
+	public void list(Model model) {
 		
 		model.addAttribute("list", service.getList());
 	}
 	
-	@PostMapping("product_list")
-	public void list(int order, Model model) {
-		
-		model.addAttribute("list", service.getOrderList(order));
+	@GetMapping("product_list")
+	public void list(@RequestParam @Nullable String orders, Model model) {
+		System.out.println(orders);
+		if(orders == null) {
+			System.out.println("order == null");
+			model.addAttribute("list", service.getList());
+		} else {
+			// System.out.println("order != null");
+			switch(orders) {
+			case "1" :
+				model.addAttribute("list", service.getOrderList1());
+				break;
+			case "2" :
+				model.addAttribute("list", service.getOrderList2());
+				break;
+			case "3" :
+				model.addAttribute("list", service.getOrderList3());
+				break;
+			case "4" :
+				model.addAttribute("list", service.getOrderList4());
+				break;
+			}
+		}
 	}
 	
 	@RequestMapping("product_view")
@@ -52,7 +74,7 @@ public class ProductsController {
 		List<String> reviewST = new ArrayList<>();
 		
 		for(int i=0; i<review.size(); i++) {
-			System.out.println(service.getSkinType(review.get(i).getMb_id()));
+			// System.out.println(service.getSkinType(review.get(i).getMb_id()));
 			reviewST.add(service.getSkinType(review.get(i).getMb_id()));
 		}
 		
@@ -83,13 +105,15 @@ public class ProductsController {
 		
 		return "redirect:/product/product_view?prod_id=" + review.getProd_id();
 	}
+	
 	@RequestMapping("buy_success")
-	public void buy_success(int prod_id,HttpServletRequest req, Model model) {
+	public void buy_success(int prod_id, Model model) {
 		
 		model.addAttribute("list", service.getList());
 	}
+	
 	@RequestMapping("buy")
-	public void buy(int prod_id,HttpServletRequest req, Model model) {
+	public void buy(int prod_id, Model model) {
 		
 		model.addAttribute("product", service.get(prod_id));
 	}

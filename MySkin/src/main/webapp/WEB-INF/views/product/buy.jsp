@@ -113,7 +113,7 @@
 					    <tbody>
 							<tr>
 							    <th scope="row" style="display:table-cell; vertical-align:middle; padding:2px;">${listNum}</th>
-							    <td style="float:center;"><img src="thumb/1.jpg" style="width:50px; height:50px;"></td>
+							    <td style="float:center;"><img src="../resources/thumb/1.jpg" style="width:50px; height:50px;"></td>
 							    <td style="text-align: left; display:table-cell; vertical-align:middle">${product.prod_name}</td>
 							    <td style="display:table-cell; vertical-align:middle">1</td>
 							    <td style="display:table-cell; vertical-align:middle">${product.getFormat_price()} 원</td>
@@ -134,11 +134,11 @@
 						<h2>배송정보</h2>
 					</div>
 					<div>
-						<form id="delivery" action="post">
+						<form id="buy_success" action="post">
 								<div style="width:100%; padding: 0 3%">
 									<label for="uname" class="form-label">이름</label>
 									<div class="d-flex justify-content-start" style="padding:5px; margin-bottom:10px">
-										<input type="text" class="form-control" style="width:100px; color:black" placeholder="홍 길 동" name="uname" id="uname" required>
+										<input type="text" class="form-control" style="width:100px; color:black" placeholder="홍 길 동" name="uname" id="uname" value="${members.mb_name}" required>  
 									</div>
 									<label for="phone" class="form-label">전화번호</label>
 									<div class="d-flex justify-content-start" style="padding:5px;  margin-bottom:10px">
@@ -159,7 +159,6 @@
 										<input type="text" class="form-control" style="width:450px;" placeholder="상세주소를 입력하세요." name="extraAddress" id="extraAddress" required>
 									</div>
 								</div>
-							
 						</form>
 					</div>
 				</div>

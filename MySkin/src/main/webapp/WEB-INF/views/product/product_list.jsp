@@ -143,14 +143,16 @@
 								<div style="float:left; width:30%; margin-bottom:5px;">
 									<ul class="product_sorting">
 										<li>
-											<span class="type_sorting_text">정렬</span>
+										<form action="product_list" method="post" name="frm">
+											<span class="type_sorting_text" onchange="sm()">정렬</span>
 											<i class="fa fa-angle-down"></i>
 											<ul class="sorting_type">
-												<li class="type_sorting_btn" value="1"><span>이름순</span></li>
-												<li class="type_sorting_btn" value="2"><span>가격높은순</span></li>
-												<li class="type_sorting_btn" value="3"><span>가격낮은순</span></li>
-												<li class="type_sorting_btn" value="4"><span>별점순</span></li>
+												<li class="type_sorting_btn" onclick="location.href='product_list?orders=1';"><span>등록순</span></li>
+												<li class="type_sorting_btn" onclick="location.href='product_list?orders=2';"><span>가격높은순</span></li>
+												<li class="type_sorting_btn" onclick="location.href='product_list?orders=3';"><span>가격낮은순</span></li>
+												<li class="type_sorting_btn" onclick="location.href='product_list?orders=4';"><span>별점순</span></li>
 											</ul>
+										</form>
 										</li>
 									</ul>
 								</div>

@@ -5,14 +5,33 @@
 <mapper namespace="kr.smhrd.mapper.SurveyMapper">
 	<update id="updateSkin">
 		update members 
-		set st_id = (
-						select st_id from skintypes where st_class = #{result}
-					) 
+		set st_id =
+				(select st_id 
+				 from skintypes 
+				 where st_class = #{result})
+		where mb_id = #{mb_id}
+	</update>
+	
+	<update id="updateSkinA">
+		update members
+		set st_id =
+			<choose>
+			<when test="st_id > 20">
+				st_id 
+			</when>
+			<otherwise> 
+				st_id + 20
+			</otherwise>
+			</choose>
 		where mb_id = #{mb_id}
 	</update>
 	
 	<select id="getSC" resultType="kr.smhrd.domain.SkinTypesDTO">
 		select * from skintypes where st_class = #{st_class}
+	</select>
+	
+	<select id="getSTC" resultType="kr.smhrd.domain.SkinTypesDTO">
+		select * from skintypes where st_id = #{st_id}
 	</select>
 	
 	<update id="updateAC">
@@ -130,6 +149,138 @@
 			intersect
 			select * from SK_W_VIEW)
 		</when>
+		
+		<when test="_parameter.equals('DSPT-A')">
+			select * from SK_D_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_A_VIEW
+		</when>
+		<when test="_parameter.equals('DSNT-A')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('DSPW-A')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('DSNW-A')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_W_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('DRPT-A')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('DRNT-A')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('DRPW-A')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('DRNW-A')">
+			(select * from SK_D_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('OSPT-A')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('OSNT-A')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('OSPW-A')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('OSNW-A')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_S_VIEW
+			intersect
+			select * from SK_W_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('ORPT-A')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('ORNT-A')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('ORPW-A')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_P_VIEW
+			intersect
+			select * from SK_W_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		<when test="_parameter.equals('ORNW-A')">
+			(select * from SK_O_VIEW
+			intersect
+			select * from SK_W_VIEW
+			intersect
+			select * from SK_A_VIEW)
+		</when>
+		
 		<otherwise>
 			(select * from SK_O_VIEW
 			intersect

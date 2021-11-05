@@ -12,7 +12,10 @@ import kr.smhrd.domain.ReviewsDTO;
 public interface ProductsMapper {
 	public List<ProductsDTO> getList();
 	
-	public List<ProductsDTO> getOrderList(int order);
+	public List<ProductsDTO> getOrderList1();
+	public List<ProductsDTO> getOrderList2();
+	public List<ProductsDTO> getOrderList3();
+	public List<ProductsDTO> getOrderList4();
 	
 	public ProductsDTO read(int prod_id);
 	

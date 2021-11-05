@@ -3,22 +3,27 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.mapper.ProductsMapper">
-
+ 
 	<select id="getList" resultType="kr.smhrd.domain.ProductsDTO">
 	<![CDATA[
 		select * from products where prod_id > 0 order by prod_id
 	]]>
 	</select>
+
+	<select id="getOrderList1" resultType="kr.smhrd.domain.ProductsDTO">
+		select * from products order by prod_id ASC
+	</select>
 	
-	<select id="getOrderList" parameterType="int" resultType="kr.smhrd.domain.ProductsDTO">
-	<![CDATA[
-		select * from products where prod_id > 0
-	]]>
-		order by 
-	<if test='value == 1'>prod_id ASC</if>
-	<if test='value == 2'>prod_price DESC</if>
-	<if test='value == 3'>prod_price ASC</if>
-	<if test='value == 4'>prod_rating DESC</if>
+	<select id="getOrderList2" resultType="kr.smhrd.domain.ProductsDTO">
+		select * from products order by prod_price DESC
+	</select>
+	
+	<select id="getOrderList3" resultType="kr.smhrd.domain.ProductsDTO">
+		select * from products order by prod_price ASC
+	</select>
+	
+	<select id="getOrderList4" resultType="kr.smhrd.domain.ProductsDTO">
+		select * from products order by prod_rating DESC
 	</select>
 	
 	<select id="read" resultType="kr.smhrd.domain.ProductsDTO">
