@@ -138,12 +138,12 @@
 					<!-- Products -->
 					<div class="products_iso">
 						<div class="row">
-							<div class="col">
+							<div class="col" style="border-bottom:1px solid #d9d9d9">
 								<!-- Product Sorting -->
 								<div style="float:left; width:30%; margin-bottom:5px;">
 									<ul class="product_sorting">
 										<li>
-											<span class="type_sorting_text">카테고리</span>
+											<span class="type_sorting_text">정렬</span>
 											<i class="fa fa-angle-down"></i>
 											<ul class="sorting_type">
 												<li class="type_sorting_btn" value="1"><span>이름순</span></li>
@@ -159,11 +159,11 @@
 						<!-- 상품목록틀 -->
 						<div><!-- 상품 한개 틀 -->
 							<c:forEach items="${list}" var="product">
-								<div class="product_li" style="width:99%; margin:10px 5px;" onclick="location.href='product_view?prod_id=${product.prod_id}';">
+								<div class="product_li" style="width:99%; margin:10px 5px; border-bottom:1px solid #d9d9d9" onclick="location.href='product_view?prod_id=${product.prod_id}';">
 									<table>
 										<tr>
 											<td rowspan="4" style="float:center;">
-												<img src="../resources/product_img/${product.prod_id}.jpg" style="width:95px; height:95px;">
+												<img src="../resources/images/pro_img/${product.prod_id}.jpg" style="width:95px; height:95px;">
 											</td>
 											<!-- 위쪽 상품이름 -->
 											<td style="padding:0 10px; padding-top:5px; width:99%; display: inline-block; overflow:hidden; text-overflow:ellipsis; line-height:1; height:33.5px; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;">
@@ -185,30 +185,6 @@
 								</div>
 							</c:forEach>
 						</div>
-
-								<!-- Product Grid -->
-
-								<div class="product-grid">
-								
-									<!-- Product 1 -->
-									<c:forEach items="${list}" var="product">
-									<div class="product-item men">
-										<div class="product discount product_filter">
-											<div class="product_image">
-												<img src="../resources/product_img/${product.prod_id}.jpg" alt="">
-											</div>
-											<div class="favorite favorite_left"></div>
-											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-↓20</span></div>
-											<div class="product_info">
-												<h6 class="product_name"><a href="product_view?prod_id=${product.prod_id}">${product.prod_name}</a></h6>
-												<div class="product_price">${product.getFormat_price()}<span>${product.getFormat_price()}</span></div>
-											</div>
-										</div>
-										<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-									</div>
-									</c:forEach>
-								</div>
-
 							<!-- 페이지 -->
 								<ul class="pagination justify-content-center" style="margin-top:20px;">
 									<li><a class="page-btn" href="#">이전</a></li>
