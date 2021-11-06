@@ -31,11 +31,11 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="../"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="${cpath}"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="../">home</a></li>
+								<li><a href="${cpath}">home</a></li>
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -69,11 +69,11 @@
 					</a>
 					<ul class="menu_selection" style="padding-left:10px">
 						<c:if test="${sessionScope.members.mb_id == null}">
-							<li><a href="../member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
-							<li><a href="../member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
+							<li><a href="${cpath}/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
+							<li><a href="${cpath}/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
-							<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
+							<li><a href="${cpath}/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
 							<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;구매한 상품</a></li>
 						</c:if>
 					</ul>
@@ -90,15 +90,15 @@
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
 							<li class="menu_item">
-								<a href="../survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
+								<a href="${cpath}/survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
 							</li>
 							<li class="menu_item">
-								<a href="../survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
+								<a href="${cpath}/survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
 							</li>
 						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="../board/board_list"><strong>피부게시판</strong></a></li>
+				<li class="menu_item"><a href="${cpath}/board/board_list"><strong>피부게시판</strong></a></li>
 				<li class="menu_item has-children">
 					<a>
 						<strong>상품 카테고리</strong>
@@ -153,7 +153,7 @@
 		<div class="container" style="width:100%; height:auto; margin:auto;">
 			<div><!-- 상품 한개 틀 -->
 				<c:forEach items="${recom}" var="recom">
-					<div class="product_li" style="width:99%; margin:10px 5px; border-bottom:1px solid #d9d9d9" onclick="location.href='product_view?prod_id=${product.prod_id}';">
+					<div class="product_li" style="width:99%; margin:10px 5px; border-bottom:1px solid #d9d9d9" onclick="location.href='${cpath}/product_view?prod_id=${product.prod_id}';">
 						<table>
 						<tr>
 							<td rowspan="4" style="float:center;">

@@ -42,12 +42,12 @@
 					<div class="col-lg-12 text-left" style="padding-left:32px;">
 						<!-- 로고 -->
 						<div class="logo_container">
-							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="${cpath}"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<!-- 상단 아이콘(장바구니, 마이페이지 모양) -->
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="/">home</a></li>
+								<li><a href="${cpath}">home</a></li>
 							</ul>
 							<ul class="navbar_user" style="margin-bottom: 0px;">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -81,11 +81,11 @@
 					</a>
 					<ul class="menu_selection" style="padding-left:10px">
 						<c:if test="${sessionScope.members.mb_id == null}">
-							<li><a href="../member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
-							<li><a href="../member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
+							<li><a href="${cpath}/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
+							<li><a href="${cpath}/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
-							<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
+							<li><a href="${cpath}/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
 							<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;구매한 상품</a></li>
 						</c:if>
 					</ul>
@@ -102,10 +102,10 @@
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
 							<li class="menu_item">
-								<a href="../survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
+								<a href="${cpath}/survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
 							</li>
 							<li class="menu_item">
-								<a href="../survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
+								<a href="${cpath}/survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
 							</li>
 						</c:if>
 					</ul>
@@ -117,11 +117,11 @@
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection" style="padding-left:10px">
-						<li><a href="../product/product_list"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;전체상품</a></li>
-						<li><a href="../product/product_list?orders=스킨케어"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
-						<li><a href="../product/product_list?orders=마스크팩"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
-						<li><a href="../product/product_list?orders=선케어"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;선케어</a></li>
-						<li><a href="../product/product_list?orders=클렌징"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
+						<li><a href="${cpath}/product/product_list"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;전체상품</a></li>
+						<li><a href="${cpath}/product/product_list?orders=스킨케어"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
+						<li><a href="${cpath}/product/product_list?orders=마스크팩"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
+						<li><a href="${cpath}/product/product_list?orders=선케어"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;선케어</a></li>
+						<li><a href="${cpath}/product/product_list?orders=클렌징"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -140,7 +140,7 @@
 			<h1 style="font-size:17px; text-align:center; margin-bottom:30px;"> <strong>${skin.st_class} 피부타입에 맞는 화장품 입니다.</strong></h1>
 			<div class="container" style="width:100%; height:auto; margin:auto;">
 			<c:forEach items="${prod}" var="prod">
-				<div onclick="location.href='../product/product_view?prod_id=${prod.prod_id}';"><!-- 상품 한개 틀 -->
+				<div onclick="location.href='${cpath}/product/product_view?prod_id=${prod.prod_id}';"><!-- 상품 한개 틀 -->
 					<div class="product_li" style="width:99%; margin:10px 5px;">
 						<table>
 							<tr>

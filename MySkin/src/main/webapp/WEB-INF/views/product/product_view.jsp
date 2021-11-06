@@ -64,7 +64,7 @@
 <!-- 장바구니 추가 후 문구 -->
 function add_cart(){
 	if (confirm("상품을 장바구니에 담았슴니다.\n장바구니로 가시겠습니까?") == true){    //확인
-		window.location.href=".../product/cart";
+		window.location.href="${cpath}/product/cart";
 	}
 	else{   //취소
 
@@ -88,12 +88,12 @@ function buy(index){
 					<div class="col-lg-12 text-left" style="padding-left:32px;">
 						<!-- 로고 -->
 						<div class="logo_container">
-							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="${cpath}"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<!-- 상단 아이콘(장바구니, 마이페이지 모양) -->
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="/">home</a></li>
+								<li><a href="${cpath}">home</a></li>
 							</ul>
 							<ul class="navbar_user" style="margin-bottom: 0px;">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -127,11 +127,11 @@ function buy(index){
 					</a>
 					<ul class="menu_selection" style="padding-left:10px">
 						<c:if test="${sessionScope.members.mb_id == null}">
-							<li><a href="../member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
-							<li><a href="../member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
+							<li><a href="${cpath}/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
+							<li><a href="${cpath}/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
-							<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
+							<li><a href="${cpath}/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
 							<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;구매한 상품</a></li>
 						</c:if>
 					</ul>
@@ -148,26 +148,26 @@ function buy(index){
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
 							<li class="menu_item">
-								<a href="../survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
+								<a href="${cpath}/survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
 							</li>
 							<li class="menu_item">
-								<a href="../survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
+								<a href="${cpath}/survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
 							</li>
 						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="../board/board_list"><strong>피부게시판</strong></a></li>
+				<li class="menu_item"><a href="${cpath}/board/board_list"><strong>피부게시판</strong></a></li>
 				<li class="menu_item has-children">
 					<a>
 						<strong>상품 카테고리</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection" style="padding-left:10px">
-						<li><a href="../product/product_list"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;전체상품</a></li>
-						<li><a href="../product/product_list?orders=스킨케어"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
-						<li><a href="../product/product_list?orders=마스크팩"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
-						<li><a href="../product/product_list?orders=선케어"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;선케어</a></li>
-						<li><a href="../product/product_list?orders=클렌징"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
+						<li><a href="${cpath}/product/product_list"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;전체상품</a></li>
+						<li><a href="${cpath}/product/product_list?orders=스킨케어"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
+						<li><a href="${cpath}/product/product_list?orders=마스크팩"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
+						<li><a href="${cpath}/product/product_list?orders=선케어"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;선케어</a></li>
+						<li><a href="${cpath}/product/product_list?orders=클렌징"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -179,8 +179,8 @@ function buy(index){
 				<!-- Breadcrumbs -->
 				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 25px;">
 					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="product_list"><i class="fa fa-angle-right" aria-hidden="true"></i>기초화장품</a></li>
+						<li><a href="${cpath}">Home</a></li>
+						<li><a href="${cpath}/product_list"><i class="fa fa-angle-right" aria-hidden="true"></i>기초화장품</a></li>
 						<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>상품상세</a></li>
 					</ul>
 				</div>
@@ -193,9 +193,9 @@ function buy(index){
 						<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
 							<div class="single_product_thumbnails">
 								<ul style="height: 75px;">
-									<li class="active"><img src="../resources/images/pro_img/${product.prod_id}.jpg" alt="" data-image="../resources/images/pro_img/${product.prod_id}.jpg"></li>
-									<li><img src="../resources/images/pro_img/${product.prod_id}_2.jpg" alt="" data-image="../resources/images/pro_img/${product.prod_id}_2.jpg"></li>
-									<li><img src="../resources/images/pro_img/${product.prod_id}_3.jpg" alt="" data-image="../resources/images/pro_img/${product.prod_id}_3.jpg"></li>
+									<li class="active"><img src="${cpath}/resources/images/pro_img/${product.prod_id}.jpg" alt="" data-image="${cpath}/resources/images/pro_img/${product.prod_id}.jpg"></li>
+									<li><img src="${cpath}/resources/images/pro_img/${product.prod_id}_2.jpg" alt="" data-image="${cpath}/resources/images/pro_img/${product.prod_id}_2.jpg"></li>
+									<li><img src="${cpath}/resources/images/pro_img/${product.prod_id}_3.jpg" alt="" data-image="${cpath}/resources/images/pro_img/${product.prod_id}_3.jpg"></li>
 								</ul>
 							</div>
 						</div>
@@ -336,52 +336,52 @@ function buy(index){
 									<h4>상품 상세정보</h4>
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_1.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_1.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_2.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_2.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_3.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_3.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_4.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_4.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_4.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_4.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_5.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_5.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_6.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_6.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_7.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_7.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_8.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_8.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_9.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_9.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_10.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_10.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_11.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_11.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_12.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_12.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_13.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_13.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_14.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_14.jpg" alt="">
 								</div>
 								<div class="tab_image" style="margin-bottom: 3px;">
-									<img src="../resources/images/pro_img_info/${product.prod_id}_15.jpg" alt="">
+									<img src="${cpath}/resources/images/pro_img_info/${product.prod_id}_15.jpg" alt="">
 								</div>
 							</div>
 						</div>
