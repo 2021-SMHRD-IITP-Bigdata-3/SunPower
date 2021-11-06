@@ -49,6 +49,11 @@
 .product_li:hover {
 	background: #f3f3f3;
 </style>
+<script>
+	function sbm(find) {
+		 find.submit();
+	}
+</script>
 </head>
 <body>
 
@@ -184,7 +189,17 @@
 								</div>
 							</div>
 						</div>
-						<!-- 상품목록틀 -->
+						<!-- 검색창 -->
+						<div>
+						<form action="product_list" method="post" name="find">
+						<span class="type_sorting_text">검색</span>
+							<input type="text" placeholder="검색할 단어를 입력해주세요." id="find" name="find" />
+							<input type="submit" />검색
+						</form>
+						</div>
+						<!-- 검색창 끝 -->
+
+							<!-- 상품목록틀 -->
 						<div><!-- 상품 한개 틀 -->
 							<c:forEach items="${list}" var="product">
 								<div class="product_li" style="width:99%; margin:10px 5px; border-bottom:1px solid #d9d9d9" onclick="location.href='product_view?prod_id=${product.prod_id}';">

@@ -20,6 +20,8 @@ public interface ProductsService {
 	public List<ProductsDTO> getOrderList7();
 	public List<ProductsDTO> getOrderList8();
 	
+	public List<ProductsDTO> getFindList(String find);
+	
 	public ProductsDTO get(int prod_id);
 	
 	public void writeReview(ReviewsDTO review);

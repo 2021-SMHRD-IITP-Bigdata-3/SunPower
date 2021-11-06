@@ -70,6 +70,11 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<ProductsDTO> getOrderList8() {
 		return mapper.getOrderList8();
 	}
+	
+	@Override
+	public List<ProductsDTO> getFindList(String find) {
+		return mapper.getFindList(find);
+	}
 		
 	@Override
 	public ProductsDTO get(int prod_id) {

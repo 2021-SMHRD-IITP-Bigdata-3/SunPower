@@ -42,6 +42,10 @@
 		select * from products where prod_category='클렌징' order by prod_id ASC
 	</select>
 	
+	<select id="getFindList" parameterType="String" resultType="kr.smhrd.domain.ProductsDTO">
+		select * from products where prod_name like '%${value}%' order by prod_id ASC
+	</select>
+	
 	<select id="read" resultType="kr.smhrd.domain.ProductsDTO">
 		select * from products where prod_id = #{prod_id}
 	</select>

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.smhrd.domain.IngreCountDTO;
-import kr.smhrd.domain.MembersDTO;
 import kr.smhrd.domain.ReviewsDTO;
 import kr.smhrd.service.ProductsService;
 import lombok.AllArgsConstructor;
@@ -79,6 +76,15 @@ public class ProductsController {
 		}
 	}
 	
+	@PostMapping("product_list")
+	public void list2(@RequestParam @Nullable String find, Model model) {
+		if(find == null) {
+			model.addAttribute("list", service.getList());
+		} else {
+			model.addAttribute("list", service.getFindList(find));
+		}
+	}
+	
 	@RequestMapping("product_view")
 	public void prod_view(int prod_id, HttpServletRequest req, Model model) {
 		
@@ -129,4 +135,5 @@ public class ProductsController {
 		
 		model.addAttribute("product", service.get(prod_id));
 	}
+		
 }

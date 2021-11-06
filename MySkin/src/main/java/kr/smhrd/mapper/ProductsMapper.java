@@ -21,6 +21,8 @@ public interface ProductsMapper {
 	public List<ProductsDTO> getOrderList7();
 	public List<ProductsDTO> getOrderList8();
 	
+	public List<ProductsDTO> getFindList(String find);
+	
 	public ProductsDTO read(int prod_id);
 	
 	public void writeReview(ReviewsDTO review);
