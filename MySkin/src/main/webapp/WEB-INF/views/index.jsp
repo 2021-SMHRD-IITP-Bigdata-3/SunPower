@@ -11,13 +11,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../../resources/styles/bootstrap4/bootstrap.min.css">
-<link href="../../resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="../../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="../../resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="../../resources/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="../../resources/styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="../../resources/styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/bootstrap4/bootstrap.min.css">
+<link href="${cpath}/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/responsive.css">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -61,7 +61,7 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
 <!-- 장바구니 추가 후 문구 -->
 function ck_log(){
 	if (confirm("로그인이 필요한서비스 입니다.\n로그인페이지로 이동하시겠습니까?") == true){    //확인
-		window.location.href="../member/login";
+		window.location.href="${cpath}/member/login";
 	}
 	else{   //취소
     return;
@@ -457,13 +457,13 @@ function ck_log(){
 	</footer>
 </div>
 
-<script src="../../resources/js/jquery-3.2.1.min.js"></script>
-<script src="../../resources/styles/bootstrap4/popper.js"></script>
-<script src="../../resources/styles/bootstrap4/bootstrap.min.js"></script>
-<script src="../../resources/plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="../../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="../../resources/plugins/easing/easing.js"></script>
-<script src="../../resources/js/custom.js"></script>
+<script src="${cpath}/resources/js/jquery-3.2.1.min.js"></script>
+<script src="${cpath}/resources/styles/bootstrap4/popper.js"></script>
+<script src="${cpath}/resources/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="${cpath}/resources/plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="${cpath}/resources/plugins/easing/easing.js"></script>
+<script src="${cpath}/resources/js/custom.js"></script>
 </body>
 </html>
 <!--  
