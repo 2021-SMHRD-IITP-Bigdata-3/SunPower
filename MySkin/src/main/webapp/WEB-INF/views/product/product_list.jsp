@@ -192,9 +192,9 @@
 						<!-- 검색창 -->
 						<div>
 						<form action="product_list" method="post" name="find">
-						<span class="type_sorting_text">검색</span>
+						<span class="type_sorting_text"></span>
 							<input type="text" placeholder="검색할 단어를 입력해주세요." id="find" name="find" />
-							<input type="submit" />검색
+							<!--  <input type="submit" value="검색"/> -->
 						</form>
 						</div>
 						<!-- 검색창 끝 -->
