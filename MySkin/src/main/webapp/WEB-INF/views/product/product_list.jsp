@@ -70,7 +70,7 @@
 								<li><a href="/">home</a></li>
 							</ul>
 							<ul class="navbar_user" style="margin-bottom: 0px;">
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+								<li><a href="../product/product_list"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
 									<a href="#">
@@ -148,27 +148,45 @@
 		</div>
 	</div>
 
-	<div class="container product_section_container">
+	<div class="container product_section_container" style="margin-top:70px;">
 		<div class="row">
 			<div class="col product_section clearfix">
 
 				<!-- Breadcrumbs -->
-								<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 15px;">
+				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 15px;">
 					<ul>
 						<li><a href="../">홈</a></li>
-						<li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>상품 목록</a></li>
+						<li class="active"><a href="../product/product_list"><i class="fa fa-angle-right" aria-hidden="true"></i>상품 목록</a></li>
 					</ul>
 				</div>
+				<!-- 검색창 -->
+				<!-- 검색창 끝 -->
+				<form action="product_list" method="post" name="find">
+				<div class="container row" style="margin:0 0 15px 0; padding:0 0;">
+					<div class="col" style="padding:0 0"><input class="form-control" type="text" style="width:95%;" placeholder="제품 검색" id="find" name="find" required></div>
+					<div><button class="btn" style="width:100%; color: #fff; background-color: #ff3848; border-color: #28a745;" type="submit" >검색</button></div>
+				</div>
+				</form>
 				<!-- Main Content -->
 				<div class="main_content">
 					<!-- Products -->
 					<div class="products_iso">
-						<div class="row">
-							<div class="col" style="border-bottom:1px solid #d9d9d9">
+						<div class="row" style="align-content:center; padding:0 3px; margin:10px 0">
+						  <div class="col" style="border-radius: 2em; background-color:#ff3a4a; color:white; margin:0 5px; padding:0 3px; font-size:0.75rem; text-align:center;"
+						  onclick="location.href='../product/product_list?orders=스킨케어'">#스킨케어</div>
+						  <div class="col" style="border-radius: 2em; background-color:#ff3a4a; color:white; margin:0 5px; padding:0 3px; font-size:0.75rem; text-align:center;">#마스크팩</div>
+						  <div class="col" style="border-radius: 2em; background-color:#ff3a4a; color:white; margin:0 5px; padding:0 3px; font-size:0.75rem; text-align:center;">#선케어</div>
+						  <div class="col" style="border-radius: 2em; background-color:#ff3a4a; color:white; margin:0 5px; padding:0 3px; font-size:0.75rem; text-align:center;">#클랜징</div>
+						</div>
+						<div class="row" style="align-content:right; border-bottom:1px solid #d9d9d9;">
+							<div class="col" style="display:inline-block;">
+								<button class="btn" style="width:50%; padding:3px 6px; color: #606060; background-color: #d4d4d4; border-color: #b9b4c7;" onClick="location.href='../product/product_list'">검색초기화</button>
+							</div>
+							<div style=" width:30%;">
 								<!-- Product Sorting -->
-								<div style="float:left; width:30%; margin-bottom:5px;">
+								<div style="width:30%; margin-bottom:5px;">
 									<ul class="product_sorting">
-										<li>
+										<li style="width: 100px; margin-bottom: 0px;">
 										<form action="product_list" method="post" name="frm">
 											<span class="type_sorting_text" onchange="sm()">정렬</span>
 											<i class="fa fa-angle-down"></i>
@@ -184,17 +202,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- 검색창 -->
-						<div>
-						<form action="product_list" method="post" name="find">
-						<span class="type_sorting_text"></span>
-							<input type="text" placeholder="검색할 단어를 입력해주세요." id="find" name="find" />
-							<input type="submit" value="검색" />
-						</form>
-						</div>
-						<!-- 검색창 끝 -->
-
-							<!-- 상품목록틀 -->
+						<!-- 상품목록틀 -->
 						<div><!-- 상품 한개 틀 -->
 							<c:forEach items="${list}" var="product">
 								<div class="product_li" style="width:99%; margin:10px 5px; border-bottom:1px solid #d9d9d9" onclick="location.href='product_view?prod_id=${product.prod_id}';">
@@ -222,18 +230,6 @@
 									</table>
 								</div>
 							</c:forEach>
-						</div>
-							<!-- 페이지 -->
-								<ul class="pagination justify-content-center" style="margin-top:20px;">
-									<li><a class="page-btn" href="#">이전</a></li>
-									<li class="page-list active"><a class="page-num" href="#">1</a></li>
-									<li class="page-list"><a class="page-num" href="#">2</a></li>
-									<li class="page-list"><a class="page-num" href="#">3</a></li>
-									<li class="page-list"><a class="page-num" href="#">4</a></li>
-									<li class="page-list"><a class="page-num" href="#">5</a></li>
-									<li><a class="page-btn" href="#">다음</a></li>
-								</ul>
-							</div>
 						</div>
 					</div>
 				</div>
