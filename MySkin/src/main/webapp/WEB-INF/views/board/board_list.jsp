@@ -11,21 +11,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css"
-	href="../resources/styles/bootstrap4/bootstrap.min.css">
+	href="${cpath}/resources/styles/bootstrap4/bootstrap.min.css">
 <link href="../resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css"
-	href="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css"
-	href="../resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css"
-	href="../resources/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" href="../resources/plugins/themify-icons/themify-icons.css">
+	href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" href="${cpath}/resources/plugins/themify-icons/themify-icons.css">
 <link rel="stylesheet" type="text/css"
-	href="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="../resources/styles/single_styles.css">
+	href="${cpath}/resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/single_styles.css">
 <link rel="stylesheet" type="text/css"
-	href="../resources/styles/single_responsive.css">
+	href="${cpath}/resources/styles/single_responsive.css">
 <style>
 .page-list.active .page-num {
 	z-index: 2;
@@ -72,7 +72,7 @@ function goForm(){
 	  var article_SEQ=$("#article_SEQ"+index).text();
 	  var contents=$("#content"+index).val();
 	  $.ajax({ 
-		  url : "${cpath}/boardContent.do",
+		  url : "${cpath}/board/boardContent.do",
 		  type : "post",
 		  data : {  "article_SEQ":article_SEQ,"contents":contents},
 		  success : loadJson,
@@ -84,7 +84,7 @@ function goForm(){
   function selChange() {
 		var sel = 5;
 			//document.getElementById('cntPerPage').value;
-			location.href="board_list?nowPage=${paging.nowPage}&cntPerPage="+sel;
+			location.href="${cpath}/board_list?nowPage=${paging.nowPage}&cntPerPage="+sel;
 
 		}
 	</script>
@@ -102,12 +102,12 @@ function goForm(){
 					<div class="col-lg-12 text-left" style="padding-left:32px;">
 						<!-- 로고 -->
 						<div class="logo_container">
-							<a href="/"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="${cpath}"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<!-- 상단 아이콘(장바구니, 마이페이지 모양) -->
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="/">home</a></li>
+								<li><a href="${cpath}">home</a></li>
 							</ul>
 							<ul class="navbar_user" style="margin-bottom: 0px;">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -141,11 +141,11 @@ function goForm(){
 					</a>
 					<ul class="menu_selection" style="padding-left:10px">
 						<c:if test="${sessionScope.members.mb_id == null}">
-							<li><a href="../member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
-							<li><a href="../member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
+							<li><a href="${cpath}/member/login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;로그인</a></li>
+							<li><a href="${cpath}/member/register"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;회원가입</a></li>
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
-							<li><a href="/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
+							<li><a href="${cpath}/member/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;로그아웃</a></li>
 							<li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;구매한 상품</a></li>
 						</c:if>
 					</ul>
@@ -162,26 +162,26 @@ function goForm(){
 						</c:if>
 						<c:if test="${sessionScope.members.mb_id != null}">
 							<li class="menu_item">
-								<a href="../survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
+								<a href="${cpath}/survey/choice_survey"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;자가설문 검사</a>
 							</li>
 							<li class="menu_item">
-								<a href="../survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
+								<a href="${cpath}/survey/img_analysis"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;이미지기반 검사</a>
 							</li>
 						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="../board/board_list"><strong>피부게시판</strong></a></li>
+				<li class="menu_item"><a href="${cpath}/board/board_list"><strong>피부게시판</strong></a></li>
 				<li class="menu_item has-children">
 					<a>
 						<strong>상품 카테고리</strong>
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection" style="padding-left:10px">
-						<li><a href="../product/product_list"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;전체상품</a></li>
-						<li><a href="../product/product_list?orders=스킨케어"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
-						<li><a href="../product/product_list?orders=마스크팩"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
-						<li><a href="../product/product_list?orders=선케어"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;선케어</a></li>
-						<li><a href="../product/product_list?orders=클렌징"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
+						<li><a href="${cpath}/product/product_list"><i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;전체상품</a></li>
+						<li><a href="${cpath}/product/product_list?orders=스킨케어"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;스킨케어</a></li>
+						<li><a href="${cpath}/product/product_list?orders=마스크팩"><i class="fa fa-leaf" aria-hidden="true"></i>&nbsp;마스크팩</a></li>
+						<li><a href="${cpath}/product/product_list?orders=선케어"><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp;선케어</a></li>
+						<li><a href="${cpath}/product/product_list?orders=클렌징"><i class="fa fa-shower" aria-hidden="true"></i>&nbsp;클렌징</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -196,7 +196,7 @@ function goForm(){
 					<div class="breadcrumbs d-flex flex-row align-items-center"
 						style="margin-bottom: 15px;">
 						<ul>
-							<li><a href="/">Home</a></li>
+							<li><a href="${cpath}">Home</a></li>
 							<li class="active"><a href="#"><i
 									class="fa fa-angle-right" aria-hidden="true"></i>게시판</a></li>
 						</ul>
