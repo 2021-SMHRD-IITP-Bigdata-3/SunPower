@@ -5,19 +5,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>피부타입 알아보기</title>
+<title>화분::피부타입 알아보기</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../resources/styles/bootstrap4/bootstrap.min.css">
-<link href="../resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" href="../resources/plugins/themify-icons/themify-icons.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="../resources/styles/single_styles.css">
-<link rel="stylesheet" type="text/css" href="../resources/styles/single_responsive.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/bootstrap4/bootstrap.min.css">
+<link href="${cpath}/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" href="${cpath}/resources/plugins/themify-icons/themify-icons.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/single_styles.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/single_responsive.css">
 <!-- 버튼 호버 툴팁 관련-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -144,14 +144,14 @@
 				<div style="text-align:center; margin:">Copyright 2021. 태양광발전소 all rights reserved.</div>
 		</div>
 	</footer>
-<script src="../resources/js/jquery-3.2.1.min.js"></script>
-<script src="../resources/styles/bootstrap4/popper.js"></script>
-<script src="../resources/styles/bootstrap4/bootstrap.min.js"></script>
-<script src="../resources/plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="../resources/plugins/easing/easing.js"></script>
-<script src="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-<script src="../resources/js/single_custom.js"></script>
+<script src="${cpath}/resources/js/jquery-3.2.1.min.js"></script>
+<script src="${cpath}/resources/styles/bootstrap4/popper.js"></script>
+<script src="${cpath}/resources/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="${cpath}/resources/plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="${cpath}/resources/plugins/easing/easing.js"></script>
+<script src="${cpath}/resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="${cpath}/resources/js/single_custom.js"></script>
 </div>
 </body>
 </html>

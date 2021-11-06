@@ -10,15 +10,15 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../resources/styles/bootstrap4/bootstrap.min.css">
-<link href="../resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" href="../resources/plugins/themify-icons/themify-icons.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="../resources/styles/single_styles.css">
-<link rel="stylesheet" type="text/css" href="../resources/styles/single_responsive.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/bootstrap4/bootstrap.min.css">
+<link href="${cpath}/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" href="${cpath}/resources/plugins/themify-icons/themify-icons.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/single_styles.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/single_responsive.css">
 
 <!-- 하단 고정바 스타일 -->
 <style>
@@ -604,13 +604,13 @@ function buy(index){
 </div>
 <div><br><br><br></div>
 
-<script src="../resources/js/jquery-3.2.1.min.js"></script>
-<script src="../resources/styles/bootstrap4/popper.js"></script>
-<script src="../resources/styles/bootstrap4/bootstrap.min.js"></script>
-<script src="../resources/plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="../resources/plugins/easing/easing.js"></script>
-<script src="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-<script src="../resources/js/single_custom.js"></script>
+<script src="${cpath}/resources/js/jquery-3.2.1.min.js"></script>
+<script src="${cpath}/resources/styles/bootstrap4/popper.js"></script>
+<script src="${cpath}/resources/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="${cpath}/resources/plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="${cpath}/resources/plugins/easing/easing.js"></script>
+<script src="${cpath}/resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="${cpath}/resources/js/single_custom.js"></script>
 </body>
 </html>

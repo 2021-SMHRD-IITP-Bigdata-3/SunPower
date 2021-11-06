@@ -7,29 +7,29 @@
 
 <html lang="ko">
 <head>
-<title>회원가입</title>
+<title>화분::회원가입</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../resources/styles/bootstrap4/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" href="../resources/plugins/themify-icons/themify-icons.css">
-<link rel="stylesheet" type="text/css" href="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="../resources/styles/contact_styles.css">
-<link rel="stylesheet" type="text/css" href="../resources/styles/contact_responsive.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/bootstrap4/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" href="${cpath}/resources/plugins/themify-icons/themify-icons.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/contact_styles.css">
+<link rel="stylesheet" type="text/css" href="${cpath}/resources/styles/contact_responsive.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icheck-bootstrap@3.0.1/icheck-bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/ripples.min.css"/>
-<link rel="stylesheet" href="../resources/styles/bootstrap-material-datetimepicker.css" />
+<link rel="stylesheet" href="${cpath}/resources/styles/bootstrap-material-datetimepicker.css" />
 <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Roboto:400,500'>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-<script src="../resources/plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="${cpath}/resources/plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -38,7 +38,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
-<script src="../resources/js/bootstrap-material-datetimepicker.js"></script>
+<script src="${cpath}/resources/js/bootstrap-material-datetimepicker.js"></script>
 
     <style>
         /* .help-block 을 일단 보이지 않게 설정 */
@@ -381,12 +381,12 @@
 		</div>
 	</footer>
 </div>
-<script src="../resources/styles/bootstrap4/popper.js"></script>
-<script src="../resources/styles/bootstrap4/bootstrap.min.js"></script>
-<script src="../resources/plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="../resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="../resources/plugins/easing/easing.js"></script>
-<script src="../resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-<script src="../resources/js/single_custom.js"></script>
+<script src="${cpath}/resources/styles/bootstrap4/popper.js"></script>
+<script src="${cpath}/resources/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="${cpath}/resources/plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="${cpath}/resources/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="${cpath}/resources/plugins/easing/easing.js"></script>
+<script src="${cpath}/resources/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="${cpath}/resources/js/single_custom.js"></script>
 </body>
 </html>
