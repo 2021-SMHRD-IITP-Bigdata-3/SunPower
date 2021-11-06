@@ -200,8 +200,8 @@ function buy(index){
 							</div>
 						</div>
 						<div class="col-lg-9 image_col order-lg-2 order-1">
-							<div class="single_product_image" style="width:345px; height:345px;">
-								<div class="single_product_image_background" style="background-image:url(../resources/images/pro_img/${product.prod_id}.jpg); width:340px; height:340px;"></div>
+							<div class="single_product_image">
+								<div class="single_product_image_background" style="background-image:url(../resources/images/pro_img/${product.prod_id}.jpg);"></div>
 							</div>
 						</div>
 					</div>
