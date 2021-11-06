@@ -34,7 +34,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="${cpath}"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="${cpath}"><img src="${cpath}/resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
@@ -139,7 +139,7 @@
 					    <tbody>
 							<tr>
 							    <th scope="row" style="display:table-cell; vertical-align:middle; padding:2px;">${listNum}</th>
-							    <td style="float:center;"><img src="../resources/thumb/1.jpg" style="width:50px; height:50px;"></td>
+							    <td style="float:center;"><img src="${cpath}/resources/thumb/1.jpg" style="width:50px; height:50px;"></td>
 							    <td style="text-align: left; display:table-cell; vertical-align:middle">${product.prod_name}</td>
 							    <td style="display:table-cell; vertical-align:middle">1</td>
 							    <td style="display:table-cell; vertical-align:middle">${product.getFormat_price()} 원</td>
@@ -164,25 +164,26 @@
 								<div style="width:100%; padding: 0 3%">
 									<label for="uname" class="form-label">이름</label>
 									<div class="d-flex justify-content-start" style="padding:5px; margin-bottom:10px">
-										<input type="text" class="form-control" style="width:100px; color:black" placeholder="홍 길 동" name="uname" id="uname" value="${members.mb_name}" required>  
+										<input type="text" class="form-control" style="width:100px; color:black" placeholder="홍 길 동" name="uname" id="uname" value="${members.mb_name}" >  
 									</div>
 									<label for="phone" class="form-label">전화번호</label>
 									<div class="d-flex justify-content-start" style="padding:5px;  margin-bottom:10px">
-										<input type="text" class="form-control" style="width:170px; text-align:center;" placeholder="ex) 010-7777-8888" name="phone" id="phone" required>
+										<input type="text" class="form-control" style="width:170px; text-align:center;" placeholder="ex) 010-7777-8888" name="phone" id="phone" >
 									</div>
 									<label for="postcode" class="form-label">주소</label>
 									<div class="d-flex justify-content-start" style="padding:5px;">
-										<input type="text" class="form-control" style="width:150px;" placeholder="우편번호" name="postcode" id="postcode" required readonly onclick="execDaumPostcode()">
+										<input type="text" class="form-control" style="width:150px;" placeholder="우편번호" name="postcode" id="postcode"  readonly onclick="execDaumPostcode()">
 									</div>
 									<div class="d-flex justify-content-start" style="padding:5px;  margin-bottom:10px">
-										<input type="text" class="form-control" style="width:450px;" placeholder="주소" name="address" id="address" required readonly onclick="execDaumPostcode()">
+										<input type="text" class="form-control" style="width:450px;" placeholder="주소" name="address" id="address"  readonly onclick="execDaumPostcode()">
 									</div>
 									<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
 										<img src="https://t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 									</div>
 									<label for="extraAddress" class="form-label">상세주소</label>
 									<div class="d-flex justify-content-start" style="padding:5px;  margin-bottom:10px">
-										<input type="text" class="form-control" style="width:450px;" placeholder="상세주소를 입력하세요." name="extraAddress" id="extraAddress" required>
+										 <input type="text" class="form-control" style="width:450px;" placeholder="상세주소를 입력하세요." name="extraAddress" id="extraAddress" onclick=""> 
+										
 									</div>
 								</div>
 						</form>
@@ -194,7 +195,7 @@
 	<div class="d-flex flex-column" style="border-top: solid 1px #ebebeb;">
 		<div class="p-2 product_price" style="text-align:right;">${product.getFormat_price()} 원</div>
 		<div class="p-2" >
-			<button id="delivery_submit" style="float:right" type="submit" class="red_button review_submit_btn" value="Submit" onclick="location.href='buy_success';">주문하기</button>
+			<button id="delivery_submit" style="float:right"  class="red_button review_submit_btn" type="submit" value="Submit" ><a href="${cpath}/product/buy_success?prod_id=${product.prod_id}">주문하기</a></button>
 		</div>
 	</div>
 	

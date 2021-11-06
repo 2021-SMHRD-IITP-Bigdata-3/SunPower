@@ -62,7 +62,7 @@
 					<div class="col-lg-12 text-left" style="padding-left:32px;">
 						<!-- 로고 -->
 						<div class="logo_container">
-							<a href="${cpath}"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="${cpath}"><img src="${cpath}/resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<!-- 상단 아이콘(장바구니, 마이페이지 모양) -->
 						<nav class="navbar">
@@ -130,7 +130,7 @@
 						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="../board/board_list"><strong>피부게시판</strong></a></li>
+				<li class="menu_item"><a href="${cpath}/board/board_list"><strong>피부게시판</strong></a></li>
 				<li class="menu_item has-children">
 					<a>
 						<strong>상품 카테고리</strong>
@@ -156,7 +156,7 @@
 				<div class="breadcrumbs d-flex flex-row align-items-center" style="margin-bottom: 15px;">
 					<ul>
 						<li><a href="${cpath}">홈</a></li>
-						<li class="active"><a href="../product/product_list"><i class="fa fa-angle-right" aria-hidden="true"></i>상품 목록</a></li>
+						<li class="active"><a href="${cpath}/product/product_list"><i class="fa fa-angle-right" aria-hidden="true"></i>상품 목록</a></li>
 					</ul>
 				</div>
 				<!-- 검색창 -->
@@ -183,7 +183,7 @@
 						</div>
 						<div class="row" style="align-content:right; border-bottom:1px solid #d9d9d9;">
 							<div class="col" style="display:inline-block;">
-								<button class="btn" style="width:50%; padding:3px 6px; color: #606060; background-color: #d4d4d4; border-color: #b9b4c7;" onClick="location.href='../product/product_list'">검색초기화</button>
+								<button class="btn" style="width:50%; padding:3px 6px; color: #606060; background-color: #d4d4d4; border-color: #b9b4c7;" onClick="location.href='${cpath}/product/product_list'">검색초기화</button>
 							</div>
 							<div style=" width:30%;">
 								<!-- Product Sorting -->
@@ -194,10 +194,10 @@
 											<span class="type_sorting_text" onchange="sm()">정렬</span>
 											<i class="fa fa-angle-down"></i>
 											<ul class="sorting_type">
-												<li class="type_sorting_btn" onclick="location.href='${cpath}/product_list?orders=1';"><span>등록순</span></li>
-												<li class="type_sorting_btn" onclick="location.href='${cpath}/product_list?orders=2';"><span>가격높은순</span></li>
-												<li class="type_sorting_btn" onclick="location.href='${cpath}/product_list?orders=3';"><span>가격낮은순</span></li>
-												<li class="type_sorting_btn" onclick="location.href='${cpath}/product_list?orders=4';"><span>별점순</span></li>
+												<li class="type_sorting_btn" onclick="location.href='${cpath}/product/product_list?orders=1';"><span>등록순</span></li>
+												<li class="type_sorting_btn" onclick="location.href='${cpath}/product/product_list?orders=2';"><span>가격높은순</span></li>
+												<li class="type_sorting_btn" onclick="location.href='${cpath}/product/product_list?orders=3';"><span>가격낮은순</span></li>
+												<li class="type_sorting_btn" onclick="location.href='${cpath}/product/product_list?orders=4';"><span>별점순</span></li>
 											</ul>
 										</form>
 										</li>
@@ -212,7 +212,7 @@
 									<table>
 										<tr>
 											<td rowspan="4" style="float:center;">
-												<img src="../resources/images/pro_img/${product.prod_id}.jpg" style="width:95px; height:95px;">
+												<img src="${cpath}/resources/images/pro_img/${product.prod_id}.jpg" style="width:95px; height:95px;">
 											</td>
 											<!-- 위쪽 상품이름 -->
 											<td style="padding:0 10px; padding-top:5px; width:99%; display: inline-block; overflow:hidden; text-overflow:ellipsis; line-height:1; height:33.5px; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;">

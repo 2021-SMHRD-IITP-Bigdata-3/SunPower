@@ -153,11 +153,11 @@
 		<div class="container" style="width:100%; height:auto; margin:auto;">
 			<div><!-- 상품 한개 틀 -->
 				<c:forEach items="${recom}" var="recom">
-					<div class="product_li" style="width:99%; margin:10px 5px; border-bottom:1px solid #d9d9d9" onclick="location.href='${cpath}/product_view?prod_id=${product.prod_id}';">
+					<div class="product_li" style="width:99%; margin:10px 5px; border-bottom:1px solid #d9d9d9" onclick="location.href='${cpath}/product/product_view?prod_id=${recom.prod_id}';">
 						<table>
 						<tr>
 							<td rowspan="4" style="float:center;">
-								<img src="../resources/images/pro_img/${recom.prod_id}.jpg" style="width:95px; height:95px;">
+								<img src="${cpath}/resources/images/pro_img/${recom.prod_id}.jpg" style="width:95px; height:95px;">
 							</td>
 							<!-- 위쪽 상품이름 -->
 							<td style="padding:0 10px; width:99%; display: inline-block; overflow:hidden; text-overflow:ellipsis; line-height:1; height:28px; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;">

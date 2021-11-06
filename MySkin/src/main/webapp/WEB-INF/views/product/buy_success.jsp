@@ -31,7 +31,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href="${cpath}"><img src="../resources/logo/image02.png" width="150" height="60" ></a>
+							<a href="${cpath}"><img src="${cpath}/resources/logo/image02.png" width="150" height="60" ></a>
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
@@ -98,7 +98,7 @@
 						</c:if>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="../board/board_list"><strong>피부게시판</strong></a></li>
+				<li class="menu_item"><a href="${cpath}/board/board_list"><strong>피부게시판</strong></a></li>
 				<li class="menu_item has-children">
 					<a>
 						<strong>상품 카테고리</strong>
@@ -122,7 +122,7 @@
 			<div class="breadcrumbs" style="margin-bottom: 10px;"></div>
 			<h3 style="margin-bottom: 20px;">구매완료</h3>
 		</div>
-		<form action="/ajax/signup" method="post" id="myForm" >
+		<form action="${cpath}" method="post" id="myForm" >
 			<div class="container" style="width:95%; height:auto; margin:auto;">
 				<h3 style="margin-top:100px; margin-bottom:30px; font-size:20px; text-align:center">구매가 정상적으로 완료되었습니다.<br></h3>
 				<h3 style="margin-top:30px; margin-bottom:60px; font-size:13px; text-align:center">구매가 정상적으로 완료되었으며, <br>상품이 배송준비 중 입니다.<br></h3>

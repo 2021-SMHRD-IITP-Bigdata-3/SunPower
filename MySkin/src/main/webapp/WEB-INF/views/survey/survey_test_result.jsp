@@ -145,7 +145,7 @@
 						<table>
 							<tr>
 								<td rowspan="4" style="float:center;">
-									<img src="../resources/images/pro_img/${prod.prod_id}.jpg" style="width:95px; height:95px;">
+									<img src="${cpath}/resources/images/pro_img/${prod.prod_id}.jpg" style="width:95px; height:95px;">
 								</td>
 								<!-- 위쪽 상품이름 -->
 								<td style="padding:0 10px; width:99%; display: inline-block; overflow:hidden; text-overflow:ellipsis; line-height:1; height:28px; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical;">

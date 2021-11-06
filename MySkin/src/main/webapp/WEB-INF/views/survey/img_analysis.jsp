@@ -182,7 +182,7 @@
           <div class ="img" align="center">
           	<div id="image_preview">
            		<%-- <img id="thumbnailImg" src="<value is too large to edit>" style ="height: 300px; width: 300px;"> --%>
-           		<img src="../resources/images/show.png" style="max-width:90%">
+           		<img src="${cpath}/resources/images/show.png" style="max-width:90%">
            	</div>
             <br><br>
             <div class="f_box">

@@ -53,7 +53,7 @@ var random_banner2=Math.floor(Math.random()*(banner2.length));
     font-style: normal;
 }
 @font-face {
-	src : url("../../resources/font/koverwatch.ttf");
+	src : url("${cpath}/resources/font/koverwatch.ttf");
 	font-family:'over';
 }
 </style>
@@ -186,7 +186,7 @@ function ck_log(){
 		<div class="carousel-inner" style="height:150px; display:flex;">
 			<!-- 첫 번째 이벤트 -->
 			<div class="carousel-item active" data-bs-interval="3000">
-				<div style="background-image:url(../resources/images/winter.png); background-size:cover; align-items: center;">
+				<div style="background-image:url(${cpath}/resources/images/winter.png); background-size:cover; align-items: center;">
 					<div class="container">
 						<div class="row">
 							<div class="col" style="padding-top:12px; padding-bottom:12px">
@@ -203,7 +203,7 @@ function ck_log(){
 			</div>
 			<!-- 두번째 이벤트 -->
 			<div class="carousel-item" data-bs-interval="3000">
-				<div style="background-image:url(../resources/images/event1.jpg); background-size:cover; align-items: center;">
+				<div style="background-image:url(${cpath}/resources/images/event1.jpg); background-size:cover; align-items: center;">
 					<div class="container">
 						<div class="row">
 							<div class="col" style="padding-top:12px; padding-bottom:12px">
@@ -220,7 +220,7 @@ function ck_log(){
 			</div>
 			<!-- 세번째 이벤트 -->
 			<div class="carousel-item" data-bs-interval="3000" style="font-family:AC;">
-				<div style="background-image:url(../resources/images/event3.jpg); background-size:cover; align-items: center;">
+				<div style="background-image:url(${cpath}/resources/images/event3.jpg); background-size:cover; align-items: center;">
 					<div class="container">
 						<div class="row">
 							<div class="col" style="padding-top:12px; padding-bottom:12px">
@@ -327,7 +327,7 @@ function ck_log(){
 			<div class="row blogs_container">
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(../resources/images/tip_1.jpg)"></div>
+						<div class="blog_background" style="background-image:url(${cpath}/resources/images/tip_1.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">화장품 저렴하게 사는 방법은 없을까?</h4>
 							<span class="blog_meta">다나와</span>
@@ -337,7 +337,7 @@ function ck_log(){
 				</div>
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(../resources/images/tip_2.jpg)"></div>
+						<div class="blog_background" style="background-image:url(${cpath}/resources/images/tip_2.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">착한화장품, 어떻게 골라야 할까?</h4>
 							<span class="blog_meta">다나와</span>
@@ -347,7 +347,7 @@ function ck_log(){
 				</div>
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(../resources/images/tip_3.jpg)"></div>
+						<div class="blog_background" style="background-image:url(${cpath}/resources/images/tip_3.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">피부트러블 실생활 관리법 확인해보자</h4>
 							<span class="blog_meta">다나와</span>
@@ -357,7 +357,7 @@ function ck_log(){
 				</div>
 				<div class="col-lg-4 blog_item_col">
 					<div class="blog_item">
-						<div class="blog_background" style="background-image:url(../resources/images/tip_4.jpg)"></div>
+						<div class="blog_background" style="background-image:url(${cpath}/resources/images/tip_4.jpg)"></div>
 						<div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
 							<h4 class="blog_title">편견을 깨는 보통사람들의<br>스킨케어 레시피</h4>
 							<span class="blog_meta">닥터지</span>
